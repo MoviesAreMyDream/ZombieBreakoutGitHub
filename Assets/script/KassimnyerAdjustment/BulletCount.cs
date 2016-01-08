@@ -41,7 +41,7 @@ public class BulletCount : MonoBehaviour {
 
 			if (Counter >= MaxTimer) 
 			{
-				player.CurrentWeaponAmmoCount.Set(2);
+				player.CurrentWeaponAmmoCount.Set(20);
 				Counter = 0;
 				progress.SetActive (false);
 			} 
