@@ -7,6 +7,7 @@ public class ProgressBar : MonoBehaviour {
 	public int WaitTime = 1;
 	public GameObject progress;
 	private float counter = 1f;
+//	public GameObject portal; 
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class ProgressBar : MonoBehaviour {
 				print(Mathf.FloorToInt(counter));
 				progress.GetComponent<Scrollbar>().size = counter / WaitTime;
 				progress.SetActive(true);
+//				Destroy(portal);
 			}
 		}
 		
