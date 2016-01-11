@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6b1a4407ba8a431479a7911298222cf0
-timeCreated: 1452155429
+guid: d4acf17deac418743b5ee4ed9641f246
+timeCreated: 1451896914
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
-    6400000: //RootNode
+    4300000: Sphere
   materials:
     importMaterials: 1
     materialName: 0
@@ -36,7 +35,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
