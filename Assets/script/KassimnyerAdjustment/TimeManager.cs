@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour {
 
         TimeNum.text = niceTime;
 
-		print (TimeLeft);
+//		print (TimeLeft);
 
 		if (TimeLeft <= 0) 
 		{

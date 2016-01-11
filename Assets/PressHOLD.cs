@@ -67,7 +67,7 @@ public class PressHOLD : MonoBehaviour {
 					isHandled = true;
 					// Do Something here
 					Debug.Log ("Key \"B\" was pressed over " + WaitTime + " seconds.");
-					portal.active = false;
+//					portal.SetActive (false);
 					ScrManager.GetDynamite ();
 					goal1.enabled = false;
 					goal2.enabled = true;
@@ -77,6 +77,7 @@ public class PressHOLD : MonoBehaviour {
 					Bbut.enabled = false;
 					//Destroy (gameObject);
 					homeportal.SetActive (true);
+					Destroy(portal);
 				}
 
 			}
