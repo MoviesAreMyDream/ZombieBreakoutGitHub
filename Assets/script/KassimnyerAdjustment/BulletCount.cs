@@ -26,6 +26,13 @@ public class BulletCount : MonoBehaviour {
 		progress.SetActive (false);
 	}
 
+	void Awake()
+
+	{
+		progress.SetActive (false);
+
+	}
+
 
 	// Update is called once per frame
 	void Update () {
@@ -34,7 +41,9 @@ public class BulletCount : MonoBehaviour {
 
 		bullet.text = player.CurrentWeaponAmmoCount.Get ().ToString ();
 
-		if (player.CurrentWeaponAmmoCount.Get () == 0) 
+//		print (player.CurrentWeaponName.Get ());
+
+		if (player.CurrentWeaponAmmoCount.Get () == 0 && player.CurrentWeaponName.Get() == "7LaserGun") 
 		{
 //			print(Counter);
 			progress.SetActive (true);

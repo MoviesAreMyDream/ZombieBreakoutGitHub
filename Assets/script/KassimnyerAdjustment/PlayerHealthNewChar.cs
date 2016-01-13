@@ -33,6 +33,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 	public GameObject Waktu;
 
+
 	void Awake() {
 
 		Time.timeScale = 1;
@@ -79,6 +80,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			PlayerIsDead = true;
 			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
+			PlayerDmgHandler.Die();
+
 		}
 		
 
