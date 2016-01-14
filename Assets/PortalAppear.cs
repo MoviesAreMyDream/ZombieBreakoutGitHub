@@ -17,7 +17,7 @@ public class PortalAppear : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(timeReference.GetComponent<TimeManager>().TimeLeft <= 180)
+		if(timeReference.GetComponent<TimeManager>().TimeLeft <= 300)
 
 		{
 			portalreference.SetActive (true);
