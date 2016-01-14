@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/TestingGrounds/Houses/Teres_2.fbx.meta
-guid: 4cdc13f1e8a621140a964b199cae9c9a
-timeCreated: 1452666730
-=======
-guid: e1aa0fbc06e64024ebc899d233e5fecf
-timeCreated: 1452569352
->>>>>>> 41c4d38b18b67574fb50df270b5a877327cc18f3:Assets/TestingGrounds/Houses/Asrama.fbx.meta
+guid: d9095c7256588fb468669f20cc284b37
+timeCreated: 1452658044
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
