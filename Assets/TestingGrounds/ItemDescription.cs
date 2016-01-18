@@ -19,6 +19,9 @@ public class ItemDescription : MonoBehaviour {
 		InitLocation = transform.localPosition;
 		InitScale = transform.localScale;
 		DefaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
+
+		print (InitLocation);
+			print(InitScale);
 	}
 
 	void Update () 
