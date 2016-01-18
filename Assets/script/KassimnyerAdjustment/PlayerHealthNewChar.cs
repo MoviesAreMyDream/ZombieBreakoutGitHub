@@ -32,7 +32,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	private vp_PlayerDamageHandler plydmg;
 
 	public GameObject Waktu;
-
+	public GameObject CenterEyeAcnhor;
 
 	void Awake() {
 
@@ -81,7 +81,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
-
+			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
 		}
 		
 
