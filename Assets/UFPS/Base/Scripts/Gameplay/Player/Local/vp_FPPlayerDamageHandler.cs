@@ -97,8 +97,8 @@ public class vp_FPPlayerDamageHandler : vp_PlayerDamageHandler
 		if (FPPlayer.Dead.Active && Time.timeScale < 1.0f)
 			vp_TimeUtility.FadeTimeScale(1.0f, 0.05f);
 
-		if (Input.GetKeyDown (KeyCode.G))
-			Die ();
+//		if (Input.GetKeyDown (KeyCode.G))
+//			Die ();
 	}
 
 
