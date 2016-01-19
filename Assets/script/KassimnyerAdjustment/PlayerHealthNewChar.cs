@@ -40,6 +40,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		
 		currentHealth = startingHealth;
 
+		UnityEngine.VR.VRSettings.enabled = true;
 
 		HealthAnimGO = GameObject.Find("HealthNum");
 		HealthAnim = HealthAnimGO.GetComponent<Animation>();
@@ -78,10 +79,13 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		{
 			currentHealth = 0;
 			PlayerIsDead = true;
+			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
 			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
 			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
+			Waktu.GetComponent<OVRManager>().enabled = false;
+			gameObject.GetComponent<vp_FPPlayerEventHandler>().enabled= false;
 		}
 		
 
