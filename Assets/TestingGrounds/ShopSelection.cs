@@ -4,16 +4,26 @@ using System.Collections;
 public class ShopSelection : MonoBehaviour {
 
 	public Material SelectionMaterial;
+	[Space(15)]
 	public float Money;
 	public GameObject MoneyTextReference;
+	[Space(15)]
+	public KeyCode ShopButton;
+//	public KeyCode CloseShopButton;
 	public int OptionSelection = 1;
 	private int CurrentSelection;
+	[Space(15)]
 	public int SelectionWidth;
 	public int SelectionHeight;
+	[Space(15)]
 	public GameObject MainMenuReference;
 	private Vector3 MenuCloseLocation;
 	public int ShopAnimationSpeed;
 	public bool ShopOpen;
+	[HideInInspector]
+	public bool ShopCanOpen;
+
+
 
 
 	public GameObject[] Contents;
@@ -118,29 +128,40 @@ public class ShopSelection : MonoBehaviour {
 
 		}
 
-		if(Input.GetKeyDown(KeyCode.K))
+		if(Input.GetKeyDown(ShopButton) && ShopCanOpen == true)
 		{
 			if(ShopOpen == true)
 			{
+				gameObject.GetComponent<CharacterController>().enabled = true;
 				for(int i=0;i < Contents.Length;i++)
 				{
 					StartCoroutine(Contents[i].GetComponent<ItemDescription>().CloseMenu(ShopAnimationSpeed));
 					ShopOpen = false;
 				}
 			}
+			else
+				if(ShopOpen == false)
+				{
+					gameObject.GetComponent<CharacterController>().enabled = false;
+					for(int i=0;i < Contents.Length;i++)
+					{
+						StartCoroutine(Contents[i].GetComponent<ItemDescription>().OpenMenu(ShopAnimationSpeed));
+						ShopOpen = true;
+					}
+				}
 		}
 		
-		if(Input.GetKeyDown(KeyCode.L))
-		{
-			if(ShopOpen == false)
-			{
-				for(int i=0;i < Contents.Length;i++)
-				{
-					StartCoroutine(Contents[i].GetComponent<ItemDescription>().OpenMenu(ShopAnimationSpeed));
-					ShopOpen = true;
-				}
-			}
-		}
+//		if(Input.GetKeyDown(CloseShopButton))
+//		{
+//			if(ShopOpen == false)
+//			{
+//				for(int i=0;i < Contents.Length;i++)
+//				{
+//					StartCoroutine(Contents[i].GetComponent<ItemDescription>().OpenMenu(ShopAnimationSpeed));
+//					ShopOpen = true;
+//				}
+//			}
+//		}
 
 
 
