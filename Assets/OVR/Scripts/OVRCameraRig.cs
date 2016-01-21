@@ -56,6 +56,7 @@ public class OVRCameraRig : MonoBehaviour
 	/// Always coincides with the pose of the right eye.
 	/// </summary>
 	public Transform rightEyeAnchor { get; private set; }
+	public bool disableTracking	= false;
 	/// <summary>
 	/// Always coincides with the pose of the left hand.
 	/// </summary>
@@ -107,6 +108,9 @@ public class OVRCameraRig : MonoBehaviour
 			return;
 
 		UpdateAnchors();
+
+		if (disableTracking)
+			return;
 
 #if UNITY_ANDROID && !UNITY_EDITOR
 

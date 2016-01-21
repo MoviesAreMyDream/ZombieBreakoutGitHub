@@ -220,7 +220,7 @@ public class vp_SimpleHUD : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 		Time.timeScale = 0;
 		gameObject.GetComponent<PlayerHealthNewChar> ().enabled = false;
-		gameObject.GetComponent<EnemyZombie>().enabled = false;
+//		gameObject.GetComponent<EnemyZombie>().enabled = false;
 	}
 
 
