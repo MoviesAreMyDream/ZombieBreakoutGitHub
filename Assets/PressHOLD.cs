@@ -87,6 +87,7 @@ public class PressHOLD : MonoBehaviour {
 		}
 
 		else 
+			if(gameObject.GetComponent<ProgressBar>() != null)
 		{
 			gameObject.GetComponent<ProgressBar>().enabled = false;
 			progress.SetActive (false);
@@ -127,6 +128,8 @@ public class PressHOLD : MonoBehaviour {
 	{
 		portalkey.enabled = false;
 		Bbut.enabled = false;
+
+		if(gameObject.GetComponent<ProgressBar>() != null)
 		gameObject.GetComponent<ProgressBar>().enabled = false;
 //		progress.SetActive (false);
 	}

@@ -32,7 +32,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	private vp_PlayerDamageHandler plydmg;
 
 	public GameObject Waktu;
-
+	public GameObject CenterEyeAcnhor;
 
 	void Awake() {
 
@@ -40,6 +40,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		
 		currentHealth = startingHealth;
 
+		UnityEngine.VR.VRSettings.enabled = true;
 
 		HealthAnimGO = GameObject.Find("HealthNum");
 		HealthAnim = HealthAnimGO.GetComponent<Animation>();
@@ -73,7 +74,6 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
 
-
 		if (currentHealth <= 0f) 
 		{
 			currentHealth = 0;
@@ -81,7 +81,10 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
-
+			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
+			gameObject.GetComponent<vp_FPPlayerEventHandler>().enabled= false;
+			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
+			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
 		}
 		
 

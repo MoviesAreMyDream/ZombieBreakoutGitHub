@@ -14,7 +14,7 @@ public class ItemDescription : MonoBehaviour {
 	[HideInInspector]
 	public Vector3 CloseLocation;
 
-	void Start () 
+	void Awake () 
 	{
 		InitLocation = transform.localPosition;
 		InitScale = transform.localScale;
