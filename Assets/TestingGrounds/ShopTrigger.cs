@@ -1,0 +1,65 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ShopTrigger : MonoBehaviour {
+
+	public GameObject ShopTextReference;
+	public GameObject ShopSelectionReference;
+
+	private bool TextActive = false;
+	private bool IsInTrigger;
+
+	// Use this for initialization
+	void Start () 
+	{
+
+	}
+	
+	// Update is called once per frame
+	void Update ()
+	{
+
+		if(TextActive == true)
+		{
+			ShopTextReference.SetActive (true);
+		}
+		else
+		{
+			ShopTextReference.SetActive(false);
+		}
+
+		if(Input.GetKeyDown(ShopSelectionReference.GetComponent<ShopSelection>().ShopButton) && IsInTrigger == true)
+		{
+			if(TextActive == true)
+			{
+				TextActive = false;
+			}
+			else
+			{
+				TextActive = true;
+			}
+		}
+
+	}
+
+	void OnTriggerEnter(Collider Ayy)
+	{
+		if(Ayy.tag == "Player")
+		{
+			TextActive = true;
+			Ayy.GetComponent<ShopSelection>().ShopCanOpen = true;
+			IsInTrigger = true;
+		}
+	}
+
+	void OnTriggerExit(Collider Lmao)
+	{
+		if(Lmao.tag == "Player")
+		{
+			TextActive = false;
+			Lmao.GetComponent<ShopSelection>().ShopCanOpen = false;
+			IsInTrigger = false;
+		}
+	}
+
+}
