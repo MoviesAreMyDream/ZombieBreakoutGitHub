@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/TestingGrounds/Houses/Asrama.fbm.meta
+guid: eb5ac57020c07e24ca1cfe8fb9dec2a1
+folderAsset: yes
+timeCreated: 1452745881
+=======
 guid: 313660d90a6a6314c9865da69e4abb16
 folderAsset: yes
 timeCreated: 1453253485
+>>>>>>> refs/remotes/origin/master:Assets/Addons/Unity Set Builder/Apocalyptic City.meta
 licenseType: Free
 DefaultImporter:
   userData: 
