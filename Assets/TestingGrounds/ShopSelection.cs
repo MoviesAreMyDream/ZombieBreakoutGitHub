@@ -134,6 +134,7 @@ public class ShopSelection : MonoBehaviour {
 			if(ShopOpen == true)
 			{
 				gameObject.GetComponent<CharacterController>().enabled = true;
+//				gameObject.GetComponent<OVRPlayerController>().enabled = false;
 				for(int i=0;i < Contents.Length;i++)
 				{
 					StartCoroutine(Contents[i].GetComponent<ItemDescription>().CloseMenu(ShopAnimationSpeed));
@@ -144,6 +145,7 @@ public class ShopSelection : MonoBehaviour {
 				if(ShopOpen == false)
 				{
 					gameObject.GetComponent<CharacterController>().enabled = false;
+//					gameObject.GetComponent<OVRPlayerController>().enabled = false;
 					for(int i=0;i < Contents.Length;i++)
 					{
 						StartCoroutine(Contents[i].GetComponent<ItemDescription>().OpenMenu(ShopAnimationSpeed));
