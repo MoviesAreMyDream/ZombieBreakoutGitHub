@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerHealthNewChar : MonoBehaviour {
 	
@@ -33,12 +34,14 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 	public GameObject Waktu;
 	public GameObject CenterEyeAcnhor;
-
+	public GameObject hurtfx;
 
 	void Awake() {
 
 		Time.timeScale = 1;
-		
+
+		hurtfx.SetActive (false);
+
 		currentHealth = startingHealth;
 
 		UnityEngine.VR.VRSettings.enabled = true;
@@ -101,6 +104,9 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		StartCoroutine(HealthNumPlusVisibility());
 		HealthPlus.text = "- " + amount.ToString() + " points";
 		HealthPlusAnim.Play("HealthNumPlusAnim");
+
+		hurtfx.SetActive (true);
+		StartCoroutine (Hurt());
 	}
 	
 	public void add(float amount){ //animation when healed
@@ -120,7 +126,12 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		HealthPlus.enabled = false;
 	}
 
+	IEnumerator Hurt()
 
+	{
+		yield return new WaitForSeconds (0.5f);
+		hurtfx.SetActive (false);
+	}
 	
 	
 }
