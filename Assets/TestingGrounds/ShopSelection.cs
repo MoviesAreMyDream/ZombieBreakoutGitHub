@@ -46,6 +46,7 @@ public class ShopSelection : MonoBehaviour {
 
 	void Update () 
 	{
+
 		MoneyTextReference.GetComponent<TextMesh>().text = "RM" + Money;
 
 		if(ShopOpen == true)
