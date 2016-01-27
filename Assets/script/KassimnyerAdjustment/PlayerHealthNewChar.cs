@@ -34,6 +34,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public GameObject Waktu;
 	public GameObject CenterEyeAcnhor;
 
+
 	void Awake() {
 
 		Time.timeScale = 1;
@@ -68,6 +69,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		PlayerReference = GameObject.Find("PlayerOVR");
 		PlayerDmgHandler = PlayerReference.GetComponent<vp_FPPlayerDamageHandler>();
 		customPref = HP.GetComponent<CustomText>();
+		gameObject.GetComponent<Lerp>().enabled = false;
 	}
 
 	void Update() {
@@ -84,7 +86,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
 			gameObject.GetComponent<vp_FPPlayerEventHandler>().enabled= false;
 			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
-			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
+//			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
+			gameObject.GetComponent<Lerp>().enabled = true;
 		}
 		
 
