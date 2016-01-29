@@ -6,7 +6,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	
 	public float startingHealth = 100f;
 	public float currentHealth;
-	
+	public float MaxHealth = 100f;
+
 	private GameObject HealthAnimGO;
 	private Animation HealthAnim;
 	
@@ -35,6 +36,9 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public GameObject Waktu;
 	public GameObject CenterEyeAcnhor;
 	public GameObject hurtfx;
+
+	public float AntidoteHealAmount = 20f;
+	public float AntidoteAmount = 3f;
 
 	void Awake() {
 
@@ -78,6 +82,29 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	void Update() {
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
+
+		if (Input.GetKeyDown (KeyCode.F)) {
+			if(AntidoteAmount > 0)
+			{
+				if(currentHealth == MaxHealth)
+				{
+					print ("You are already at full health!");
+				}
+				else
+				{
+					if(currentHealth + AntidoteHealAmount > MaxHealth)
+					{
+						currentHealth = MaxHealth;
+						AntidoteAmount -= 1;
+					}
+					else
+					{
+						currentHealth += AntidoteHealAmount;
+						AntidoteAmount -= 1;
+					}
+				}
+			}
+		}
 
 		if (currentHealth <= 0f) 
 		{
