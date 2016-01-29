@@ -37,7 +37,7 @@ public class PressHOLD : MonoBehaviour {
         GameManagerGO = GameObject.Find("GameManager");
         ScrManager = GameManagerGO.GetComponent<ScoreManager>();
 
-		gameObject.GetComponent<ProgressBar>().enabled = false;
+		gameObject.GetComponent<CircularProgressBar>().enabled = false;
 
 //		counter = 0;
 
@@ -54,7 +54,7 @@ public class PressHOLD : MonoBehaviour {
 			interactionText.enabled = true;
 			interactionBG.enabled = true;
 			Bbut.enabled = true;
-			gameObject.GetComponent<ProgressBar> ().enabled = true;
+			gameObject.GetComponent<CircularProgressBar> ().enabled = true;
 
 			if (Input.GetButtonDown ("Fire3")) { //Key was pressed down, so take up time.
 				DownTime = Time.time;
