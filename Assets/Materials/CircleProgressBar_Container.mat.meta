@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Materials/CircleProgressBar_Container.mat.meta
 guid: 8a50abf60d6db4147a689651ea2a5645
 timeCreated: 1454057485
 licenseType: Free
+=======
+guid: b8889b6f028e7e74185c3a471f9d42bb
+>>>>>>> origin/master:Assets/Addons/Unity Set Builder/Apocalyptic City/Modiular/Materials/Mod1.mat.meta
 NativeFormatImporter:
   userData: 
   assetBundleName: 
