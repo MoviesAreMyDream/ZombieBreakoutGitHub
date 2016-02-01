@@ -16,22 +16,22 @@ public class Globe : MonoBehaviour {
 	}
 	
 	private Quaternion CurrentLocation;
-
+	
 	void Update () 
 	{
 		if(Idle == true)
 		transform.Rotate (Vector3.down * RotationSpeed * Time.deltaTime, Space.Self);
 
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		if(Input.GetKey(KeyCode.M))
 	   	{
 			CurrentLocation = transform.localRotation;
 			for(float i = 0f; i*Time.fixedDeltaTime*SpinSpeed <= 1; i++)
 			{
-				transform.localRotation = Quaternion.Lerp(CurrentLocation,Quaternion.Euler(0,90,0),i);
+				transform.localRotation = transform.localRotation * Quaternion.Lerp(CurrentLocation,Quaternion.Euler(0,90,0),i);
 			}
 		}
 
-		if(Input.GetKeyDown(KeyCode.RightArrow))
+		if(Input.GetKeyDown(KeyCode.N))
 		{
 			if(!Idle)
 			{
