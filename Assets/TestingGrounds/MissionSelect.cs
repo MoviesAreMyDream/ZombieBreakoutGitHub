@@ -4,69 +4,124 @@ using System.Collections;
 public class MissionSelect : MonoBehaviour {
 
 	public int CurrentOption = 1;
-	public GameObject[] OptionReferences;
+	public GameObject MissionSelectTextReference;
+	public KeyCode OpenMissionButton;
 
-	private bool CanChoose;
-	private string[] InitialText;
+	[Space(20)]
+	public Options[] MissionOptions;
+
+	[HideInInspector]
+	public bool CanChoose;
+
+	private string[] InitialText;//this array needs it's size to be set first in order to contain the values in it
+
+	[HideInInspector]
+	public bool isOpen;
 
 	// Use this for initialization
 	void Start () 
 	{
-		for(int i=0;i < OptionReferences.Length;i++)
-		InitialText[i] = OptionReferences[i].GetComponent<TextMesh>().text;
+		InitialText = new string[MissionOptions.Length];
+
+		for(int i=0;i < MissionOptions.Length;i++)
+		InitialText[i] = MissionOptions[i].OptionGameObject.GetComponent<TextMesh>().text;
 	}
 		
 	void Awake()
 	{
-		for(int i=0;i < OptionReferences.Length;i++)
+		for(int i=0;i < MissionOptions.Length;i++)
 		{
 
-			OptionReferences[i].SetActive(false);
+			MissionOptions[i].OptionGameObject.SetActive(false);
 		}
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
+	
 		if(CanChoose == true)
 		{
-			for(int i=0;i < OptionReferences.Length;i++)
+			if(Input.GetKeyDown(OpenMissionButton))//to open the menu
 			{
-				if(CurrentOption-1 == i)
+				if(!isOpen)
 				{
-					print (InitialText[i]);
-					OptionReferences[i].GetComponent<TextMesh>().text = ">" + InitialText[i];
+					isOpen = true;
+					MissionSelectTextReference.SetActive(false);
+					gameObject.GetComponent<CharacterController>().enabled = false;
+					gameObject.GetComponent<OVRPlayerController>().enabled = false;
 
 				}
 				else
 				{
-					OptionReferences[i].GetComponent<TextMesh>().text = InitialText[i];
+					isOpen = false;
+					MissionSelectTextReference.SetActive(true);
+					gameObject.GetComponent<CharacterController>().enabled = true;
+					gameObject.GetComponent<OVRPlayerController>().enabled = true;
 				}
 			}
+
+			if(isOpen == true)
+			{
+				for(int i=0;i < MissionOptions.Length;i++)//this is to determine the current option
+				{
+					MissionOptions[i].OptionGameObject.SetActive(true);
+
+					if(CurrentOption-1 == i)
+					{
+						MissionOptions[i].OptionGameObject.GetComponent<TextMesh>().text = ">" + InitialText[i];
+					}
+					else
+					{
+						MissionOptions[i].OptionGameObject.GetComponent<TextMesh>().text = InitialText[i];
+					}
+				}
+			}
+			else
+			{
+				for(int i=0;i < MissionOptions.Length;i++)
+				MissionOptions[i].OptionGameObject.SetActive(false);
+			}
+
+			if(Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				if(CurrentOption < MissionOptions.Length)
+				CurrentOption += 1;
+			}
+
+			if(Input.GetKeyDown(KeyCode.DownArrow))
+			{
+				if(CurrentOption > 1)
+					CurrentOption -= 1;
+			}
+
+			if(Input.GetKeyDown(KeyCode.LeftShift))
+			{
+				for(int i=0;i < MissionOptions.Length;i++)
+				{					
+					if(CurrentOption-1 == i)
+					{
+						if(MissionOptions[i].MapName == null || MissionOptions[i].MapName == "")
+						{
+							print ("INVALID MAP NAME!");
+						}
+						else
+						{
+							Application.LoadLevel(MissionOptions[i].MapName);
+						}
+					}
+				}
+			}
+
 		}
 	}
 
-	void OnTriggerEnter(Collider something)
+	[System.Serializable]
+	public class Options
 	{
-		if(something.tag ==  "Player")
-		{
-			CanChoose = true;
-			for(int i=0;i < OptionReferences.Length;i++)
-			{
-				OptionReferences[i].SetActive(true);
-			}
-		}
+		public GameObject OptionGameObject;
+		public string MapName;
 	}
 
-	void OnTriggerExit(Collider something)
-	{
-		if(something.tag ==  "Player")
-		{
-			CanChoose = false;
-			for(int i=0;i < OptionReferences.Length;i++)
-			{
-				OptionReferences[i].SetActive(false);
-			}
-		}
-	}
+
 }

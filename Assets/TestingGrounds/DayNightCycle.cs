@@ -59,7 +59,7 @@ public class DayNightCycle : MonoBehaviour {
 		}
 	}
 
-	[System.Serializable]//this is to make the array show up in the inspector
+	[System.Serializable]//this is to make this array show up in the inspector
 	public class DayNightTrigger
 	{
 		public float StartEffectAt;
