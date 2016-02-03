@@ -30,7 +30,7 @@ public class Lerp : MonoBehaviour {
 		
 			keyhit = true;
 
-			print(EndPos);
+//			print(EndPos);
 			 
 
 

@@ -8,7 +8,8 @@ public class PressHOLD : MonoBehaviour {
 	private float DownTime;
 	private bool isHandled = false;
 	public GameObject portal;
-	public Text portalkey;
+	public Text interactionText;
+	public Image interactionBG;
 	public Image Bbut;
 
 	public GameObject homeportal;
@@ -27,7 +28,8 @@ public class PressHOLD : MonoBehaviour {
 	
 		goal1.enabled = true;
 		goal2.enabled = false;
-		portalkey.enabled = false;
+		interactionText.enabled = false;
+		interactionBG.enabled = false;
 		Bbut.enabled = false;
 		final.SetActive (false);
 		homeportal.SetActive (false);
@@ -35,7 +37,7 @@ public class PressHOLD : MonoBehaviour {
         GameManagerGO = GameObject.Find("GameManager");
         ScrManager = GameManagerGO.GetComponent<ScoreManager>();
 
-		gameObject.GetComponent<ProgressBar>().enabled = false;
+		gameObject.GetComponent<CircularProgressBar>().enabled = false;
 
 //		counter = 0;
 
@@ -49,9 +51,10 @@ public class PressHOLD : MonoBehaviour {
 	
 		if (portalcol.gameObject.tag == "Portal") {
 
-			portalkey.enabled = true;
+			interactionText.enabled = true;
+			interactionBG.enabled = true;
 			Bbut.enabled = true;
-			gameObject.GetComponent<ProgressBar> ().enabled = true;
+			gameObject.GetComponent<CircularProgressBar> ().enabled = true;
 
 			if (Input.GetButtonDown ("Fire3")) { //Key was pressed down, so take up time.
 				DownTime = Time.time;
@@ -73,7 +76,8 @@ public class PressHOLD : MonoBehaviour {
 					goal2.enabled = true;
 					GoalTextAnim.Play ("GoalTextAnim");
 					final.SetActive (true);
-					portalkey.enabled = false;
+					interactionText.enabled = false;
+					interactionBG.enabled = false;
 					Bbut.enabled = false;
 					//Destroy (gameObject);
 					homeportal.SetActive (true);
@@ -126,7 +130,8 @@ public class PressHOLD : MonoBehaviour {
 
 	void OnTriggerExit ()
 	{
-		portalkey.enabled = false;
+		interactionText.enabled = false;
+		interactionBG.enabled = false;
 		Bbut.enabled = false;
 
 		if(gameObject.GetComponent<ProgressBar>() != null)

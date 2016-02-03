@@ -9,6 +9,8 @@ public class DayNightCycle : MonoBehaviour {
 
 	public GameObject Star;
 	public int StarMaxParticles;
+	public float StarAppearanceTime;
+
 	[Tooltip("Must not be 0 !")]
 	public int StarDisappearingRate = 1;
 	public float StarDisappearingSpeed;
@@ -45,7 +47,7 @@ public class DayNightCycle : MonoBehaviour {
 			}
 		}
 
-		if(transform.localRotation.eulerAngles.y < 90)
+		if(TimeFloat >= StarAppearanceTime)
 		{
 			Star.GetComponent<ParticleSystem>().maxParticles = StarMaxParticles;
 			CanDelete = true;
@@ -57,7 +59,7 @@ public class DayNightCycle : MonoBehaviour {
 		}
 	}
 
-	[System.Serializable]//this is to make the array show up in the inspector
+	[System.Serializable]//this is to make this array show up in the inspector
 	public class DayNightTrigger
 	{
 		public float StartEffectAt;

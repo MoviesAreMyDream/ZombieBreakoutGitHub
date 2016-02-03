@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerHealthNewChar : MonoBehaviour {
 	
 	public float startingHealth = 100f;
 	public float currentHealth;
-	
+	public float MaxHealth = 100f;
+
 	private GameObject HealthAnimGO;
 	private Animation HealthAnim;
 	
@@ -33,12 +35,22 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 	public GameObject Waktu;
 	public GameObject CenterEyeAcnhor;
+	public GameObject hurtfx;
 
+	public float AntidoteHealAmount = 20f;
+	public float AntidoteAmount = 3f;
+
+	public GameObject Rank;
+	public GameObject RankGet;
+	public GameObject Restart;
+	public GameObject QuitGame;
 
 	void Awake() {
 
 		Time.timeScale = 1;
-		
+
+		hurtfx.SetActive (false);
+
 		currentHealth = startingHealth;
 
 		UnityEngine.VR.VRSettings.enabled = true;
@@ -70,11 +82,38 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		PlayerDmgHandler = PlayerReference.GetComponent<vp_FPPlayerDamageHandler>();
 		customPref = HP.GetComponent<CustomText>();
 		gameObject.GetComponent<Lerp>().enabled = false;
+		Rank.GetComponent<CustomText>().enabled = false;
+		RankGet.GetComponent<CustomText>().enabled = false;
+		QuitGame.SetActive (false);
+		Restart.SetActive (false);
 	}
 
 	void Update() {
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
+
+		if (Input.GetKeyDown (KeyCode.F)) {
+			if(AntidoteAmount > 0)
+			{
+				if(currentHealth == MaxHealth)
+				{
+					print ("You are already at full health!");
+				}
+				else
+				{
+					if(currentHealth + AntidoteHealAmount > MaxHealth)
+					{
+						currentHealth = MaxHealth;
+						AntidoteAmount -= 1;
+					}
+					else
+					{
+						currentHealth += AntidoteHealAmount;
+						AntidoteAmount -= 1;
+					}
+				}
+			}
+		}
 
 		if (currentHealth <= 0f) 
 		{
@@ -88,6 +127,10 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
 //			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
 			gameObject.GetComponent<Lerp>().enabled = true;
+			Rank.GetComponent<CustomText>().enabled = true;
+			RankGet.GetComponent<CustomText>().enabled = true;
+			Restart.SetActive (true);
+			QuitGame.SetActive (true);
 		}
 		
 
@@ -101,6 +144,9 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		StartCoroutine(HealthNumPlusVisibility());
 		HealthPlus.text = "- " + amount.ToString() + " points";
 		HealthPlusAnim.Play("HealthNumPlusAnim");
+
+		hurtfx.SetActive (true);
+		StartCoroutine (Hurt());
 	}
 	
 	public void add(float amount){ //animation when healed
@@ -120,7 +166,12 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		HealthPlus.enabled = false;
 	}
 
+	IEnumerator Hurt()
 
+	{
+		yield return new WaitForSeconds (0.5f);
+		hurtfx.SetActive (false);
+	}
 	
 	
 }
