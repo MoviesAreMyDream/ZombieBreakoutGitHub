@@ -39,10 +39,6 @@ public class PressHOLD : MonoBehaviour {
 
 		gameObject.GetComponent<CircularProgressBar>().enabled = false;
 
-//		counter = 0;
-
-//		progress.GetComponent<Scrollbar>().size = 0;
-//		progress.SetActive (false);
 	}
 
 
@@ -60,7 +56,6 @@ public class PressHOLD : MonoBehaviour {
 				DownTime = Time.time;
 				isHandled = false;
 
-//				progress.SetActive (true);
 
 			}
 			if (Input.GetButton ("Fire3")) { // is key still being hold down...  
@@ -91,9 +86,9 @@ public class PressHOLD : MonoBehaviour {
 		}
 
 		else 
-			if(gameObject.GetComponent<ProgressBar>() != null)
+			if(gameObject.GetComponent<CircularProgressBar>() != null)
 		{
-			gameObject.GetComponent<ProgressBar>().enabled = false;
+			gameObject.GetComponent<CircularProgressBar>().enabled = false;
 			progress.SetActive (false);
 		}
 
@@ -134,9 +129,8 @@ public class PressHOLD : MonoBehaviour {
 		interactionBG.enabled = false;
 		Bbut.enabled = false;
 
-		if(gameObject.GetComponent<ProgressBar>() != null)
-		gameObject.GetComponent<ProgressBar>().enabled = false;
-//		progress.SetActive (false);
+		if(gameObject.GetComponent<CircularProgressBar>() != null)
+		gameObject.GetComponent<CircularProgressBar>().enabled = false;
 	}
 
 

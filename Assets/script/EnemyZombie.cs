@@ -81,7 +81,8 @@ public class EnemyZombie : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+
+
 		if(PlayerScriptReferece.PlayerIsDead == true)
 			anim.SetBool("PlayerIsDead", true);
 
