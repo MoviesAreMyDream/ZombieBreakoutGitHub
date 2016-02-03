@@ -11,11 +11,16 @@ public class ZombieAIWandering : MonoBehaviour {
 	private float Timer;
 	public Animator ZombiePref;
 
+	public GameObject Sun;
+
 	// Use this for initialization
 	void Start () {
 	
 		agent = GetComponent<NavMeshAgent>();
 		Timer = wanderTime;
+		ZombiePref = GetComponent<Animator>();
+		gameObject.GetComponent<EnemyZombie>().enabled = false;
+		Sun = GameObject.Find ("Sun");
 	}
 	
 	// Update is called once per frame
@@ -42,6 +47,13 @@ public class ZombieAIWandering : MonoBehaviour {
 
 			ZombiePref.SetBool ("PlayerIsDead", false);
 			ZombiePref.SetBool ("PlayerInRange", false);
+		}
+
+		if(Sun.GetComponent<DayNightCycle>().CurrentTime == "0.00")
+		{
+			print ("OI");
+			gameObject.GetComponent<EnemyZombie>().enabled = true;
+			gameObject.GetComponent<ZombieAIWandering>().enabled = false;
 		}
 	}
 
