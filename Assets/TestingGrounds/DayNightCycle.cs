@@ -20,6 +20,8 @@ public class DayNightCycle : MonoBehaviour {
 
 	public DayNightTrigger[] DayLightZombieTrigger;
 
+	public GameObject ZombieA;
+
 	void Start () 
 	{
 
@@ -36,7 +38,7 @@ public class DayNightCycle : MonoBehaviour {
 //		transform.Rotate(new Vector3(0,CycleSpeed*Time.deltaTime));
 		//no need this because there's AutoIntensity to rotate the sun
 
-		TimeFloat = 24 - ((transform.localRotation.eulerAngles.y)/90)*6;
+		TimeFloat = 24 - ((transform.localRotation.eulerAngles.x)/90)*6;
 		CurrentTime = TimeFloat.ToString("0.00");
 
 		for(int i = 0; i < DayLightZombieTrigger.Length; i++)
@@ -44,6 +46,7 @@ public class DayNightCycle : MonoBehaviour {
 			if(TimeFloat >= DayLightZombieTrigger[i].StartEffectAt && DayLightZombieTrigger[i].StartEffectAt + DayLightZombieTrigger[i].EffectDuration >= TimeFloat)
 			{
 				print(DayLightZombieTrigger[i].SayWhat);
+
 			}
 		}
 
