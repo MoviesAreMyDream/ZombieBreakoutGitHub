@@ -24,7 +24,7 @@ public class RandomSpawn : MonoBehaviour {
 
 		for(int i = 0 ; i < List.Length; i++)
 		{
-			RandomNum =  Random.Range(0,List.Length-1);
+
 			List[i].Content = i;
 		}
 
