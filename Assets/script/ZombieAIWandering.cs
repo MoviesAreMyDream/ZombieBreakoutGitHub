@@ -28,6 +28,7 @@ public class ZombieAIWandering : MonoBehaviour {
 
 		Timer += Time.deltaTime;
 
+
 		if (Timer >= wanderTime) {
 			Vector3 newPos = RandomNavSphere (transform.position, wanderRadius, -1);
 			agent.SetDestination (newPos);
@@ -40,7 +41,6 @@ public class ZombieAIWandering : MonoBehaviour {
 			print("Zombie Stopped");
 
 			StartCoroutine(SetTimerZero(3f));
-
 
 
 		} else {
