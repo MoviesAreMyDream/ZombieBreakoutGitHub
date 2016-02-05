@@ -8,45 +8,55 @@ public class ZombieAIWandering : MonoBehaviour {
 	
 	private Transform target;
 	private NavMeshAgent agent;
-	private float Timer;
+	public float Timer;
 	public Animator ZombiePref;
 
 	public GameObject Sun;
+
+	private bool counter = false;
+
+	private Vector3 newPos;
+	 
 
 	// Use this for initialization
 	void Start () {
 	
 		agent = GetComponent<NavMeshAgent>();
-		Timer = wanderTime;
+		Timer = wanderTime	;
 		ZombiePref = GetComponent<Animator>();
-		gameObject.GetComponent<EnemyZombie>().enabled = false;
+//		gameObject.GetComponent<EnemyZombie>().enabled = false;
 		Sun = GameObject.Find ("Sun");
+		ZombiePref.GetComponent<EnemyZombie>().canAttack = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		Timer += Time.deltaTime;
+		Timer += Time.fixedDeltaTime;
 
+//		print (Timer);
 
 		if (Timer >= wanderTime) {
-			Vector3 newPos = RandomNavSphere (transform.position, wanderRadius, -1);
-			agent.SetDestination (newPos);
 
-			if (agent.SetDestination (newPos)) {
+
+
+			if (agent.SetDestination (newPos)  && counter == false) {
+				print ("Zombie changed direction!");
+				counter = true;
+				newPos = RandomNavSphere (transform.position, wanderRadius, -1);
 				ZombiePref.SetBool ("PlayerIsDead", true);
 				ZombiePref.SetBool ("PlayerInRange", true);
+
 			}
 
-			print("Zombie Stopped");
-
-			StartCoroutine(SetTimerZero(3f));
+			StartCoroutine(SetTimerZero(2f));
 
 
 		} else {
 
 			ZombiePref.SetBool ("PlayerIsDead", false);
 			ZombiePref.SetBool ("PlayerInRange", false);
+
 		}
 
 		if(Sun.GetComponent<DayNightCycle>().CurrentTime == "0.00")
@@ -54,8 +64,10 @@ public class ZombieAIWandering : MonoBehaviour {
 			print ("OI");
 			gameObject.GetComponent<EnemyZombie>().enabled = true;
 			gameObject.GetComponent<ZombieAIWandering>().enabled = false;
+			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
 		}
 	}
+
 
 	public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
 	{
@@ -70,8 +82,18 @@ public class ZombieAIWandering : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (IdleDelay);
 
+		RotateTowards(newPos);
+		agent.SetDestination (newPos);
+
 		Timer = 0;
+		counter = false;
 
 	}
 
+	private void RotateTowards (Vector3 target) 
+	{
+		Vector3 direction = (target - transform.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(direction);
+		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+	}
 }
