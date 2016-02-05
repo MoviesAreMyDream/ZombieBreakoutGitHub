@@ -77,7 +77,7 @@ public class EnemyZombie : MonoBehaviour {
 	}
 
     public float currentValue;
-	private bool canAttack = true;
+	public bool canAttack = true;
 
 	// Update is called once per frame
 	void Update () {
