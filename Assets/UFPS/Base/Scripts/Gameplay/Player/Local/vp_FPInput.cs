@@ -258,8 +258,8 @@ public class vp_FPInput : vp_Component
 
 		// if mouse cursor is visible, an extra click is needed
 		// before we can attack
-		if (!vp_Utility.LockCursor)
-			return;
+//		if (!vp_Utility.LockCursor)
+//			return;
 
 		if (Input.GetAxis("RTrigger")>0.1)
 			FPPlayer.Attack.TryStart();
@@ -292,11 +292,23 @@ public class vp_FPInput : vp_Component
 
 		// --- cycle to the next or previous weapon ---
 
-		if (vp_Input.GetButtonDown("SetPrevWeapon"))
-			FPPlayer.SetPrevWeapon.Try();
+//		if (vp_Input.GetButtonDown("SetPrevWeapon"))
+//			FPPlayer.SetPrevWeapon.Try();
+//
+//		if (vp_Input.GetButtonDown("SetNextWeapon"))
+//			FPPlayer.SetNextWeapon.Try();
 
-		if (vp_Input.GetButtonDown("SetNextWeapon"))
-			FPPlayer.SetNextWeapon.Try();
+		if (Input.GetAxis ("DPadRight") > 0.001)
+			FPPlayer.SetWeaponByName.Try ("7LaserGun");
+
+		if (Input.GetAxis ("DPadLeft") > 0.001)
+			FPPlayer.SetWeaponByName.Try ("4GrenadeThrow");
+
+//		if (Input.GetAxis ("DPadUp") > 0.001)
+//			FPPlayer.SetWeaponByName.Try ("");
+
+		if (Input.GetAxis ("DPadDown") > 0.001)
+			FPPlayer.SetWeaponByName.Try ("6Sword");
 
 		// --- switch to weapon 1-10 by direct button press ---
 
