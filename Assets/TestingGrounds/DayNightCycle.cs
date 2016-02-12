@@ -5,7 +5,9 @@ public class DayNightCycle : MonoBehaviour {
 
 	[ReadOnlyAttribute]
 	public string CurrentTime;
-	private float TimeFloat;
+
+	[HideInInspector]
+	public float TimeFloat;
 
 	public GameObject Star;
 	public int StarMaxParticles;
