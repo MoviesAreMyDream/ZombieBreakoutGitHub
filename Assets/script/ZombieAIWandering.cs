@@ -66,6 +66,7 @@ public class ZombieAIWandering : MonoBehaviour {
 			gameObject.GetComponent<ZombieAIWandering>().enabled = false;
 			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
 		}
+
 	}
 
 
@@ -92,7 +93,7 @@ public class ZombieAIWandering : MonoBehaviour {
 
 	private void RotateTowards (Vector3 target) 
 	{
-		Vector3 direction = (target - transform.position).normalized;
+		Vector3 direction = (target - transform.forward).normalized;
 		Quaternion lookRotation = Quaternion.LookRotation(direction);
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
 	}
