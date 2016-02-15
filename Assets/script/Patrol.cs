@@ -54,7 +54,7 @@ public class Patrol : MonoBehaviour {
 
 		if(Sun.GetComponent<DayNightCycle>().TimeFloat <= 6)
 		{
-			print ("OI");
+			//print ("OI");
 			gameObject.GetComponent<EnemyZombie>().enabled = true;
 //			gameObject.GetComponent<ZombieAIWandering>().enabled = false;
 			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
