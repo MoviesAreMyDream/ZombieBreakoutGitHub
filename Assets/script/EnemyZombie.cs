@@ -41,6 +41,7 @@ public class EnemyZombie : MonoBehaviour {
 	private GameObject PlayerReference;
 	private PlayerHealthNewChar PlayerScriptReferece;
 
+
 	//public GameObject indicatePain;
 
 	// Use this for initialization
@@ -63,6 +64,7 @@ public class EnemyZombie : MonoBehaviour {
         //SetScore ();
 		PlayerReference = GameObject.Find ("PlayerOVR");
 		PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
+
 
 		GameManagerGO = GameObject.Find("GameManager");
         ScrManager = GameManagerGO.GetComponent<ScoreManager>();
@@ -108,6 +110,7 @@ public class EnemyZombie : MonoBehaviour {
 				
 			}
 		}
+		
     }
 
 

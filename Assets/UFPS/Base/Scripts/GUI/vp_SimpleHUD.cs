@@ -148,9 +148,9 @@ public class vp_SimpleHUD : MonoBehaviour
 	{
 		rankNum = GameObject.Find ("RankNum");
 		rankWord = GameObject.Find ("RankWord");
-		//resume = GameObject.Find ("Resume");
-		//quit = GameObject.Find ("Quit");
-		//gameover = GameObject.Find ("GameOver");
+		laser_icon.SetActive (false);
+		sword_icon.SetActive (false);
+		grenade_icon.SetActive (false);	
 	}
 	/// <summary>
 	///
