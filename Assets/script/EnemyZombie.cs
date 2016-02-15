@@ -41,6 +41,7 @@ public class EnemyZombie : MonoBehaviour {
 	private GameObject PlayerReference;
 	private PlayerHealthNewChar PlayerScriptReferece;
 
+
 	//public GameObject indicatePain;
 
 	// Use this for initialization
@@ -64,7 +65,8 @@ public class EnemyZombie : MonoBehaviour {
 		PlayerReference = GameObject.Find ("PlayerOVR");
 		PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
 
-        GameManagerGO = GameObject.Find("GameManager");
+
+		GameManagerGO = GameObject.Find("GameManager");
         ScrManager = GameManagerGO.GetComponent<ScoreManager>();
 
         if (IAmZombieA)
@@ -77,40 +79,41 @@ public class EnemyZombie : MonoBehaviour {
 	}
 
     public float currentValue;
-	private bool canAttack = true;
+	public bool canAttack = true;
 
 	// Update is called once per frame
 	void Update () {
-		
+		       
 		if(PlayerScriptReferece.PlayerIsDead == true)
 			anim.SetBool("PlayerIsDead", true);
-
-        if (anim.GetBool("EnemyStillAlive") == true)
-        {
+		
+		if (anim.GetBool("EnemyStillAlive") == true)
+		{
 			if(canAttack ==  true)
 			{
-           		 nav.SetDestination(player.position);
+				nav.SetDestination(player.position);
 				RotateTowards(player.transform);
-
-           		 if (nav.remainingDistance <= 2)
-           		     anim.SetBool("PlayerInRange", true);
-          		  else if (nav.remainingDistance >= 2)
-         		    anim.SetBool("PlayerInRange", false);
-
-        		    anim.SetFloat("PlayerStillThere", currentValue);
-
-         		   if (anim.GetBool("PlayerInRange") == true)
-         		   {
-            		    currentValue += 0.01f;
-            		    if (currentValue >= 1.1f)
-               		     currentValue = 0;
-            		}           
-        
+				
+				if (nav.remainingDistance <= 2)
+					anim.SetBool("PlayerInRange", true);
+				else if (nav.remainingDistance >= 2)
+					anim.SetBool("PlayerInRange", false);
+				
+				anim.SetFloat("PlayerStillThere", currentValue);
+				
+				if (anim.GetBool("PlayerInRange") == true)
+				{
+					currentValue += 0.01f;
+					if (currentValue >= 1.1f)
+						currentValue = 0;
+				}           
+				
 			}
 		}
-       
-
+		
     }
+
+
 
 	public bool InRange;
 
