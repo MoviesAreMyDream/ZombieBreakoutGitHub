@@ -46,6 +46,11 @@ public class vp_SimpleHUD : MonoBehaviour
 	public GameObject quit;
 	public GameObject gameover;
 
+	public GameObject laser_icon;
+	public GameObject sword_icon;
+	public GameObject grenade_icon;
+	public GameObject weapon_indicator;
+
 	// health
 	public Texture2D HealthIcon = null;
 	public float HealthMultiplier = 10.0f;
@@ -143,9 +148,9 @@ public class vp_SimpleHUD : MonoBehaviour
 	{
 		rankNum = GameObject.Find ("RankNum");
 		rankWord = GameObject.Find ("RankWord");
-		//resume = GameObject.Find ("Resume");
-		//quit = GameObject.Find ("Quit");
-		//gameover = GameObject.Find ("GameOver");
+		laser_icon.SetActive (false);
+		sword_icon.SetActive (false);
+		grenade_icon.SetActive (false);	
 	}
 	/// <summary>
 	///
@@ -265,6 +270,29 @@ public class vp_SimpleHUD : MonoBehaviour
 		else
 			AmmoColor = Color.white;	// ammo is not low, draw it normally
 
+		if(Input.GetAxis("DPadRight")>0.001)
+		{
+			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,-90);
+			laser_icon.SetActive (true);
+			sword_icon.SetActive (false);
+			grenade_icon.SetActive (false);		
+		}
+
+		if(Input.GetAxis("DPadLeft")>0.001)
+		{
+			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,90);
+			laser_icon.SetActive (false);
+			sword_icon.SetActive (false);
+			grenade_icon.SetActive (true);
+		}
+
+		if(Input.GetAxis("DPadDown")>0.001)
+		{
+			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,-180);
+			laser_icon.SetActive (false);
+			sword_icon.SetActive (true);
+			grenade_icon.SetActive (false);
+		}
 	}
 
 
