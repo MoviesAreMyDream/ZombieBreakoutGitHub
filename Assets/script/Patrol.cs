@@ -38,6 +38,8 @@ public class Patrol : MonoBehaviour {
 
 	void Update()
 	{	
+		
+
 		if (agent.remainingDistance <= AnimationDelay && counter == false) {
 
 			counter = true;
@@ -52,13 +54,12 @@ public class Patrol : MonoBehaviour {
 			ZombiePref.SetBool ("PlayerInRange", false);
 		}
 
-		if(Sun.GetComponent<DayNightCycle>().TimeFloat <= 6)
+		if(Sun.GetComponent<DayNightCycle>().TimeFloat >= 23.8)
 		{
-			//print ("OI");
-			gameObject.GetComponent<EnemyZombie>().enabled = true;
-//			gameObject.GetComponent<ZombieAIWandering>().enabled = false;
+			print ("OI");
 			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
-			agent.stoppingDistance = 1;
+			agent.stoppingDistance = 2;
+			GetComponent<Patrol>().enabled = false;
 
 		}
 	}
