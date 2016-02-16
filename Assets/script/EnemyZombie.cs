@@ -127,7 +127,7 @@ public class EnemyZombie : MonoBehaviour {
 			InRange = false;
 			anim.SetBool("PlayerIsDead", true);
 			canAttack = false;
-			//anim.SetFloat("PlayerStillThere", 0);
+//			anim.SetFloat("PlayerStillThere", 0);
 		}
 
     }

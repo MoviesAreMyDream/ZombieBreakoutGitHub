@@ -92,7 +92,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
 
-		if (Input.GetKeyDown (KeyCode.F)) {
+		if (Input.GetKeyDown (KeyCode.Joystick1Button3)) {
 			if(AntidoteAmount > 0)
 			{
 				if(currentHealth == MaxHealth)
