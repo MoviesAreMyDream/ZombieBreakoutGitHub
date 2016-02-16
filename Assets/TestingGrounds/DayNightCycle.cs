@@ -47,7 +47,7 @@ public class DayNightCycle : MonoBehaviour {
 		{
 			if(TimeFloat >= DayLightZombieTrigger[i].StartEffectAt && DayLightZombieTrigger[i].StartEffectAt + DayLightZombieTrigger[i].EffectDuration >= TimeFloat)
 			{
-				print(DayLightZombieTrigger[i].SayWhat);
+				//print(DayLightZombieTrigger[i].SayWhat);
 
 			}
 		}
