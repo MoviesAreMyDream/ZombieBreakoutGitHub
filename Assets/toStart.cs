@@ -3,7 +3,9 @@ using System.Collections;
 
 public class toStart : MonoBehaviour {
     
+	public string LevelName;
 	public GameObject MainMenuReference;
+	public GameObject SoundSourceReference;
 	public GameObject LoadingScreenReference;
 	//public GameObject ProgressBarReference;
 	public GameObject ControlReference;
@@ -15,29 +17,30 @@ public class toStart : MonoBehaviour {
 
 	void Start()
 	{
-		audio = GetComponent<AudioSource>();
+
 	}
 
 
-	void Update() {
-
-		AudioSource audio = GetComponent<AudioSource>();
-
+	void Update() 
+	{
 		if ((Input.GetButtonDown ("Fire1")) || (Input.GetButtonDown ("Submit"))) 
 		{
+			SoundSourceReference.GetComponent<AudioSource>().enabled =  true;
+			StartCoroutine(LoadALevel(LevelName)); 
 			MainMenuReference.SetActive (false);
 			LoadingScreenReference.SetActive (true);
 			ControlReference.SetActive (true);
-			audio.enabled = true;
-
-					
-		if(audio.isPlaying == false && audio.enabled == true)
-		{
-			StartCoroutine(LoadALevel(1));
-			audio.enabled = false;
 		}
-		
-		
+
+
+		if (async != null) 
+		{
+			transform.GetComponent<Image>().fillAmount = async.progress + 0.1f;
+			if(async.progress >= 0.9f)
+			{
+				transform.GetComponent<Animator>().SetBool("IsDoneLoading",true);
+				TextReference.GetComponent<Text>().text = "Now press Ctrl. Thank for wait";
+			}
 		}
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -46,9 +49,9 @@ public class toStart : MonoBehaviour {
 
 	}
 
-	private IEnumerator LoadALevel(int levelName) {
+	private IEnumerator LoadALevel(string levelName) {
 		async = Application.LoadLevelAsync(levelName);
-//		ProgressBarReference.GetComponent<TextMesh>().text = async.progress.ToString();
+		async.allowSceneActivation = false;
 		yield return async;
 	}
 	
