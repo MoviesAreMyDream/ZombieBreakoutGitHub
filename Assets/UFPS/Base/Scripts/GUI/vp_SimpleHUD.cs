@@ -272,7 +272,7 @@ public class vp_SimpleHUD : MonoBehaviour
 
 		if(Input.GetAxis("DPadRight")>0.001)
 		{
-			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,-90);
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-90);
 			laser_icon.SetActive (true);
 			sword_icon.SetActive (false);
 			grenade_icon.SetActive (false);		
@@ -280,7 +280,7 @@ public class vp_SimpleHUD : MonoBehaviour
 
 		if(Input.GetAxis("DPadLeft")>0.001)
 		{
-			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,90);
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,90);
 			laser_icon.SetActive (false);
 			sword_icon.SetActive (false);
 			grenade_icon.SetActive (true);
@@ -288,7 +288,7 @@ public class vp_SimpleHUD : MonoBehaviour
 
 		if(Input.GetAxis("DPadDown")>0.001)
 		{
-			weapon_indicator.transform.rotation = Quaternion.Euler(0,0,-180);
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-180);
 			laser_icon.SetActive (false);
 			sword_icon.SetActive (true);
 			grenade_icon.SetActive (false);
