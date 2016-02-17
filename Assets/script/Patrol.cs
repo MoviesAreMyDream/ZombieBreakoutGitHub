@@ -17,6 +17,7 @@ public class Patrol : MonoBehaviour {
 	public Animator ZombiePref;
 	public GameObject Sun;
 
+	public AudioSource walkingSfx;
 
 	void Start()
 	{
@@ -26,7 +27,7 @@ public class Patrol : MonoBehaviour {
 		ZombiePref = GetComponent<Animator>();
 		Sun = GameObject.Find ("Sun");
 		ZombiePref.GetComponent<EnemyZombie>().canAttack = false;
-
+		
 		NextDest = Random.Range(0,waypoints.Length);
 
 		for (int i = 0; i < waypoints.Length; i++) 
@@ -38,7 +39,6 @@ public class Patrol : MonoBehaviour {
 
 	void Update()
 	{	
-		
 
 		if (agent.remainingDistance <= AnimationDelay && counter == false) {
 
@@ -54,13 +54,12 @@ public class Patrol : MonoBehaviour {
 			ZombiePref.SetBool ("PlayerInRange", false);
 		}
 
-		if(Sun.GetComponent<DayNightCycle>().TimeFloat >= 23.8)
+		if(Sun.GetComponent<DayNightCycle>().TimeFloat >= 14f)
 		{
-			print ("OI");
+//			print ("ZOMBIE IS NOW CHASING PLAYER AAAAAAAAA");
 			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
 			agent.stoppingDistance = 2;
 			GetComponent<Patrol>().enabled = false;
-
 		}
 	}
 
