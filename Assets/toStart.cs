@@ -14,11 +14,7 @@ public class toStart : MonoBehaviour {
 	public GameObject ProgressBarReference;
 	public GameObject LoadingAnimationReference;
 
-<<<<<<< HEAD
-	public GameObject TextReference;
-=======
 	private bool PressedOnce;
->>>>>>> origin/master
 
 	private AsyncOperation async = null; // When assigned, load is in progress.
 
