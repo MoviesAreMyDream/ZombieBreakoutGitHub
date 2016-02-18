@@ -59,7 +59,7 @@ public class Patrol : MonoBehaviour {
 //			print ("ZOMBIE IS NOW CHASING PLAYER AAAAAAAAA");
 			ZombiePref.GetComponent<EnemyZombie>().canAttack = true;
 			agent.stoppingDistance = 2;
-			GetComponent<Patrol>().enabled = false;
+			Destroy(GetComponent<Patrol>());
 		}
 	}
 

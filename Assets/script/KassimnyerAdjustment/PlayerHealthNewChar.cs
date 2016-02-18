@@ -45,6 +45,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public GameObject Restart;
 	public GameObject QuitGame;
 
+	public GameObject body;
+
 	void Awake() {
 
 		Time.timeScale = 1;
@@ -72,7 +74,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			ZombieNavMesh[i] = ZombiesAll[i].GetComponent<NavMeshAgent>();
 		}
 
-	
+		body = GameObject.Find("Body");
+		body.GetComponent<AudioSource>().enabled = false;
 	}
 
 
@@ -133,7 +136,14 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			QuitGame.SetActive (true);
 		}
 		
-
+		if(currentHealth <= 40)
+		{
+			body.GetComponent<AudioSource>().enabled = true;
+		}
+		else
+		{
+			body.GetComponent<AudioSource>().enabled = false;
+		}
 	}
 
 	public void remove(float amount) { //animation when damaged

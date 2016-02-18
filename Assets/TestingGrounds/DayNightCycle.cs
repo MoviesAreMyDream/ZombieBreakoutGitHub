@@ -63,7 +63,7 @@ public class DayNightCycle : MonoBehaviour {
 			DeleteStars();
 		}
 
-		if(TimeFloat >= 23)
+		if(TimeFloat >= 13)
 		{
 			moonlight.intensity = Mathf.Lerp(moonlight.intensity, targetIntensity, fadeSpeed * Time.deltaTime);
 		}
