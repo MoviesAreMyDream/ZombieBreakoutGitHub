@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class toStart : MonoBehaviour {
@@ -12,6 +13,7 @@ public class toStart : MonoBehaviour {
 
 	private AudioSource audio;
 
+	public GameObject TextReference;
 
 	private AsyncOperation async = null; // When assigned, load is in progress.
 
