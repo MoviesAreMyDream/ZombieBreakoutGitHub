@@ -58,8 +58,8 @@ public class vp_TimerEditor : Editor
 
 		if(!timer.WasAddedCorrectly)
 		{
-			EditorUtility.DisplayDialog("Ooops!", "vp_Timer can't be added in the Inspector. It must be called from script. See the documentation for more info.", "OK");
-			DestroyImmediate(timer);
+//			EditorUtility.DisplayDialog("Ooops!", "vp_Timer can't be added in the Inspector. It must be called from script. See the documentation for more info.", "OK");
+//			DestroyImmediate(timer);
 		}
 
 	}
