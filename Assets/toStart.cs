@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class toStart : MonoBehaviour {
@@ -7,11 +8,13 @@ public class toStart : MonoBehaviour {
 	public GameObject MainMenuReference;
 	public GameObject SoundSourceReference;
 	public GameObject LoadingScreenReference;
-	//public GameObject ProgressBarReference;
 	public GameObject ControlReference;
 
-	private AudioSource audio;
+	[Space(20)]
+	public GameObject ProgressBarReference;
+	public GameObject LoadingAnimationReference;
 
+	private bool PressedOnce;
 
 	private AsyncOperation async = null; // When assigned, load is in progress.
 
@@ -23,25 +26,33 @@ public class toStart : MonoBehaviour {
 
 	void Update() 
 	{
-		if ((Input.GetButtonDown ("Fire1")) || (Input.GetButtonDown ("Submit"))) 
+		if ((Input.GetButtonDown ("Fire1")) || (Input.GetButtonDown ("Submit")) || (Input.GetKeyDown(KeyCode.Space))) 
 		{
-			SoundSourceReference.GetComponent<AudioSource>().enabled =  true;
-			StartCoroutine(LoadALevel(LevelName)); 
-			MainMenuReference.SetActive (false);
-			LoadingScreenReference.SetActive (true);
-			ControlReference.SetActive (true);
-		}
-
-
-		if (async != null) 
-		{
-			transform.GetComponent<Image>().fillAmount = async.progress + 0.1f;
-			if(async.progress >= 0.9f)
+			if(PressedOnce == false)
 			{
-				transform.GetComponent<Animator>().SetBool("IsDoneLoading",true);
-				TextReference.GetComponent<Text>().text = "Now press Ctrl. Thank for wait";
+				PressedOnce = true;
+				SoundSourceReference.GetComponent<AudioSource>().enabled =  true;
+				MainMenuReference.SetActive (false);
+				LoadingScreenReference.SetActive (true);
+				ControlReference.SetActive (true);
+				StartCoroutine(LoadALevel(LevelName)); 
+			}
+			else
+			{
+				async.allowSceneActivation = true;
 			}
 		}
+	
+		if (async != null) 
+		{
+			ProgressBarReference.GetComponent<Image>().fillAmount = async.progress + 0.1f;
+
+			if(async.progress >= 0.9f)
+			{
+				LoadingAnimationReference.GetComponent<Animator>().SetBool("IsDoneLoading",true);
+			}
+		}
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
@@ -49,7 +60,8 @@ public class toStart : MonoBehaviour {
 
 	}
 
-	private IEnumerator LoadALevel(string levelName) {
+	private IEnumerator LoadALevel(string levelName) 
+	{
 		async = Application.LoadLevelAsync(levelName);
 		async.allowSceneActivation = false;
 		yield return async;
