@@ -38,7 +38,7 @@ public sealed class vp_Layer
 	public const int MovingPlatform = 28;	// used to make the player snap to, rotate with and inherit speed from moving platforms such as elevators
 	public const int Debris = 29;			// used to filter out small flying rubble on collision 
 	public const int LocalPlayer = 30;		// used for weaponcamera rendering, and to distinguish the local player from multiplayer remote ones
-	public const int Weapon = 5;			// used for weaponcamera rendering
+	public const int Weapon = 31;			// used for weaponcamera rendering
 
 	public static class Mask
 	{
