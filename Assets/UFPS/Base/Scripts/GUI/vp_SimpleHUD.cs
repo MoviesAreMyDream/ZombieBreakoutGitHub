@@ -270,12 +270,36 @@ public class vp_SimpleHUD : MonoBehaviour
 		else
 			AmmoColor = Color.white;	// ammo is not low, draw it normally
 
+		if(m_Player.CurrentWeaponName.Get() == "7LaserGun")
+		{
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-90);
+			laser_icon.SetActive (true);
+			sword_icon.SetActive (false);
+			grenade_icon.SetActive (false);
+		}
+
+		if(m_Player.CurrentWeaponName.Get() == "4GrenadeThrow")
+		{
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,90);
+			laser_icon.SetActive (false);
+			sword_icon.SetActive (false);
+			grenade_icon.SetActive (true);
+		}
+
+		if(m_Player.CurrentWeaponName.Get() == "6Sword")
+		{
+			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-180);
+			laser_icon.SetActive (false);
+			sword_icon.SetActive (true);
+			grenade_icon.SetActive (false);
+		}
+
 		if(Input.GetAxis("DPadRight")>0.001)
 		{
 			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-90);
 			laser_icon.SetActive (true);
 			sword_icon.SetActive (false);
-			grenade_icon.SetActive (false);		
+			grenade_icon.SetActive (false);
 		}
 
 		if(Input.GetAxis("DPadLeft")>0.001)
