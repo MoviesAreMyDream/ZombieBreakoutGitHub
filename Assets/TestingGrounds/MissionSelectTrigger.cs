@@ -10,6 +10,7 @@ public class MissionSelectTrigger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		IndicatorReference.SetActive(false);
 	
 	}
