@@ -25,6 +25,7 @@ public sealed class vp_Layer
 	public const int TransparentFX = 1;
 	public const int IgnoreRaycast = 2;
 	public const int Water = 4;
+	public const int UI = 5;
 
 	// standard layers
 	public const int MovableObject = 21;	// used on movable physics objects to prevent spawning inside them

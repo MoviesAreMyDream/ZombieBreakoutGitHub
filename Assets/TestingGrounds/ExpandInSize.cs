@@ -10,6 +10,7 @@ public class ExpandInSize : MonoBehaviour {
 	private float GrowDelayRate = 1f;
 	public float DelayBeforeDeletion = 1f;
 	private bool AlreadyExploded = false;
+	
 	void Awake()
 	{
 

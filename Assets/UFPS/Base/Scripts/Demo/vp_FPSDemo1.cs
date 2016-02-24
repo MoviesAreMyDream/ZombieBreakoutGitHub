@@ -735,7 +735,7 @@ public class vp_FPSDemo1 : MonoBehaviour
 			m_Demo.SetWeaponPreset(PerspOldWeapon, null, true);
 			if (m_Demo.WeaponHandler.CurrentWeapon != null)
 				m_Demo.WeaponHandler.CurrentWeapon.SetState("WeaponPersp");
-			m_Demo.WeaponHandler.SetWeaponLayer(vp_Layer.Weapon);
+//			m_Demo.WeaponHandler.SetWeaponLayer(vp_Layer.Weapon);
 			if (m_Demo.WeaponHandler.CurrentWeapon != null)
 			{
 				((vp_FPWeapon)m_Demo.WeaponHandler.CurrentWeapon).SnapZoom();

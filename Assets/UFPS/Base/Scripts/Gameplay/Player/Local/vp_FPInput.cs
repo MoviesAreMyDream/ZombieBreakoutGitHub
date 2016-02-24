@@ -168,6 +168,11 @@ public class vp_FPInput : vp_Component
 		else
 			FPPlayer.Run.TryStop();
 
+		if (Input.GetKey(KeyCode.LeftShift))
+			FPPlayer.Run.TryStart();
+		else
+			FPPlayer.Run.TryStop();
+
 	}
 
 
@@ -266,6 +271,10 @@ public class vp_FPInput : vp_Component
 		else
 			FPPlayer.Attack.TryStop();
 
+		if (vp_Input.GetButtonDown("Attack"))
+			FPPlayer.Attack.TryStart();
+		else
+			FPPlayer.Attack.TryStop();
 	}
 
 
@@ -292,11 +301,11 @@ public class vp_FPInput : vp_Component
 
 		// --- cycle to the next or previous weapon ---
 
-//		if (vp_Input.GetButtonDown("SetPrevWeapon"))
-//			FPPlayer.SetPrevWeapon.Try();
-//
-//		if (vp_Input.GetButtonDown("SetNextWeapon"))
-//			FPPlayer.SetNextWeapon.Try();
+		if (vp_Input.GetButtonDown("SetPrevWeapon"))
+			FPPlayer.SetPrevWeapon.Try();
+
+		if (vp_Input.GetButtonDown("SetNextWeapon"))
+			FPPlayer.SetNextWeapon.Try();
 
 		if (Input.GetAxis ("DPadRight") > 0.001)
 			FPPlayer.SetWeaponByName.Try ("7LaserGun");
@@ -337,8 +346,8 @@ public class vp_FPInput : vp_Component
 	protected virtual void UpdatePause()
 	{
 
-		if (vp_Input.GetButtonDown("Pause"))
-			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
+//		if (vp_Input.GetButtonDown("Pause"))
+//			FPPlayer.Pause.Set(!FPPlayer.Pause.Get());
 
 	}
 
