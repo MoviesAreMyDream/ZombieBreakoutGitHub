@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MissionSelectTrigger : MonoBehaviour {
@@ -28,6 +29,8 @@ public class MissionSelectTrigger : MonoBehaviour {
 		{
 			player.CanChoose = true; //this code is actually similar to ShopSelection.cs but it doesn't include the CanChoose variable (too lazy to change lol)
 			IndicatorReference.SetActive(true);
+			IndicatorReference.GetComponent<Text>().enabled = true;
+			IndicatorReference.GetComponentInChildren<Image>().enabled = true;
 		}
 	}
 	

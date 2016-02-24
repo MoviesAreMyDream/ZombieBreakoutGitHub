@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ShopTrigger : MonoBehaviour {
@@ -22,6 +23,7 @@ public class ShopTrigger : MonoBehaviour {
 		if(TextActive == true)
 		{
 			ShopTextReference.SetActive (true);
+
 		}
 		else
 		{
@@ -49,6 +51,9 @@ public class ShopTrigger : MonoBehaviour {
 			TextActive = true;
 			Ayy.GetComponent<ShopSelection>().ShopCanOpen = true;
 			IsInTrigger = true;
+			ShopTextReference.SetActive(true);
+			ShopTextReference.GetComponent<Text>().enabled = true;
+			ShopTextReference.GetComponentInChildren<Image>().enabled = true;
 		}
 	}
 
@@ -59,6 +64,9 @@ public class ShopTrigger : MonoBehaviour {
 			TextActive = false;
 			Lmao.GetComponent<ShopSelection>().ShopCanOpen = false;
 			IsInTrigger = false;
+			ShopTextReference.SetActive(false);
+			ShopTextReference.GetComponent<Text>().enabled = false;
+			ShopTextReference.GetComponentInChildren<Image>().enabled = false;
 		}
 	}
 

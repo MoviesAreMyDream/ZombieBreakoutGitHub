@@ -42,14 +42,14 @@ public class MissionSelect : MonoBehaviour {
 	
 		if(CanChoose == true)
 		{
-			if(Input.GetKeyDown(OpenMissionButton))//to open the menu
+			if(Input.GetKeyDown(OpenMissionButton) || Input.GetKeyDown(KeyCode.JoystickButton0))//to open the menu
 			{
 				if(!isOpen)
 				{
 					isOpen = true;
 					MissionSelectTextReference.SetActive(false);
 					gameObject.GetComponent<CharacterController>().enabled = false;
-					gameObject.GetComponent<OVRPlayerController>().enabled = false;
+//					gameObject.GetComponent<OVRPlayerController>().enabled = false;
 
 				}
 				else
@@ -57,7 +57,7 @@ public class MissionSelect : MonoBehaviour {
 					isOpen = false;
 					MissionSelectTextReference.SetActive(true);
 					gameObject.GetComponent<CharacterController>().enabled = true;
-					gameObject.GetComponent<OVRPlayerController>().enabled = true;
+//					gameObject.GetComponent<OVRPlayerController>().enabled = true;
 				}
 			}
 
@@ -95,7 +95,7 @@ public class MissionSelect : MonoBehaviour {
 					CurrentOption -= 1;
 			}
 
-			if(Input.GetKeyDown(KeyCode.LeftShift))
+			if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.JoystickButton0))
 			{
 				for(int i=0;i < MissionOptions.Length;i++)
 				{					
@@ -104,6 +104,7 @@ public class MissionSelect : MonoBehaviour {
 						if(MissionOptions[i].MapName == null || MissionOptions[i].MapName == "")
 						{
 							print ("INVALID MAP NAME!");
+							Application.LoadLevel(1);
 						}
 						else
 						{

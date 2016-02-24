@@ -22,7 +22,7 @@ public class CircularProgressBar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if(Input.GetButton("Fire3"))
+		if(Input.GetButton("Fire3") || Input.GetKey(KeyCode.F))
 		{
 			if(Mathf.FloorToInt(counter) < WaitTime)
 			{
@@ -36,7 +36,7 @@ public class CircularProgressBar : MonoBehaviour {
 		}
 		
 		else
-			if(Input.GetButtonUp("Fire3"))
+			if(Input.GetButtonUp("Fire3") || Input.GetKeyUp(KeyCode.F))
 		{
 			counter = 0;
 //			progress.SetActive (false);
