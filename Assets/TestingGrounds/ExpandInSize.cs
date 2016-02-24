@@ -4,12 +4,18 @@ using System.Collections;
 public class ExpandInSize : MonoBehaviour {
 
 	public float DesiredSize = 17;
+	[ReadOnlyAttribute]
 	public float LerpLocation = 0;
 	private Vector3 InitSize;
 	public float ExpansionRate = 1f;
-	private float GrowDelayRate = 1f;
+	public float GrowDelayRate = 1f;
 	public float DelayBeforeDeletion = 1f;
 	private bool AlreadyExploded = false;
+
+	private bool Counter;//for DoOnce
+
+	[Space(20)]
+	public AudioClip ShrinkSFX;
 	
 	void Awake()
 	{
@@ -48,6 +54,12 @@ public class ExpandInSize : MonoBehaviour {
 
 	IEnumerator Shrink()
 	{
+		if(Counter == false)
+		{
+			Counter = true;
+			transform.GetComponent<AudioSource>().clip = ShrinkSFX;
+			transform.GetComponent<AudioSource>().Play();
+		}
 		LerpLocation -= ExpansionRate/100;
 		yield return new WaitForSeconds(GrowDelayRate/10);
 	}
