@@ -83,19 +83,19 @@ public class MissionSelect : MonoBehaviour {
 				MissionOptions[i].OptionGameObject.SetActive(false);
 			}
 
-			if(Input.GetKeyDown(KeyCode.UpArrow))
+			if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.JoystickButton5))
 			{
 				if(CurrentOption < MissionOptions.Length)
 				CurrentOption += 1;
 			}
 
-			if(Input.GetKeyDown(KeyCode.DownArrow))
+			if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.JoystickButton4))
 			{
 				if(CurrentOption > 1)
 					CurrentOption -= 1;
 			}
 
-			if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.JoystickButton0))
+			if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.JoystickButton7))
 			{
 				for(int i=0;i < MissionOptions.Length;i++)
 				{					
@@ -104,7 +104,6 @@ public class MissionSelect : MonoBehaviour {
 						if(MissionOptions[i].MapName == null || MissionOptions[i].MapName == "")
 						{
 							print ("INVALID MAP NAME!");
-							Application.LoadLevel(1);
 						}
 						else
 						{
