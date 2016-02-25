@@ -47,6 +47,12 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 	public GameObject body;
 
+	public AudioClip DeathSFX;
+	public GameObject AudioSourceReference;
+	public GameObject SyringeAudioSourceReference;
+
+	private bool Counter;//for DoOnce
+
 	void Awake() {
 
 		Time.timeScale = 1;
@@ -95,7 +101,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button3)) {
+		if (Input.GetKeyDown (KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.J)) {
 			if(AntidoteAmount > 0)
 			{
 				if(currentHealth == MaxHealth)
@@ -104,6 +110,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 				}
 				else
 				{
+					SyringeAudioSourceReference.GetComponent<AudioSource>().Play ();
 					if(currentHealth + AntidoteHealAmount > MaxHealth)
 					{
 						currentHealth = MaxHealth;
@@ -120,9 +127,16 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 		if (currentHealth <= 0f) 
 		{
+			if(!Counter)
+			{
+				Counter = true;
+				AudioSourceReference.GetComponent<AudioSource>().clip = DeathSFX;
+				AudioSourceReference.GetComponent<AudioSource>().loop =  false;
+				AudioSourceReference.GetComponent<AudioSource>().Play ();
+			}
 			currentHealth = 0;
 			PlayerIsDead = true;
-			gameObject.GetComponent<AudioListener>().enabled = false;
+//			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
 			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;

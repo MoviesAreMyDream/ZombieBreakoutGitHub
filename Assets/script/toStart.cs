@@ -9,6 +9,8 @@ public class toStart : MonoBehaviour {
 	public GameObject SoundSourceReference;
 	public GameObject LoadingScreenReference;
 	public GameObject ControlReference;
+	public GameObject AudioSourceReference;
+	private bool Counter;//for DoOnce
 
 	[Space(20)]
 	public GameObject ProgressBarReference;
@@ -28,6 +30,7 @@ public class toStart : MonoBehaviour {
 	{
 		if ((Input.GetButtonDown ("Fire1")) || (Input.GetButtonDown ("Submit")) || (Input.GetKeyDown(KeyCode.Space))) 
 		{
+			AudioSourceReference.GetComponent<AudioSource>().Play ();
 			if(PressedOnce == false)
 			{
 				PressedOnce = true;
@@ -39,6 +42,7 @@ public class toStart : MonoBehaviour {
 			}
 			else
 			{
+				AudioSourceReference.GetComponent<AudioSource>().Play ();
 				async.allowSceneActivation = true;
 			}
 		}

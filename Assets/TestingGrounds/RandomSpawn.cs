@@ -66,6 +66,21 @@ public class RandomSpawn : MonoBehaviour {
 				}
 
 			}while(Same == true);
+			//it's like
+			//--||--
+			//--||--
+			//-- X --      <-- have similarities
+			//--    --
+			//--    --
+
+			//the correct way
+			//--||--
+			//--||--
+			//--||--
+			//--||--
+			//--||--
+
+
 		}
 	}
 
