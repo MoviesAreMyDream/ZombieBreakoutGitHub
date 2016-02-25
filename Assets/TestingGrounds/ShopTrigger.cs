@@ -10,6 +10,9 @@ public class ShopTrigger : MonoBehaviour {
 	private bool TextActive = false;
 	private bool IsInTrigger;
 
+	public AudioClip In;
+	public AudioClip Out;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -48,6 +51,8 @@ public class ShopTrigger : MonoBehaviour {
 	{
 		if(Ayy.tag == "Player")
 		{
+			Ayy.GetComponent<AudioSource>().clip = In;
+			Ayy.GetComponent<AudioSource>().Play();
 			TextActive = true;
 			Ayy.GetComponent<ShopSelection>().ShopCanOpen = true;
 			IsInTrigger = true;
@@ -61,6 +66,8 @@ public class ShopTrigger : MonoBehaviour {
 	{
 		if(Lmao.tag == "Player")
 		{
+			Lmao.GetComponent<AudioSource>().clip = Out;
+			Lmao.GetComponent<AudioSource>().Play();
 			TextActive = false;
 			Lmao.GetComponent<ShopSelection>().ShopCanOpen = false;
 			IsInTrigger = false;
