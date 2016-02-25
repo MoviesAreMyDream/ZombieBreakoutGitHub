@@ -52,13 +52,13 @@ public class PressHOLD : MonoBehaviour {
 			Bbut.enabled = true;
 			gameObject.GetComponent<CircularProgressBar> ().enabled = true;
 
-			if (Input.GetButtonDown ("Fire3") && Input.GetKeyDown(KeyCode.F)) { //Key was pressed down, so take up time.
+			if (Input.GetButtonDown ("Fire3") || Input.GetKeyDown (KeyCode.F)) { //Key was pressed down, so take up time.
 				DownTime = Time.time;
 				isHandled = false;
 
 
 			}
-			if (Input.GetButton ("Fire3") && Input.GetKeyDown(KeyCode.F)) { // is key still being hold down...  
+			if (Input.GetButton ("Fire3") || Input.GetKey(KeyCode.F)) { // is key still being hold down...  
 				// And is it been hold over the time we want and is not handled yet?
 				if ((Time.time > DownTime + WaitTime)) {
 					// We've been here, don't do this again until button is pressed again.
