@@ -88,6 +88,12 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	void Start()
 	{	
 		PlayerReference = GameObject.Find("PlayerOVR");
+
+		if(PlayerReference == null)
+		{
+			PlayerReference = GameObject.Find("PlayerOVRLobby");
+		}
+
 		PlayerDmgHandler = PlayerReference.GetComponent<vp_FPPlayerDamageHandler>();
 		customPref = HP.GetComponent<CustomText>();
 		gameObject.GetComponent<Lerp>().enabled = false;
