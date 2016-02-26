@@ -12,7 +12,7 @@ public class MissionSelectTrigger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		IndicatorReference.SetActive(false);
+//		IndicatorReference.SetActive(false);
 	
 	}
 	
@@ -29,8 +29,8 @@ public class MissionSelectTrigger : MonoBehaviour {
 		{
 			player.CanChoose = true; //this code is actually similar to ShopSelection.cs but it doesn't include the CanChoose variable (too lazy to change lol)
 			IndicatorReference.SetActive(true);
-//			IndicatorReference.GetComponent<Text>().enabled = true;
-//			IndicatorReference.GetComponentInChildren<Image>().enabled = true;
+			IndicatorReference.GetComponent<Text>().enabled = true;
+			IndicatorReference.GetComponentInChildren<Image>().enabled = true;
 		}
 	}
 	
