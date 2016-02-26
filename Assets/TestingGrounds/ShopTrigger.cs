@@ -74,6 +74,7 @@ public class ShopTrigger : MonoBehaviour {
 			ShopTextReference.SetActive(false);
 			ShopTextReference.GetComponent<Text>().enabled = false;
 			ShopTextReference.GetComponentInChildren<Image>().enabled = false;
+
 		}
 	}
 
