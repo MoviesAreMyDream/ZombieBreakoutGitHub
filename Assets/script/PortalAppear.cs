@@ -29,6 +29,7 @@ public class PortalAppear : MonoBehaviour {
 			NarratorUI.SetActive (true);
 
 		}
-	
+
 	}
+
 }
