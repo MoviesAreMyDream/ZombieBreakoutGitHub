@@ -3,12 +3,14 @@ using System.Collections;
 
 public class ShopSelection : MonoBehaviour {
 
+	public GameObject InventoryCarrierReference;
 	public Material SelectionMaterial;
 	[Space(15)]
 	public float Money;
 	public GameObject MoneyTextReference;
 	[Space(15)]
 	public KeyCode ShopButton;
+	public KeyCode AlternateShopButton;
 //	public KeyCode CloseShopButton;
 	public int OptionSelection = 1;
 	private int CurrentSelection;
@@ -121,7 +123,14 @@ public class ShopSelection : MonoBehaviour {
 				}
 				else
 				{
-					Money -= Contents[CurrentSelection].GetComponent<ItemDescription>().Price;
+					
+					if(transform.GetComponent<vp_Inventory>().HaveItem(Contents[CurrentSelection].GetComponent<ItemDescription>().Item,1) == false)//to check if the player already have the item or not
+					{
+						Money -= Contents[CurrentSelection].GetComponent<ItemDescription>().Price;
+						transform.GetComponent<vp_Inventory>().TryGiveItem(Contents[CurrentSelection].GetComponent<ItemDescription>().Item,1);//to give the player weapon based on ItemDescription
+						InventoryCarrierReference.GetComponent<InventoryCarrier>().PlayerInventory[CurrentSelection] = Contents[CurrentSelection].GetComponent<ItemDescription>().Item;
+					}
+
 				}
 			}
 
@@ -129,7 +138,7 @@ public class ShopSelection : MonoBehaviour {
 
 		}
 
-		if(Input.GetKeyDown(ShopButton) && ShopCanOpen == true)
+		if((Input.GetKeyDown(ShopButton) && ShopCanOpen == true) || (Input.GetKeyDown(AlternateShopButton) && ShopCanOpen == true))
 		{
 			if(ShopOpen == true)
 			{
