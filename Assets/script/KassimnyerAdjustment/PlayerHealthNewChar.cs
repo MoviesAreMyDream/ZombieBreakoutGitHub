@@ -50,10 +50,13 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public AudioClip DeathSFX;
 	public GameObject AudioSourceReference;
 	public GameObject SyringeAudioSourceReference;
-
 	private bool Counter;//for DoOnce
 
+	private vp_FPInventory m_inventory = null;
+
 	void Awake() {
+
+		m_inventory = transform.GetComponent<vp_FPInventory>();
 
 		Time.timeScale = 1;
 
@@ -163,6 +166,11 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		else
 		{
 			body.GetComponent<AudioSource>().enabled = false;
+		}
+
+		if(Input.GetKeyDown(KeyCode.Joystick1Button4))
+		{
+			m_inventory.TryGiveItem("1AssaultRifle", 1);
 		}
 	}
 

@@ -23,7 +23,7 @@ public class ShopSelection : MonoBehaviour {
 	[HideInInspector]
 	public bool ShopCanOpen;
 
-
+	public GameObject canvas;
 
 
 	public GameObject[] Contents;
@@ -65,7 +65,7 @@ public class ShopSelection : MonoBehaviour {
 					}
 				}
 
-			if(Input.GetKeyDown(KeyCode.LeftArrow))
+			if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetAxis("DPadLeft")>0.001)
 			   {
 					if(OptionSelection % SelectionWidth-1 == 0)
 					{
@@ -77,7 +77,7 @@ public class ShopSelection : MonoBehaviour {
 					}
 				}
 
-			if(Input.GetKeyDown(KeyCode.RightArrow))
+			if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetAxis("DPadRight")>0.98f)
 			   {
 					if(OptionSelection % SelectionWidth == 0)
 					{
@@ -89,7 +89,7 @@ public class ShopSelection : MonoBehaviour {
 					}
 				}
 
-			if(Input.GetKeyDown(KeyCode.UpArrow))
+			if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("DPadUp")>0.98f)
 			{
 				if(OptionSelection <= SelectionWidth)
 				{
@@ -101,7 +101,7 @@ public class ShopSelection : MonoBehaviour {
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.DownArrow))
+			if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("DPadDown")>0.001)
 			{
 				if(OptionSelection >= SelectionWidth*SelectionHeight || OptionSelection > SelectionWidth*SelectionHeight - SelectionWidth)
 				{
@@ -113,7 +113,7 @@ public class ShopSelection : MonoBehaviour {
 				}
 			}
 
-			if(Input.GetKeyDown(KeyCode.LeftShift))
+			if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton0))
 			{
 				if(Money - Contents[CurrentSelection].GetComponent<ItemDescription>().Price < 0)
 				{
@@ -135,6 +135,8 @@ public class ShopSelection : MonoBehaviour {
 			{
 				gameObject.GetComponent<CharacterController>().enabled = true;
 //				gameObject.GetComponent<OVRPlayerController>().enabled = true;
+				gameObject.GetComponent<vp_FPInput>().enabled = true;
+				canvas.SetActive(true);
 
 				for(int i=0;i < Contents.Length;i++)
 				{
@@ -147,6 +149,8 @@ public class ShopSelection : MonoBehaviour {
 				{
 					gameObject.GetComponent<CharacterController>().enabled = false;
 //					gameObject.GetComponent<OVRPlayerController>().enabled = false;
+					gameObject.GetComponent<vp_FPInput>().enabled = false;
+					canvas.SetActive(false);
 
 					for(int i=0;i < Contents.Length;i++)
 					{
