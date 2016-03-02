@@ -9,14 +9,17 @@ public class MissionSelectTrigger : MonoBehaviour {
 	private bool TextActive = false;
 	private bool IsInTrigger;
 
-	// Use this for initialization
-	void Start () {
+	public AudioClip In;
+	public AudioClip Out;
+
+
+	void Start () 
+	{
 
 //		IndicatorReference.SetActive(false);
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
@@ -27,10 +30,12 @@ public class MissionSelectTrigger : MonoBehaviour {
 
 		if(something.tag ==  "Player")
 		{
+			something.GetComponent<AudioSource>().clip = In;
+			something.GetComponent<AudioSource>().Play();
 			player.CanChoose = true; //this code is actually similar to ShopSelection.cs but it doesn't include the CanChoose variable (too lazy to change lol)
 			IndicatorReference.SetActive(true);
-			IndicatorReference.GetComponent<Text>().enabled = true;
-			IndicatorReference.GetComponentInChildren<Image>().enabled = true;
+//			IndicatorReference.GetComponent<Text>().enabled = true;
+//			IndicatorReference.GetComponentInChildren<Image>().enabled = true;
 		}
 	}
 	
@@ -40,6 +45,8 @@ public class MissionSelectTrigger : MonoBehaviour {
 
 		if(something.tag ==  "Player")
 		{
+			something.GetComponent<AudioSource>().clip = Out;
+			something.GetComponent<AudioSource>().Play();
 			ayy.CanChoose = false;
 			IndicatorReference.SetActive(false);
 			ayy.isOpen = false;

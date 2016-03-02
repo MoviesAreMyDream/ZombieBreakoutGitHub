@@ -8,7 +8,10 @@ public class ItemDescription : MonoBehaviour {
 	private Material DefaultMaterial;
 	[HideInInspector]
 	public bool isChosen;
+
 	public float Price;
+	public vp_ItemType Item;
+
 	private Vector3 InitLocation;
 	private Vector3 InitScale;
 	[HideInInspector]

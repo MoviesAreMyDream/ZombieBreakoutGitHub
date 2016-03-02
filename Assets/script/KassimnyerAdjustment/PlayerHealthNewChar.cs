@@ -52,11 +52,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public GameObject SyringeAudioSourceReference;
 	private bool Counter;//for DoOnce
 
-	private vp_FPInventory m_inventory = null;
-
 	void Awake() {
 
-		m_inventory = transform.GetComponent<vp_FPInventory>();
 
 		Time.timeScale = 1;
 
@@ -106,11 +103,13 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		Restart.SetActive (false);
 	}
 
-	void Update() {
+	void Update() 
+	{
 		
 		PlayerDmgHandler.CurrentHealth = currentHealth/10;
 
-		if (Input.GetKeyDown (KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.J)) {
+		if (Input.GetKeyDown (KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.J)) 
+		{
 			if(AntidoteAmount > 0)
 			{
 				if(currentHealth == MaxHealth)
@@ -133,7 +132,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 				}
 			}
 		}
-
+		//=====================================================
 		if (currentHealth <= 0f) 
 		{
 			if(!Counter)
@@ -158,7 +157,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			Restart.SetActive (true);
 			QuitGame.SetActive (true);
 		}
-		
+		//======================================================
 		if(currentHealth <= 40)
 		{
 			body.GetComponent<AudioSource>().enabled = true;
@@ -168,10 +167,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			body.GetComponent<AudioSource>().enabled = false;
 		}
 
-		if(Input.GetKeyDown(KeyCode.Joystick1Button4))
-		{
-			m_inventory.TryGiveItem("1AssaultRifle", 1);
-		}
+
 	}
 
 	public void remove(float amount) { //animation when damaged
