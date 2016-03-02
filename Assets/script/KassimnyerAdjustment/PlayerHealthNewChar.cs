@@ -167,11 +167,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		{
 			body.GetComponent<AudioSource>().enabled = false;
 		}
-
-		if(Input.GetKeyDown(KeyCode.Joystick1Button4))
-		{
-			m_inventory.TryGiveItem("1AssaultRifle", 1);
-		}
+		
 	}
 
 	public void remove(float amount) { //animation when damaged
