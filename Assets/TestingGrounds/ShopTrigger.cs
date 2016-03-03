@@ -13,27 +13,35 @@ public class ShopTrigger : MonoBehaviour {
 	public AudioClip In;
 	public AudioClip Out;
 
-	// Use this for initialization
+	private bool Counter;
+
 	void Start () 
 	{
 
 	}
 	
-	// Update is called once per frame
+
 	void Update ()
 	{
 
 		if(TextActive == true)
 		{
+			Counter = false;
 			ShopTextReference.SetActive (true);
 
 		}
 		else
 		{
-			ShopTextReference.SetActive(false);
+
+			if(!Counter)
+			{
+				Counter = true;
+				ShopTextReference.SetActive(false);
+			}
+	
 		}
 
-		if(Input.GetKeyDown(ShopSelectionReference.GetComponent<ShopSelection>().ShopButton) && IsInTrigger == true)
+		if((Input.GetKeyDown(ShopSelectionReference.GetComponent<ShopSelection>().ShopButton) && IsInTrigger == true) || (Input.GetKeyDown(ShopSelectionReference.GetComponent<ShopSelection>().AlternateShopButton) && IsInTrigger == true))
 		{
 			if(TextActive == true)
 			{
@@ -44,6 +52,7 @@ public class ShopTrigger : MonoBehaviour {
 				TextActive = true;
 			}
 		}
+
 
 	}
 
@@ -57,8 +66,8 @@ public class ShopTrigger : MonoBehaviour {
 			Ayy.GetComponent<ShopSelection>().ShopCanOpen = true;
 			IsInTrigger = true;
 			ShopTextReference.SetActive(true);
-			ShopTextReference.GetComponent<Text>().enabled = true;
-			ShopTextReference.GetComponentInChildren<Image>().enabled = true;
+//			ShopTextReference.GetComponent<Text>().enabled = true;
+//			ShopTextReference.GetComponentInChildren<Image>().enabled = true;
 		}
 	}
 
@@ -72,8 +81,8 @@ public class ShopTrigger : MonoBehaviour {
 			Lmao.GetComponent<ShopSelection>().ShopCanOpen = false;
 			IsInTrigger = false;
 			ShopTextReference.SetActive(false);
-			ShopTextReference.GetComponent<Text>().enabled = false;
-			ShopTextReference.GetComponentInChildren<Image>().enabled = false;
+//			ShopTextReference.GetComponent<Text>().enabled = false;
+//			ShopTextReference.GetComponentInChildren<Image>().enabled = false;
 
 		}
 	}

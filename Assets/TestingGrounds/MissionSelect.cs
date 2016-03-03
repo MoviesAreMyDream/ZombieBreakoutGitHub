@@ -6,6 +6,7 @@ public class MissionSelect : MonoBehaviour {
 	public int CurrentOption = 1;
 	public GameObject MissionSelectTextReference;
 	public KeyCode OpenMissionButton;
+	public KeyCode AlternateButton;
 
 	[Space(20)]
 	public Options[] MissionOptions;
@@ -21,7 +22,7 @@ public class MissionSelect : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		InitialText = new string[MissionOptions.Length];
+		InitialText = new string[MissionOptions.Length];//to set the size of the array
 
 		for(int i=0;i < MissionOptions.Length;i++)
 		InitialText[i] = MissionOptions[i].OptionGameObject.GetComponent<TextMesh>().text;
@@ -42,7 +43,7 @@ public class MissionSelect : MonoBehaviour {
 	
 		if(CanChoose == true)
 		{
-			if(Input.GetKeyDown(OpenMissionButton) || Input.GetKeyDown(KeyCode.JoystickButton0))//to open the menu
+			if(Input.GetKeyDown(OpenMissionButton) || Input.GetKeyDown(AlternateButton	))//to open the menu
 			{
 				if(!isOpen)
 				{
@@ -95,7 +96,7 @@ public class MissionSelect : MonoBehaviour {
 					CurrentOption -= 1;
 			}
 
-			if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.JoystickButton7))
+			if((Input.GetKeyDown(KeyCode.LeftShift) && isOpen == true)|| (Input.GetKeyDown (KeyCode.JoystickButton7) && isOpen == true))
 			{
 				for(int i=0;i < MissionOptions.Length;i++)
 				{					
