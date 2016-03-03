@@ -3,15 +3,15 @@ using System.Collections;
 
 public class finish : MonoBehaviour {
 
-	// Use this for initialization
+	public string MapName;
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Application.LoadLevel(2);
+			Application.LoadLevel(MapName);
 		}
 	}
 }

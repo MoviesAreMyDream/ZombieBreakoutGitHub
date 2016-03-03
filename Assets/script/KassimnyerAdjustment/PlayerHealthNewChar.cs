@@ -166,12 +166,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 		{
 			body.GetComponent<AudioSource>().enabled = false;
 		}
-<<<<<<< HEAD
 
-
-=======
-		
->>>>>>> origin/master
 	}
 
 	public void remove(float amount) { //animation when damaged
