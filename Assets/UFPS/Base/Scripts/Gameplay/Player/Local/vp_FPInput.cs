@@ -173,6 +173,10 @@ public class vp_FPInput : vp_Component
 		else
 			FPPlayer.Run.TryStop();
 
+		if(Input.GetKey(KeyCode.JoystickButton1))
+			FPPlayer.Run.TryStart();
+		else
+			FPPlayer.Run.TryStop();
 	}
 
 
@@ -301,10 +305,10 @@ public class vp_FPInput : vp_Component
 
 		// --- cycle to the next or previous weapon ---
 
-		if (vp_Input.GetButtonDown("SetPrevWeapon"))
+		if (vp_Input.GetButtonDown("SetPrevWeapon") || Input.GetKeyDown(KeyCode.JoystickButton4))
 			FPPlayer.SetPrevWeapon.Try();
 
-		if (vp_Input.GetButtonDown("SetNextWeapon"))
+		if (vp_Input.GetButtonDown("SetNextWeapon") || Input.GetKeyDown(KeyCode.JoystickButton5))
 			FPPlayer.SetNextWeapon.Try();
 
 		if (Input.GetAxis ("DPadRight") > 0.001)
