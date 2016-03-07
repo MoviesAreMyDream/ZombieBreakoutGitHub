@@ -23,6 +23,7 @@ public class DayNightCycle : MonoBehaviour {
 	public Light moonlight;
 	public float targetIntensity;
 	public float fadeSpeed;
+    public float moonAppearTime;
 
 	public DayNightTrigger[] DayLightZombieTrigger;
 
@@ -38,19 +39,20 @@ public class DayNightCycle : MonoBehaviour {
 
 	void Update () 
 	{
-//		transform.Rotate(new Vector3(0,CycleSpeed*Time.deltaTime));
+        //transform.Rotate(new Vector3(0,CycleSpeed*Time.deltaTime));
 		//no need this because there's AutoIntensity to rotate the sun
 		TimeFloat = ((transform.localRotation.eulerAngles.y)/90)*6;
 		CurrentTime = TimeFloat.ToString("0.00");
 
+        /*
 		for(int i = 0; i < DayLightZombieTrigger.Length; i++)
 		{
 			if(TimeFloat >= DayLightZombieTrigger[i].StartEffectAt && DayLightZombieTrigger[i].StartEffectAt + DayLightZombieTrigger[i].EffectDuration >= TimeFloat)
 			{
-//				print(DayLightZombieTrigger[i].SayWhat);
+				print(DayLightZombieTrigger[i].SayWhat);
 
 			}
-		}
+		}*/
 
 		if(TimeFloat >= StarAppearanceTime)
 		{
@@ -63,7 +65,7 @@ public class DayNightCycle : MonoBehaviour {
 			DeleteStars();
 		}
 
-		if(TimeFloat >= 13)
+		if(TimeFloat >= moonAppearTime)
 		{
 			moonlight.intensity = Mathf.Lerp(moonlight.intensity, targetIntensity, fadeSpeed * Time.deltaTime);
 		}
