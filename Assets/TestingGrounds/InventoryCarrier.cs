@@ -6,12 +6,11 @@ public class InventoryCarrier : MonoBehaviour {
 	[SerializeField]
 	private GameObject PlayerReference; 
 
-	private vp_Inventory PlayerInventoryReference;
+	private vp_PlayerInventory PlayerInventoryReference;
 
 	public vp_ItemType[] PlayerInventory;
 
-	public float Money;
-	public GameObject MoneyReference;
+
 
 	void Awake()
 	{
@@ -27,25 +26,19 @@ public class InventoryCarrier : MonoBehaviour {
 	void OnLevelWasLoaded(int level)//this function will run when a new level is loaded
 	{
 		PlayerReference = GameObject.Find("PlayerOVR");
-		PlayerInventoryReference = PlayerReference.GetComponent<vp_Inventory>();
+		PlayerInventoryReference = PlayerReference.GetComponent<vp_PlayerInventory>();
 
-		MoneyReference = GameObject.Find("GameManager");
-
+	
 		for(int i = 0; i < PlayerInventory.Length;i++)
 		{
 			if(PlayerInventory[i] != null)
 			PlayerInventoryReference.TryGiveItem(PlayerInventory[i],1);
 		}
-
-		if(level == 1)
-		{
-			Money = MoneyReference.GetComponent<ScoreManager>().CurrentScore;
-		}
+	
 	}
 		
 	void Update () 
 	{
-		Money = PlayerReference.GetComponent<ShopSelection>().Money;
 
 	}
 }
