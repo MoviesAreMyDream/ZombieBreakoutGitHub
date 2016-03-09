@@ -14,9 +14,9 @@ public class AutoIntensity : MonoBehaviour {
 	public float minAmbientPoint = -0.2f;
 	
 	
-	public Gradient nightDayFogColor;
-	public AnimationCurve fogDensityCurve;
-	public float fogScale = 1f;
+	//public Gradient nightDayFogColor;
+	//public AnimationCurve fogDensityCurve;
+	//public float fogScale = 1f;
 	
 	public float dayAtmosphereThickness = 0.4f;
 	public float nightAtmosphereThickness = 0.87f;
