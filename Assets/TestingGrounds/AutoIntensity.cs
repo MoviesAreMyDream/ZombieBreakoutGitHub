@@ -4,7 +4,13 @@ using System.Collections;
 public class AutoIntensity : MonoBehaviour {
 	
 	public Gradient nightDayColor;
-	
+//	public Color StartColor;
+//	public Color MidColor;
+//	public Color EndColor;
+
+//	public float Noonspeed;
+//	public float Nightspeed;
+
 	public float maxIntensity = 3f;
 	public float minIntensity = 0f;
 	public float minPoint = -0.2f;
@@ -14,9 +20,9 @@ public class AutoIntensity : MonoBehaviour {
 	public float minAmbientPoint = -0.2f;
 	
 	
-	//public Gradient nightDayFogColor;
-	//public AnimationCurve fogDensityCurve;
-	//public float fogScale = 1f;
+	public Gradient nightDayFogColor;
+	public AnimationCurve fogDensityCurve;
+	public float fogScale = 1f;
 	
 	public float dayAtmosphereThickness = 0.4f;
 	public float nightAtmosphereThickness = 0.87f;
@@ -54,10 +60,10 @@ public class AutoIntensity : MonoBehaviour {
 //		RenderSettings.ambientIntensity = i;
 		
 		mainLight.color = nightDayColor.Evaluate(dot);
-//		RenderSettings.ambientLight = mainLight.color;
+		RenderSettings.ambientLight = mainLight.color;
 		
-//		RenderSettings.fogColor = nightDayFogColor.Evaluate(dot);
-//		RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
+		RenderSettings.fogColor = nightDayFogColor.Evaluate(dot);
+		RenderSettings.fogDensity = fogDensityCurve.Evaluate(dot) * fogScale;
 		
 		i = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
 		skyMat.SetFloat ("_AtmosphereThickness", i);
@@ -70,6 +76,15 @@ public class AutoIntensity : MonoBehaviour {
 //		if (Input.GetKeyDown (KeyCode.Q)) skySpeed *= 0.5f;
 //		if (Input.GetKeyDown (KeyCode.E)) skySpeed *= 2f;
 //		
-		
+//		if(gameObject.GetComponent<DayNightCycle>().TimeFloat <= 14)
+//		{
+//			RenderSettings.fogColor = Color.Lerp(StartColor, MidColor, Time.time*Noonspeed);
+//		}
+//
+//		else
+//		{
+//			RenderSettings.fogColor = Color.Lerp(MidColor, EndColor, Time.time*Nightspeed);
+//
+//		}
 	}
 }
