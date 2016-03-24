@@ -31,10 +31,12 @@ public class EnemyZombie : MonoBehaviour {
     public bool IAmZombieA;
     public bool IAmZombieB;
     public bool IAmZombieC;
+	public bool IAmZombieD;
 
 	public float ZombieADamage = 5;
 	public float ZombieBDamage = 10;
 	public float ZombieCDamage = 20;
+	public float ZombieDDamage = 15;
 
 	private vp_PlayerEventHandler PlayerEvents = null;
 
@@ -75,6 +77,8 @@ public class EnemyZombie : MonoBehaviour {
             MainDamage = ZombieBDamage;
         if (IAmZombieC)
             MainDamage = ZombieCDamage;
+		if (IAmZombieD)
+			MainDamage = ZombieDDamage;
 
 	}
 
