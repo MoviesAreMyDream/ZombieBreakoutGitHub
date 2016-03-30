@@ -111,6 +111,16 @@ public class ScoreManager : MonoBehaviour {
         ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
+	public void KilledZombieD ()
+	{
+		CurrentScore += ZombieCScore;
+		ScoreAnim.Play("ScoreNumAnim");
+		
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieBScore.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
     public void GetDynamite ()
     {
         CurrentScore += DynamiteScore;
