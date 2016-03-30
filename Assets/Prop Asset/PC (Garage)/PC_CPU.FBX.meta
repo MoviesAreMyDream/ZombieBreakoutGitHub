@@ -17,6 +17,8 @@ ModelImporter:
     3300002: pc
     4300000: pc
     4300002: mouse
+    6400000: mouse
+    6400002: pc
     7400000: Take 001
     9500000: //RootNode
   materials:
@@ -45,7 +47,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

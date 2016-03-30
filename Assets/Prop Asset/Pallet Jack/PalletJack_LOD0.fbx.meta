@@ -27,6 +27,10 @@ ModelImporter:
     4300002: PalletJack_steering_LOD0
     4300004: PalletJack_handlebar_LOD0
     4300006: PalletJack_wheels_LOD0
+    6400000: PalletJack_forks_LOD0
+    6400002: PalletJack_handlebar_LOD0
+    6400004: PalletJack_steering_LOD0
+    6400006: PalletJack_wheels_LOD0
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +57,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
