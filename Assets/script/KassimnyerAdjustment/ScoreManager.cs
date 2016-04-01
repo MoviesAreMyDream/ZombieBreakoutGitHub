@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour {
     public float ZombieAScore = 10.0f;
     public float ZombieBScore = 25.0f;
     public float ZombieCScore = 35.0f;
+	public float ZombieDScore = 20.0f;
     public float DynamiteScore = 30.0f;
 
     public float CurrentScore;
@@ -113,7 +114,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public void KilledZombieD ()
 	{
-		CurrentScore += ZombieCScore;
+		CurrentScore += ZombieDScore;
 		ScoreAnim.Play("ScoreNumAnim");
 		
 		StartCoroutine(ScoreNumPlusVisibility());
