@@ -174,7 +174,7 @@ public class EnemyZombie : MonoBehaviour {
 	{
 		health -= damage;
 
-        if (IAmZombieA || (IAmZombieC) || (IAmZombieB)) {
+        if (IAmZombieA || (IAmZombieC) || (IAmZombieB) || (IAmZombieD)) {
 			anim.SetBool ("EnemyGotHit", true);
 			StartCoroutine (DamageCoolDown ());
 
@@ -235,7 +235,7 @@ public class EnemyZombie : MonoBehaviour {
         capsuleCollider.enabled = false;
         sphereCollider.enabled = false;
 
-        if (IAmZombieA || (IAmZombieC) || (IAmZombieB)) {
+        if (IAmZombieA || (IAmZombieC) || (IAmZombieB) || (IAmZombieD)) {
             anim.SetBool("EnemyStillAlive", false);
 
         }
@@ -273,6 +273,8 @@ public class EnemyZombie : MonoBehaviour {
             ScrManager.KilledZombieB();
         if (IAmZombieC)
             ScrManager.KilledZombieC();
+		if (IAmZombieD)
+			ScrManager.KilledZombieD();
     }
 
 	protected virtual void OnEnable()

@@ -7,7 +7,14 @@ public class PressHOLD : MonoBehaviour {
 	public int WaitTime = 1;
 	private float DownTime;
 	private bool isHandled = false;
-	public GameObject portal;
+
+	public GameObject portal1;
+	public GameObject portal2;
+	public GameObject portal3;
+	public GameObject portal4;
+	public GameObject portal5;
+	public GameObject portal6;
+
 	public Text interactionText;
 	public Image interactionBG;
 	public Image Bbut;
@@ -76,7 +83,36 @@ public class PressHOLD : MonoBehaviour {
 					Bbut.enabled = false;
 					//Destroy (gameObject);
 					homeportal.SetActive (true);
-					Destroy(portal);
+
+					if(portal1)
+					{
+						Destroy(portal1);
+					}
+
+					if(portal2)
+					{
+						Destroy(portal2);
+					}
+
+					if(portal3)
+					{
+						Destroy(portal3);
+					}
+
+					if(portal4)
+					{
+						Destroy(portal4);
+					}
+
+					if(portal5)
+					{
+						Destroy(portal5);
+					}
+
+					if(portal6)
+					{
+						Destroy(portal6);
+					}
 				}
 
 			}
