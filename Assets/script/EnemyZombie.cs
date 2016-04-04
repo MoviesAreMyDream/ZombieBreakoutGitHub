@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EnemyZombie : MonoBehaviour {
 
+	public float distance;
+
 	Transform target;
 	NavMeshAgent nav;
 	Transform player;
@@ -88,6 +90,8 @@ public class EnemyZombie : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		       
+		distance = Vector3.Distance(transform.position,player.position);
+
 		if(PlayerScriptReferece.PlayerIsDead == true)
 			anim.SetBool("PlayerIsDead", true);
 		
@@ -114,7 +118,13 @@ public class EnemyZombie : MonoBehaviour {
 				
 			}
 		}
-		
+
+		if(distance <= 10)
+		{
+			canAttack = true;
+			nav.stoppingDistance = 2;
+			gameObject.GetComponent<Patrol>().enabled = false;
+		}
     }
 
 
