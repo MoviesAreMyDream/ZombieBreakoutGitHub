@@ -130,34 +130,11 @@ public class PressHOLD : MonoBehaviour {
 
 	}
 
-//	private float counter = 1f;
 
 	void Update()
 	{
 
 	}
-
-//	void ProgressBar()
-//	{
-//		if(Input.GetButton("Fire3"))
-//		{
-//			if(Mathf.FloorToInt(counter) < WaitTime)
-//			{
-//				counter += 1 * Time.deltaTime;
-//				print(Mathf.FloorToInt(counter));
-//				progress.GetComponent<Scrollbar>().size = counter / WaitTime;
-//				progress.SetActive(true);
-//			}
-//		}
-//		
-//		else
-//			if(Input.GetButtonUp("Fire3"))
-//		{
-//			counter = 0;
-//			progress.SetActive (false);
-//		}
-//	}
-
 
 	void OnTriggerExit ()
 	{
