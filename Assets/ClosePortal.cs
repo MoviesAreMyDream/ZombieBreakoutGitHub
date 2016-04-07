@@ -45,7 +45,7 @@ public class ClosePortal : MonoBehaviour {
 		if(other.gameObject.tag == "Portal")
 		{
 
-			if(Input.GetKey(KeyCode.F))
+			if(Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.Joystick1Button2))
 			{
 				gameObject.GetComponent<CircularProgressBar>().enabled = true;
 			}
