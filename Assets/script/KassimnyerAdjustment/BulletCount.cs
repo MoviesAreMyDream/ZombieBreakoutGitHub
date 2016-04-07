@@ -61,6 +61,11 @@ public class BulletCount : MonoBehaviour {
 
 		}
 
+		if(player.CurrentWeaponName.Get() == "7LaserGun")
+		{
+			player.CurrentWeaponAmmoCount.Set(20);
+		}
+
 	}
 
 }

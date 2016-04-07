@@ -30,7 +30,7 @@ public class vp_FPCamera : vp_Component
 	// NOTE: mouse input variables have been moved to vp_FPInput
 
 	// camera rendering
-	public float RenderingFieldOfView = 60.0f;
+	public float RenderingFieldOfView = 110.0f;
 	public float RenderingZoomDamping = 0.2f;
 	protected float m_FinalZoomTime = 0.0f;
 	protected float m_ZoomOffset = 0.0f;
