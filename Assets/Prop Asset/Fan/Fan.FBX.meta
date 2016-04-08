@@ -15,6 +15,8 @@ ModelImporter:
     3300002: Fan_002
     4300000: Fan_holder_002
     4300002: Fan_002
+    6400000: //RootNode
+    6400002: Fan_002
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -42,7 +44,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
