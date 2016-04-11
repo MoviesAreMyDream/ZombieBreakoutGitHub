@@ -8,23 +8,36 @@ public class RandomSpawn : MonoBehaviour {
 	public int PortalAmount;
 
 	public GameObject[] Portals;
+    public AudioSource portalSpawned;
 
 	private int[] RandomNumbers;
 
 	private bool Same = false;
-
-
+    public bool spawned = false;
 
 	void Start () 
 	{
-//		StartMode = true;
-		SpawnStart();
-	}
+        portalSpawned = GetComponent<AudioSource>();
+        print("audio source grabbed");
+        for(int i = 0; i < 6; i++)  //set all portals to be not active
+        {
+            Portals[i].SetActive(false);
+            print("Portal " + i + " not active");
+        }
+    }
 
-	void Awake()
-	{
+    void Update()
+    {
+        if (Time.timeSinceLevelLoad / 60 >= 7f && !spawned) //check if the game is in the last 3 minutes
+        {
+            SpawnStart();
+            print("the portals have been spawned");
+            spawned = true;
+            portalSpawned.Play();
+            print("narrator voice played");
+        }
 
-	}
+    }
 
 	void SpawnStart () 
 	{
