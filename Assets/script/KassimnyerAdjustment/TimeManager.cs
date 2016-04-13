@@ -35,7 +35,7 @@ public class TimeManager : MonoBehaviour {
 		if (TimeLeft <= 0) 
 		{
 
-			Application.LoadLevel(2);
+			Application.LoadLevel(3);
 		}
 
     }
