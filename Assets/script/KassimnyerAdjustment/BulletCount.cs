@@ -20,7 +20,6 @@ public class BulletCount : MonoBehaviour {
 	
 		player = GameObject.FindObjectOfType (typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler;
 		PlayerReference = GameObject.Find ("PlayerOVR");
-//		player = PlayerReference.GetComponent<vp_FPPlayerEventHandler>();
 		GameManager = GameObject.Find ("GameManager");
 		progress.GetComponent<Scrollbar> ().size = 0;
 		progress.SetActive (false);
@@ -41,11 +40,9 @@ public class BulletCount : MonoBehaviour {
 
 		bullet.text = player.CurrentWeaponAmmoCount.Get ().ToString ();
 
-//		print (player.CurrentWeaponName.Get ());
 
 		if (player.CurrentWeaponAmmoCount.Get () == 0 && player.CurrentWeaponName.Get() == "7LaserGun") 
 		{
-//			print(Counter);
 			progress.SetActive (true);
 
 			if (Counter >= MaxTimer) 
@@ -61,10 +58,7 @@ public class BulletCount : MonoBehaviour {
 
 		}
 
-		if(player.CurrentWeaponName.Get() == "7LaserGun")
-		{
-			player.CurrentWeaponAmmoCount.Set(20);
-		}
+
 
 	}
 
