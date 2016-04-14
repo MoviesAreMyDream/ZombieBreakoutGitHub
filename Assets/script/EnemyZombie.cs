@@ -92,8 +92,10 @@ public class EnemyZombie : MonoBehaviour {
 		       
 		distance = Vector3.Distance(transform.position,player.position);
 
-		if(PlayerScriptReferece.PlayerIsDead == true)
-			anim.SetBool("PlayerIsDead", true);
+        if (PlayerScriptReferece.PlayerIsDead == true)
+            anim.SetBool("PlayerIsDead", true);
+        else
+            anim.SetBool("PlayerIsDead", false);
 		
 		if (anim.GetBool("EnemyStillAlive") == true)
 		{
