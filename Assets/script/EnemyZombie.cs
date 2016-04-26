@@ -31,14 +31,36 @@ public class EnemyZombie : MonoBehaviour {
 	private GameObject GameManagerGO;
     private ScoreManager ScrManager;
     public bool IAmZombieA;
-    public bool IAmZombieB;
-    public bool IAmZombieC;
+	public bool IAmZombieA1;
+	public bool IAmZombieA2;
+    
+	public bool IAmZombieB;
+	public bool IAmZombieB1;
+	public bool IAmZombieB2;
+
+	public bool IAmZombieC;
+	public bool IAmZombieC1;
+	public bool IAmZombieC2;
+
 	public bool IAmZombieD;
+	public bool IAmZombieD1;
+	public bool IAmZombieD2;
 
 	public float ZombieADamage = 5;
+	public float ZombieA1Damage = 5;
+	public float ZombieA2Damage = 5;
+
 	public float ZombieBDamage = 10;
+	public float ZombieB1Damage = 10;
+	public float ZombieB2Damage = 10;
+
 	public float ZombieCDamage = 20;
+	public float ZombieC1Damage = 20;
+	public float ZombieC2Damage = 20;
+
 	public float ZombieDDamage = 15;
+	public float ZombieD1Damage = 15;
+	public float ZombieD2Damage = 15;
 
 	private vp_PlayerEventHandler PlayerEvents = null;
 
@@ -52,20 +74,16 @@ public class EnemyZombie : MonoBehaviour {
 	void Awake () {
 		nav = GetComponent <NavMeshAgent> ();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		//controller = GetComponentInParent <Animator> ();
-		//game = FindObjectOfType<ZombieSpawnPointManager> ();
 		capsuleCollider = GetComponent <CapsuleCollider> ();
         sphereCollider = GetComponent<SphereCollider>();
 		anim = GetComponent <Animator> ();
-        //score.GetComponent<Text>("Zombie");
-       // currentState = ZombieState.isWalk;
+
 
 		PlayerEvents = player.transform.GetComponent<vp_PlayerEventHandler> ();
 	}
 
 	void Start () {
-        //scoring = 0;
-        //SetScore ();
+     
 		PlayerReference = GameObject.Find ("PlayerOVR");
 		PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
 
@@ -75,12 +93,31 @@ public class EnemyZombie : MonoBehaviour {
 
         if (IAmZombieA)
             MainDamage = ZombieADamage;
-        if (IAmZombieB)
+		if (IAmZombieA1)
+			MainDamage = ZombieA1Damage;
+		if (IAmZombieA2)
+			MainDamage = ZombieA2Damage;
+        
+		if (IAmZombieB)
             MainDamage = ZombieBDamage;
+		if (IAmZombieB1)
+			MainDamage = ZombieB1Damage;
+		if (IAmZombieB2)
+			MainDamage = ZombieB2Damage;
+				
         if (IAmZombieC)
             MainDamage = ZombieCDamage;
+		if (IAmZombieC1)
+			MainDamage = ZombieC1Damage;
+		if (IAmZombieC2)
+			MainDamage = ZombieC2Damage;
+
 		if (IAmZombieD)
 			MainDamage = ZombieDDamage;
+		if (IAmZombieD1)
+			MainDamage = ZombieD1Damage;
+		if (IAmZombieD2)
+			MainDamage = ZombieD2Damage;
 
 	}
 
@@ -127,6 +164,7 @@ public class EnemyZombie : MonoBehaviour {
 			nav.stoppingDistance = 2;
 			gameObject.GetComponent<Patrol>().enabled = false;
 		}
+
     }
 
 
@@ -144,7 +182,6 @@ public class EnemyZombie : MonoBehaviour {
 			anim.SetBool("PlayerIsDead", true);
 			canAttack = false;
 			nav.enabled = false;
-//			anim.SetFloat("PlayerStillThere", 0);
 		}
 
     }
@@ -186,7 +223,7 @@ public class EnemyZombie : MonoBehaviour {
 	{
 		health -= damage;
 
-        if (IAmZombieA || (IAmZombieC) || (IAmZombieB) || (IAmZombieD)) {
+		if (IAmZombieA || IAmZombieA1 || IAmZombieA2 || IAmZombieC || IAmZombieC1 || IAmZombieC2 || IAmZombieB || IAmZombieB1 || IAmZombieB2 || IAmZombieD || IAmZombieD1 || IAmZombieD2) {
 			anim.SetBool ("EnemyGotHit", true);
 			StartCoroutine (DamageCoolDown ());
 
@@ -205,60 +242,20 @@ public class EnemyZombie : MonoBehaviour {
         yield return new WaitForSeconds(0.2f);
         anim.SetBool("EnemyGotHit", false);
     }
-
-
-    /*
-    void OnTriggerEnter(Collider other)
-	{
-        currentState = ZombieState.isAttack;
-
-        if (IAmZombieA)
-            anim.SetTrigger ("isAttack");
-        if ((IAmZombieC) || (IAmZombieB))
-            anim.SetTrigger("mutantAttack");
-            //other.GetComponent<Collider>().SendMessageUpwards("PlayerDamage", TheDamage, SendMessageOptions.RequireReceiver);
-            //zombiedamage = zombiedamage + 1;
-            //ScorePoint();
-
-    }
-
-    void OnTriggerStay (Collider other)
-    {
-        currentState = ZombieState.isAttack;
-
-        if (IAmZombieA)
-            anim.SetTrigger("isAttack");
-        if ((IAmZombieC) || (IAmZombieB))
-            anim.SetTrigger("mutantAttack");
-    }
-
-    */
-
-	//void SetScore()
-	//{
-	//	score.text = "Zombie Kill: " + scoring.ToString();
-	//}
+		
 
 	void Death ()
 		{
         
 		nav.Stop ();
-        //		capsuleCollider.isTrigger = true;
         capsuleCollider.enabled = false;
         sphereCollider.enabled = false;
 
-        if (IAmZombieA || (IAmZombieC) || (IAmZombieB) || (IAmZombieD)) {
+		if (IAmZombieA || IAmZombieA1 || IAmZombieA2 || IAmZombieC || IAmZombieC1 || IAmZombieC2 || IAmZombieB || IAmZombieB1 || IAmZombieB2 || IAmZombieD || IAmZombieD1 || IAmZombieD2) {
             anim.SetBool("EnemyStillAlive", false);
 
         }
 
-
-        //Scoring.kill += scoring;
-        //score.text = "Zombie Kill: " + scoring++;
-        //SendMessageUpwards ("SetScore", TheDamage, SendMessageOptions.RequireReceiver);
-        //scoring = scoring + 1;
-        //Scoring.kill += scoreValue;
-        //score.text = "Zombie Kill: " + scoring.ToString();
 
         StartCoroutine(SpawnMedicine());
 
@@ -281,12 +278,31 @@ public class EnemyZombie : MonoBehaviour {
     {
         if (IAmZombieA)
             ScrManager.KilledZombieA();
+		if (IAmZombieA1)
+			ScrManager.KilledZombieA1();
+		if (IAmZombieA2)
+			ScrManager.KilledZombieA2();
+		
         if (IAmZombieB)
             ScrManager.KilledZombieB();
+		if (IAmZombieB1)
+			ScrManager.KilledZombieB1();
+		if (IAmZombieB2)
+			ScrManager.KilledZombieB2();
+		
         if (IAmZombieC)
             ScrManager.KilledZombieC();
+		if (IAmZombieC1)
+			ScrManager.KilledZombieC1();
+		if (IAmZombieC2)
+			ScrManager.KilledZombieC2();
+
 		if (IAmZombieD)
 			ScrManager.KilledZombieD();
+		if (IAmZombieD1)
+			ScrManager.KilledZombieD1();
+		if (IAmZombieD2)
+			ScrManager.KilledZombieD2();
     }
 
 	protected virtual void OnEnable()

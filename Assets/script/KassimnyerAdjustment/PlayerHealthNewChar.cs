@@ -144,13 +144,11 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			}
 			currentHealth = 0;
 			PlayerIsDead = true;
-//			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
 			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
 			gameObject.GetComponent<vp_FPPlayerEventHandler>().enabled= false;
 			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
-//			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
 			gameObject.GetComponent<Lerp>().enabled = true;
 			Rank.GetComponent<CustomText>().enabled = true;
 			RankGet.GetComponent<CustomText>().enabled = true;
