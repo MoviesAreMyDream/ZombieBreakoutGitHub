@@ -133,7 +133,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			}
 		}
 		//=====================================================
-		if (currentHealth <= 0f) 
+		if (currentHealth <= 0.0f) 
 		{
 			if(!Counter)
 			{
@@ -142,7 +142,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 				AudioSourceReference.GetComponent<AudioSource>().loop =  false;
 				AudioSourceReference.GetComponent<AudioSource>().Play ();
 			}
-			currentHealth = 0;
+			currentHealth = 0.0f;
 			PlayerIsDead = true;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
