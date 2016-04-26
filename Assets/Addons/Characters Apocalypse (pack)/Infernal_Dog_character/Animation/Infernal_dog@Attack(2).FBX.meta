@@ -134,6 +134,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.83251226
+        functionName: Attack
+        data: 
+        objectReferenceParameter: {fileID: 100072, guid: 6e3278e73a318b64398514cacfe4dfe9,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

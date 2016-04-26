@@ -133,7 +133,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			}
 		}
 		//=====================================================
-		if (currentHealth <= 0f) 
+		if (currentHealth <= 0.0f) 
 		{
 			if(!Counter)
 			{
@@ -142,15 +142,13 @@ public class PlayerHealthNewChar : MonoBehaviour {
 				AudioSourceReference.GetComponent<AudioSource>().loop =  false;
 				AudioSourceReference.GetComponent<AudioSource>().Play ();
 			}
-			currentHealth = 0;
+			currentHealth = 0.0f;
 			PlayerIsDead = true;
-//			gameObject.GetComponent<AudioListener>().enabled = false;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
 			CenterEyeAcnhor.GetComponent<VideoGlitches.VideoGlitchNoiseDigital>().enabled = true;
 			gameObject.GetComponent<vp_FPPlayerEventHandler>().enabled= false;
 			gameObject.GetComponent<PlayerHealthNewChar>().enabled = false;
-//			PlayerReference.transform.Translate (new Vector3(0, -2, 0),Space.Self);
 			gameObject.GetComponent<Lerp>().enabled = true;
 			Rank.GetComponent<CustomText>().enabled = true;
 			RankGet.GetComponent<CustomText>().enabled = true;
