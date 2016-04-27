@@ -4,10 +4,22 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour {
 
     public float ZombieAScore = 10.0f;
-    public float ZombieBScore = 25.0f;
-    public float ZombieCScore = 35.0f;
+	public float ZombieA1Score = 10.0f;
+	public float ZombieA2Score = 10.0f;
+   
+	public float ZombieBScore = 25.0f;
+	public float ZombieB1Score = 25.0f;
+	public float ZombieB2Score = 25.0f;
+   
+	public float ZombieCScore = 35.0f;
+	public float ZombieC1Score = 35.0f;
+	public float ZombieC2Score = 35.0f;
+
 	public float ZombieDScore = 20.0f;
-    public float DynamiteScore = 30.0f;
+	public float ZombieD1Score = 20.0f;
+	public float ZombieD2Score = 20.0f;
+
+	public float DynamiteScore = 100.0f;
 
     public float CurrentScore;
     public float DynamiteCount;
@@ -92,6 +104,26 @@ public class ScoreManager : MonoBehaviour {
         ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
+	public void KilledZombieA1 ()
+	{
+		CurrentScore += ZombieA1Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieA1Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
+	public void KilledZombieA2 ()
+	{
+		CurrentScore += ZombieA2Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieA2Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
     public void KilledZombieB ()
     {
         CurrentScore += ZombieBScore;
@@ -102,15 +134,55 @@ public class ScoreManager : MonoBehaviour {
         ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
+	public void KilledZombieB1 ()
+	{
+		CurrentScore += ZombieB1Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieB1Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
+	public void KilledZombieB2 ()
+	{
+		CurrentScore += ZombieB2Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieB2Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
     public void KilledZombieC ()
     {
         CurrentScore += ZombieCScore;
         ScoreAnim.Play("ScoreNumAnim");
 
         StartCoroutine(ScoreNumPlusVisibility());
-        ScorePlus.text = "+ " + ZombieBScore.ToString() + " point";
+        ScorePlus.text = "+ " + ZombieCScore.ToString() + " point";
         ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
+
+	public void KilledZombieC1 ()
+	{
+		CurrentScore += ZombieC1Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieC1Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
+	public void KilledZombieC2 ()
+	{
+		CurrentScore += ZombieC2Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieC2Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
 
 	public void KilledZombieD ()
 	{
@@ -118,7 +190,27 @@ public class ScoreManager : MonoBehaviour {
 		ScoreAnim.Play("ScoreNumAnim");
 		
 		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieBScore.ToString() + " point";
+		ScorePlus.text = "+ " + ZombieDScore.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
+	public void KilledZombieD1 ()
+	{
+		CurrentScore += ZombieDScore;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieD1Score.ToString() + " point";
+		ScorePlusAnim.Play("ScoreNumPlusAnim");
+	}
+
+	public void KilledZombieD2 ()
+	{
+		CurrentScore += ZombieD2Score;
+		ScoreAnim.Play("ScoreNumAnim");
+
+		StartCoroutine(ScoreNumPlusVisibility());
+		ScorePlus.text = "+ " + ZombieD2Score.ToString() + " point";
 		ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
