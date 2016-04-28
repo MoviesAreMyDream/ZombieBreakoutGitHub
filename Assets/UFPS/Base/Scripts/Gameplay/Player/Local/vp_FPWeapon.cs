@@ -533,7 +533,6 @@ public class vp_FPWeapon : vp_Weapon
 	/// </summary>
 	public virtual void SnapZoom()
 	{
-
 		if (m_WeaponCamera != null && vp_Utility.IsActive(m_WeaponCamera.gameObject))
 			m_WeaponCamera.GetComponent<Camera>().fieldOfView = RenderingFieldOfView;
 
