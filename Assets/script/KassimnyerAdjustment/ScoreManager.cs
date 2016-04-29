@@ -97,137 +97,137 @@ public class ScoreManager : MonoBehaviour {
     public void KilledZombieA ()
     {
         CurrentScore += ZombieAScore;
-        ScoreAnim.Play("ScoreNumAnim");
+        //ScoreAnim.Play("ScoreNumAnim");
 
-        StartCoroutine(ScoreNumPlusVisibility());
-        ScorePlus.text = "+ " + ZombieAScore.ToString() + " point";
-        ScorePlusAnim.Play("ScoreNumPlusAnim");
+        //StartCoroutine(ScoreNumPlusVisibility());
+        //ScorePlus.text = "+ " + ZombieAScore.ToString() + " point";
+        //ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
 	public void KilledZombieA1 ()
 	{
 		CurrentScore += ZombieA1Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieA1Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieA1Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieA2 ()
 	{
 		CurrentScore += ZombieA2Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieA2Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieA2Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
     public void KilledZombieB ()
     {
         CurrentScore += ZombieBScore;
-        ScoreAnim.Play("ScoreNumAnim");
+        //ScoreAnim.Play("ScoreNumAnim");
 
-        StartCoroutine(ScoreNumPlusVisibility());
-        ScorePlus.text = "+ " + ZombieBScore.ToString() + " point";
-        ScorePlusAnim.Play("ScoreNumPlusAnim");
+        //StartCoroutine(ScoreNumPlusVisibility());
+        //ScorePlus.text = "+ " + ZombieBScore.ToString() + " point";
+        //ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
 	public void KilledZombieB1 ()
 	{
 		CurrentScore += ZombieB1Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieB1Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieB1Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieB2 ()
 	{
 		CurrentScore += ZombieB2Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieB2Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieB2Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
     public void KilledZombieC ()
     {
         CurrentScore += ZombieCScore;
-        ScoreAnim.Play("ScoreNumAnim");
+        //ScoreAnim.Play("ScoreNumAnim");
 
-        StartCoroutine(ScoreNumPlusVisibility());
-        ScorePlus.text = "+ " + ZombieCScore.ToString() + " point";
-        ScorePlusAnim.Play("ScoreNumPlusAnim");
+        //StartCoroutine(ScoreNumPlusVisibility());
+        //ScorePlus.text = "+ " + ZombieCScore.ToString() + " point";
+        //ScorePlusAnim.Play("ScoreNumPlusAnim");
     }
 
 	public void KilledZombieC1 ()
 	{
 		CurrentScore += ZombieC1Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieC1Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieC1Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieC2 ()
 	{
 		CurrentScore += ZombieC2Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieC2Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieC2Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieD ()
 	{
 		CurrentScore += ZombieDScore;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 		
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieDScore.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieDScore.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieD1 ()
 	{
 		CurrentScore += ZombieDScore;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieD1Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieD1Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
 	public void KilledZombieD2 ()
 	{
 		CurrentScore += ZombieD2Score;
-		ScoreAnim.Play("ScoreNumAnim");
+		//ScoreAnim.Play("ScoreNumAnim");
 
-		StartCoroutine(ScoreNumPlusVisibility());
-		ScorePlus.text = "+ " + ZombieD2Score.ToString() + " point";
-		ScorePlusAnim.Play("ScoreNumPlusAnim");
+		//StartCoroutine(ScoreNumPlusVisibility());
+		//ScorePlus.text = "+ " + ZombieD2Score.ToString() + " point";
+		//ScorePlusAnim.Play("ScoreNumPlusAnim");
 	}
 
     public void GetDynamite ()
     {
         CurrentScore += DynamiteScore;
         DynamiteCount = 1;
-        ScoreAnim.Play("ScoreNumAnim");
-        DynamiteAnim.Play("DynamiteNumAnim");
+        //ScoreAnim.Play("ScoreNumAnim");
+        //DynamiteAnim.Play("DynamiteNumAnim");
 
-        StartCoroutine(ScoreNumPlusVisibility());
-        ScorePlus.text = "+ " + DynamiteScore.ToString() + " point";
-        ScorePlusAnim.Play("ScoreNumPlusAnim");
+        //StartCoroutine(ScoreNumPlusVisibility());
+        //ScorePlus.text = "+ " + DynamiteScore.ToString() + " point";
+        //ScorePlusAnim.Play("ScoreNumPlusAnim");
 
-        StartCoroutine(DynamiteNumPlusVisibility());
-        DynamitePlus.text = "+ " + DynamiteCount.ToString() + " points";
-        DynamitePlusAnim.Play("DynamiteNumPlusAnim");
+        //StartCoroutine(DynamiteNumPlusVisibility());
+        //DynamitePlus.text = "+ " + DynamiteCount.ToString() + " points";
+        //DynamitePlusAnim.Play("DynamiteNumPlusAnim");
     }
 
     
