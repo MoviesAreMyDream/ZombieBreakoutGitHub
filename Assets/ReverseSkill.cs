@@ -12,7 +12,7 @@ public class ReverseSkill : MonoBehaviour {
 
 	void Start()
 	{
-		ReverseBar.GetComponent<Image>().fillAmount = 1;
+		ReverseBar.GetComponent<Scrollbar>().size = 1;
 	}
 
 	// Update is called once per frame
@@ -20,20 +20,35 @@ public class ReverseSkill : MonoBehaviour {
 	
 		Clock clock = Timekeeper.instance.Clock("Zombie");
 
-		if(Input.GetKey(KeyCode.O) || Input.GetAxis("LTrigger")>0.1)
+		if(Input.GetKeyDown(KeyCode.O) || Input.GetAxis("LTrigger")>0.1)
 		{
-			clock.localTimeScale = -1;
-			print("REVERSE");
-			ReverseBar.GetComponent<Image>().fillAmount -= 1.0f/time*Time.deltaTime;
-			ReverseSound.Play();
+			if(ReverseBar.GetComponent<Scrollbar>().size == 1f)
+			{
+				clock.localTimeScale = -1;
+				print("REVERSE");
+				ReverseSound.Play();
+			}
+
+		}
+			
+		if(clock.localTimeScale == -1)
+		{
+			ReverseBar.GetComponent<Scrollbar>().size -= 1.0f/time*Time.deltaTime;
+
 		}
 
-		else
+		if(ReverseBar.GetComponent<Scrollbar>().size <= 0f)
 		{
 			clock.localTimeScale = 1;
-			print("FORWARD");
-			ReverseBar.GetComponent<Image>().fillAmount += 1.0f/time*Time.deltaTime;
+
+		}
+
+		if(clock.localTimeScale == 1)
+		{
+			ReverseBar.GetComponent<Scrollbar>().size += 1.0f/time*Time.deltaTime;
+
 		}
 	}
 		
+
 }
