@@ -170,11 +170,14 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public void remove(float amount) { //animation when damaged
 
 		currentHealth -= amount;
+
+        /*
 		HealthAnim.Play("HealthNumAnim");
 
 		StartCoroutine(HealthNumPlusVisibility());
 		HealthPlus.text = "- " + amount.ToString() + " points";
 		HealthPlusAnim.Play("HealthNumPlusAnim");
+        */
 
 		hurtfx.SetActive (true);
 		StartCoroutine (Hurt());
@@ -182,11 +185,14 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	
 	public void add(float amount){ //animation when healed
 		currentHealth += amount;
+
+        /*
 		HealthAnim.Play("HealthNumAnim");
 		
 		StartCoroutine(HealthNumPlusVisibility());
 		HealthPlus.text = "+ " + amount.ToString() + " points";
 		HealthPlusAnim.Play("HealthNumPlusAnim");
+        */
 	}
 
 

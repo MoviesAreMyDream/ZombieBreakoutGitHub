@@ -317,8 +317,8 @@ public class vp_FPCamera : vp_Component
 	/// </summary>
 	protected override void Update()
 	{
-
-		base.Update();
+        
+        base.Update();
 
 		if (Time.timeScale == 0.0f)
 		    return;
@@ -596,7 +596,7 @@ public class vp_FPCamera : vp_Component
 
 		RenderingZoomDamping = Mathf.Max(RenderingZoomDamping, 0.01f);
 		float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
-		gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(gameObject.GetComponent<Camera>().fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
+		//gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(gameObject.GetComponent<Camera>().fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
 
 	}
 
@@ -607,7 +607,7 @@ public class vp_FPCamera : vp_Component
 	public void RefreshZoom()
 	{
 		float zoom = 1.0f - ((m_FinalZoomTime - Time.time) / RenderingZoomDamping);
-		gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(gameObject.GetComponent<Camera>().fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
+		//gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(gameObject.GetComponent<Camera>().fieldOfView, RenderingFieldOfView + ZoomOffset, zoom);
 	}
 
 
@@ -1017,8 +1017,7 @@ public class vp_FPCamera : vp_Component
 			return (Player.LookPoint.Get() - Transform.position).normalized;
 		}
 	}
-
-
+    
 	/// <summary>
 	/// applies various forces to the camera and weapon springs
 	/// in response to falling impact.
