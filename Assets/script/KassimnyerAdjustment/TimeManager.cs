@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour {
 
     void Start ()
     {
-        TimeLeft = 600;
+        TimeLeft = 180;
 
         TimeNumGO = GameObject.Find("TimeNum");
         TimeNum = TimeNumGO.GetComponent<CustomText>();
@@ -35,7 +35,7 @@ public class TimeManager : MonoBehaviour {
 		if (TimeLeft <= 0) 
 		{
 
-			Application.LoadLevel(3);
+			Application.LoadLevel(2);
 		}
 
     }

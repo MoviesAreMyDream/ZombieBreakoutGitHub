@@ -27,6 +27,8 @@ public class PressHOLDv2 : MonoBehaviour {
     public Text goal2;
     public Animation GoalTextAnim;
 
+	public GameObject narrator;
+
     public GameObject GameManagerGO;
     public ScoreManager ScrManager;
 
@@ -42,6 +44,7 @@ public class PressHOLDv2 : MonoBehaviour {
         interactionBG.enabled = false;
         Bbut.enabled = false;
         homeportal.SetActive(false);
+		narrator.SetActive(false);
 
         GameManagerGO = GameObject.Find("GameManager");
         ScrManager = GameManagerGO.GetComponent<ScoreManager>();
@@ -103,40 +106,11 @@ public class PressHOLDv2 : MonoBehaviour {
                         portal6.SetActive(false);
 
 
-                    //if (portal1)
-                    //{
-                    //    Destroy(portal1);
-                    //}
-
-                    //if (portal2)
-                    //{
-                    //    Destroy(portal2);
-                    //}
-
-                    //if (portal3)
-                    //{
-                    //    Destroy(portal3);
-                    //}
-
-                    //if (portal4)
-                    //{
-                    //    Destroy(portal4);
-                    //}
-
-                    //if (portal5)
-                    //{
-                    //    Destroy(portal5);
-                    //}
-
-                    //if (portal6)
-                    //{
-                    //    Destroy(portal6);
-                    //}
+                  
                 }
 
             }
 
-            //			Debug.Log("Portal");
 
         }
 
@@ -152,7 +126,7 @@ public class PressHOLDv2 : MonoBehaviour {
 
     void Update()
     {
-        if (Time.timeSinceLevelLoad / 60 >= 7.001)
+        if (Time.timeSinceLevelLoad / 60 >= 7.01f)
             checkAllPortals();
     }
 
@@ -175,7 +149,15 @@ public class PressHOLDv2 : MonoBehaviour {
             {
                 homePortalSpawned.Play();
                 played = true;
+				narrator.SetActive(true);
+				StartCoroutine(FadeAway());
             }
         }
     }
+
+	IEnumerator FadeAway()
+	{
+		yield return new WaitForSeconds(6.5f);
+		narrator.SetActive(false);
+	}
 }
