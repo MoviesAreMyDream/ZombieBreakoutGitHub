@@ -9,6 +9,7 @@ public class RandomSpawn : MonoBehaviour {
 
 	public GameObject[] Portals;
     public AudioSource portalSpawned;
+	public GameObject narrator;
 
 	private int[] RandomNumbers;
 
@@ -17,6 +18,8 @@ public class RandomSpawn : MonoBehaviour {
 
 	void Start () 
 	{
+		narrator.SetActive(false);
+		spawned = false;
         portalSpawned = GetComponent<AudioSource>();
         print("audio source grabbed");
         for(int i = 0; i < 6; i++)  //set all portals to be not active
@@ -35,9 +38,17 @@ public class RandomSpawn : MonoBehaviour {
             spawned = true;
             portalSpawned.Play();
             print("narrator voice played");
+			narrator.SetActive(true);
+			StartCoroutine(FadeAway());
         }
 
     }
+
+	IEnumerator FadeAway()
+	{
+		yield return new WaitForSeconds(5f);
+		narrator.SetActive(false);
+	}
 
 	void SpawnStart () 
 	{
