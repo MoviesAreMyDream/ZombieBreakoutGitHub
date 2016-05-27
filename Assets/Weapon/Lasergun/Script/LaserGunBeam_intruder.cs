@@ -38,7 +38,7 @@ public class LaserGunBeam_intruder : MonoBehaviour {
 		{
 			if(bullet > 0)
 			{
-				if (intruder.GetComponent<intruderDUKE>().distance <= 20) //fire
+				if (intruder.GetComponent<intruderDUKE>().distanceBetweenPlayer <= 15) //fire
 				{
 					GameObject go = GameObject.Instantiate(m_shotPrefab, m_muzzle.position, m_muzzle.rotation) as GameObject; //instantiate bullet
 					GameObject.Destroy(go, 3f); //bullet is firing
@@ -60,6 +60,7 @@ public class LaserGunBeam_intruder : MonoBehaviour {
 				intruder.GetComponent<Animator>().SetBool("NoBullet",true);
 
 			}
+				
 		}
 	}
 
@@ -68,11 +69,13 @@ public class LaserGunBeam_intruder : MonoBehaviour {
 
 		for (int i = 0; i < 4; i++) //looping for 3 seconds
 		{
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(0.5f);
 
 		}
 
 		bullet = 20;
 		reload.GetComponent<AudioSource>().Play();
+		intruder.GetComponent<Animator>().SetBool("NoBullet",false);
+
 	}
 }
