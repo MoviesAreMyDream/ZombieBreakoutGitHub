@@ -3,7 +3,8 @@ using System.Collections;
 
 public class intruderDUKE : MonoBehaviour {
 
-	public float distance;
+	public float distanceBetweenPlayer;
+	public float distanceBetweenConsole;
 
 	Transform target;
 	NavMeshAgent nav;
@@ -22,6 +23,7 @@ public class intruderDUKE : MonoBehaviour {
 	private PlayerHealthNewChar PlayerScriptReferece;
 
 	Transform navpoint;
+	public GameObject Rifle;
 
 	// Use this for initialization
 	void Awake () {
@@ -51,26 +53,37 @@ public class intruderDUKE : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		distance = Vector3.Distance(transform.position,player.position);
+		distanceBetweenPlayer = Vector3.Distance(transform.position,player.position);
+		distanceBetweenConsole = Vector3.Distance(transform.position,navpoint.position);
+
 		//RotateTowards(navpoint.transform);
 		nav.SetDestination(navpoint.position);
 //		print(nav.remainingDistance);
 		canAttack = false;
 
-		if(distance <= 20)
+		if(distanceBetweenPlayer <= 20)
 		{
 			canAttack = true;
 
-			if(canAttack == true)
-			{
-				nav.stoppingDistance = 12;
-				nav.SetDestination(player.position);
-				anim.SetBool("PlayerInRange",true);
+			if (canAttack == true) {
+				nav.stoppingDistance = 15;
+				nav.SetDestination (player.position);
+				anim.SetBool ("PlayerInRange", true);
+				anim.SetBool ("Hack", false);
 
+				if (distanceBetweenPlayer <= 15) {
+					anim.SetBool ("CanAttack", true);
+				}
+
+				else
+				{
+					anim.SetBool ("CanAttack", false);
+
+				}
 			}
 		}
 
-		if(distance >= 20)
+		if(distanceBetweenPlayer >= 20)
 		{
 			canAttack = false;
 
@@ -79,6 +92,12 @@ public class intruderDUKE : MonoBehaviour {
 				nav.SetDestination(navpoint.position);
 				nav.stoppingDistance = 1;
 				anim.SetBool("PlayerInRange",false);
+			}
+
+			if(distanceBetweenConsole <= 1)
+			{
+				anim.SetBool ("Hack", true);
+				anim.SetBool ("PlayerInRange", false);
 			}
 		}
 			
@@ -94,12 +113,8 @@ public class intruderDUKE : MonoBehaviour {
 			RotateTowards(player.transform);
 
 		}
-
-		if(intruder.gameObject.tag == "START")
-		{
-			anim.SetBool("Detected",true);
-		}
 			
+
 	}
 
 	void OnTriggerExit(Collider intruder)
