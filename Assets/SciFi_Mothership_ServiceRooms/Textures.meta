@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/SciFi_Mothership_ServiceRooms/Textures.meta
+guid: e86ba6f0c163a1c41bf315511f9bb1e8
+folderAsset: yes
+timeCreated: 1453370293
+=======
 guid: 68a8b7adeb9080445ad66bcbe8c34f4e
 folderAsset: yes
 timeCreated: 1464310397
+>>>>>>> refs/remotes/origin/master:Assets/SciFi_Mothership_ServiceRooms/Textures.meta
 licenseType: Free
 DefaultImporter:
   userData: 
