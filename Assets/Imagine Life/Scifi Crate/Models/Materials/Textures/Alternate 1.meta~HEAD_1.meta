@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: a8398dffcb44045418e9bea2383678ac
+timeCreated: 1464850815
+=======
 guid: 1ec11023c7dc81f4ebb9e3b687b7459e
 timeCreated: 1464835553
+>>>>>>> refs/remotes/origin/farhana
 licenseType: Free
 DefaultImporter:
   userData: 

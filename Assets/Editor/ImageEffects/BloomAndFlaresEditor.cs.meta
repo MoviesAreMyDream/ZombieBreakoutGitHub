@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 4deca87cb459d1642ac8f734856ca84e
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+<<<<<<< HEAD:Assets/Editor/ImageEffects/BloomAndFlaresEditor.cs.meta
+=======
+  assetBundleVariant: 
+>>>>>>> refs/remotes/origin/farhana:Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs.meta

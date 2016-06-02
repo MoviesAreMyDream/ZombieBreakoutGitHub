@@ -81,12 +81,36 @@ CGINCLUDE
 		return lerp(tex2D( _MainTex, i.uv ), _FogColor, fogVert);				
 	}
 
+<<<<<<< HEAD
+		// Compute fog distance
+		float g = _DistanceParams.x;
+		if (distance)
+			g += ComputeDistance (wsDir, dpth);
+		if (height)
+			g += ComputeHalfSpace (wsDir);
+
+		// Compute fog amount
+		half fogFac = ComputeFogFactor (max(0.0,g));
+		// Do not fog skybox
+<<<<<<< HEAD
+		if (dpth == _DistanceParams.y)
+=======
+		if (rawDepth >= 0.999999)
+>>>>>>> origin/master
+			fogFac = 1.0;
+		//return fogFac; // for debugging
+		
+		// Lerp between fog color & original scene color
+		// by fog amount
+		return lerp (unity_FogColor, sceneColor, fogFac);
+=======
 	half4 fragDistance (v2f i) : COLOR
 	{
 		float dpth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,i.uv_depth)));		
 		float4 camDir = ( /*_CameraWS  + */ dpth * i.interpolatedRay);
 		float fogInt = saturate(length( camDir ) * _StartDistance.x - 1.0) * _StartDistance.y;	
 		return lerp(_FogColor, tex2D(_MainTex, i.uv), exp(-_GlobalDensity*fogInt));				
+>>>>>>> refs/remotes/origin/farhana
 	}
 
 ENDCG

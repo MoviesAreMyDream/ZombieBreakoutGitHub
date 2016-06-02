@@ -5,9 +5,52 @@ using UnityEngine;
 // as it is scaled to a smaller resolution.
 // The effect works by accumulating the previous frames in an accumulation
 // texture.
+<<<<<<< HEAD
+namespace UnityStandardAssets.ImageEffects
+{
+    [ExecuteInEditMode]
+    [AddComponentMenu("Image Effects/Blur/Motion Blur (Color Accumulation)")]
+    [RequireComponent(typeof(Camera))]
+    public class MotionBlur : ImageEffectBase
+    {
+        [Range(0.0f, 0.92f)]
+        public float blurAmount = 0.8f;
+        public bool extraBlur = false;
+
+        private RenderTexture accumTexture;
+
+        override protected void Start()
+        {
+            if (!SystemInfo.supportsRenderTextures)
+            {
+                enabled = false;
+                return;
+            }
+            base.Start();
+        }
+
+        override protected void OnDisable()
+        {
+            base.OnDisable();
+            DestroyImmediate(accumTexture);
+        }
+
+        // Called by camera to apply image effect
+        void OnRenderImage (RenderTexture source, RenderTexture destination)
+        {
+            // Create the accumulation texture
+            if (accumTexture == null || accumTexture.width != source.width || accumTexture.height != source.height)
+            {
+                DestroyImmediate(accumTexture);
+                accumTexture = new RenderTexture(source.width, source.height, 0);
+                accumTexture.hideFlags = HideFlags.HideAndDontSave;
+                Graphics.Blit( source, accumTexture );
+            }
+=======
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/Motion Blur (Color Accumulation)")]
 [RequireComponent(typeof(Camera))]
+>>>>>>> refs/remotes/origin/farhana
 
 public class MotionBlur : ImageEffectBase
 {
