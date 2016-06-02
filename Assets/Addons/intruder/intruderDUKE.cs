@@ -14,7 +14,7 @@ public class intruderDUKE : MonoBehaviour {
 	Transform target;
 	NavMeshAgent nav;
 	Transform player;
-	public float health = 100;
+	public float health = 100f;
 	CapsuleCollider capsuleCollider;
 	SphereCollider sphereCollider;
 	Animator anim;
@@ -28,6 +28,8 @@ public class intruderDUKE : MonoBehaviour {
 
 	Transform navpoint;
 	public GameObject Rifle;
+	public GameObject hpUI;
+	public GameObject flashbang;
 
 	// Use this for initialization
 	void Awake () {
@@ -37,6 +39,7 @@ public class intruderDUKE : MonoBehaviour {
 		sphereCollider = GetComponent<SphereCollider>();
 		anim = GetComponent <Animator> ();
 		navpoint = GameObject.FindGameObjectWithTag("START").transform;
+		flashbang.GetComponent<Image> ().enabled = false;
 
 	}
 
@@ -57,6 +60,8 @@ public class intruderDUKE : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		hpUI.GetComponent<Text>().text = health.ToString ();
+
 		distanceBetweenPlayer = Vector3.Distance(transform.position,player.position);
 		distanceBetweenConsole = Vector3.Distance(transform.position,navpoint.position);
 
@@ -73,6 +78,8 @@ public class intruderDUKE : MonoBehaviour {
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
+				RotateTowards(player.transform);
+
 
 				if (distanceBetweenPlayer <= 15) {
 					anim.SetBool ("CanAttack", true);
@@ -104,6 +111,7 @@ public class intruderDUKE : MonoBehaviour {
 			}
 		}
 
+<<<<<<< HEAD
 
 			if (health <= 60) 
 			{
@@ -127,6 +135,43 @@ public class intruderDUKE : MonoBehaviour {
 		
 			
 
+=======
+		if (round1 == true) 
+		{	
+			if (health <= 60) 
+			{
+				anim.SetBool ("Escape", true);
+				capsuleCollider.enabled = false;
+				nav.Stop ();
+				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
+				capsuleCollider.enabled = false;
+				flashbang.GetComponent<Image> ().enabled = true;
+				StartCoroutine (Flash ());
+				StartCoroutine (Teleport ());
+			}
+
+		}
+
+		if(round2 == true)
+		{
+			if (health <= 30) 
+			{
+				anim.SetBool ("Escape", true);
+				capsuleCollider.enabled = false;
+				StartCoroutine (Flash ());
+				StartCoroutine (Teleport ());
+			}
+		}
+
+		if(round3 == true)
+		{
+			anim.SetBool ("Escape", true);
+			capsuleCollider.enabled = false;
+			StartCoroutine (Flash ());
+			StartCoroutine (Teleport ());
+		}
+
+>>>>>>> parent of 6763c3b... Revert "update 30th may"
 		if(health <= 1)
 		{
 			Death ();
@@ -139,12 +184,27 @@ public class intruderDUKE : MonoBehaviour {
 		health -= damage;
 
 	}
+<<<<<<< HEAD
 
 
 	IEnumerator Teleport()
 	{
 		yield return new WaitForSeconds (1.5f);
 		gameObject.SetActive (false);
+=======
+		
+	IEnumerator Teleport()
+	{
+		yield return new WaitForSeconds (1.5f);
+		gameObject.SetActive (false);
+
+	}
+
+	IEnumerator Flash()
+	{
+		yield return new WaitForSeconds (1.5f);
+		flashbang.GetComponent<Image> ().CrossFadeAlpha (0f, 2.0f, false);
+>>>>>>> parent of 6763c3b... Revert "update 30th may"
 	}
 		
 
@@ -156,7 +216,11 @@ public class intruderDUKE : MonoBehaviour {
 		Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 		nav.Stop();
 		capsuleCollider.enabled = false;
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> parent of 6763c3b... Revert "update 30th may"
 	}
 
 
