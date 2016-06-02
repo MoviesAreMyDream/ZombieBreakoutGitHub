@@ -14,7 +14,6 @@ public class intruderDUKE : MonoBehaviour {
 	Transform target;
 	NavMeshAgent nav;
 	Transform player;
-	GameObject body;
 	public float health = 100;
 	CapsuleCollider capsuleCollider;
 	SphereCollider sphereCollider;
@@ -38,6 +37,7 @@ public class intruderDUKE : MonoBehaviour {
 		sphereCollider = GetComponent<SphereCollider>();
 		anim = GetComponent <Animator> ();
 		navpoint = GameObject.FindGameObjectWithTag("START").transform;
+
 	}
 
 	void Start () {
@@ -60,13 +60,12 @@ public class intruderDUKE : MonoBehaviour {
 		distanceBetweenPlayer = Vector3.Distance(transform.position,player.position);
 		distanceBetweenConsole = Vector3.Distance(transform.position,navpoint.position);
 
-//		nav.SetDestination(player.position);
+		nav.SetDestination(navpoint.position);
 		canAttack = false;
 
-		if(distanceBetweenPlayer <= 25)
+		if(distanceBetweenPlayer <= 20)
 		{
 			canAttack = true;
-
 
 			if (canAttack == true) {
 				nav.stoppingDistance = 15;
@@ -87,27 +86,25 @@ public class intruderDUKE : MonoBehaviour {
 			}
 		}
 
-		if(distanceBetweenPlayer >= 30)
+		if(distanceBetweenPlayer >= 20)
 		{
 			canAttack = false;
 
 			if(canAttack == false)
 			{
-//				nav.SetDestination(player.position);
-//				nav.stoppingDistance = 1;
-				anim.SetBool("Hack",true);
-
+				nav.SetDestination(navpoint.position);
+				nav.stoppingDistance = 1;
+				anim.SetBool("PlayerInRange",false);
 			}
 
-//			if(distanceBetweenConsole <= 1)
-//			{
-//				anim.SetBool ("Hack", true);
-//				anim.SetBool ("PlayerInRange", false);
-//			}
+			if(distanceBetweenConsole <= 1)
+			{
+				anim.SetBool ("Hack", true);
+				anim.SetBool ("PlayerInRange", false);
+			}
 		}
 
-		if (round1)
-		{
+
 			if (health <= 60) 
 			{
 				anim.SetBool ("Escape", true);
@@ -116,11 +113,9 @@ public class intruderDUKE : MonoBehaviour {
 				round1 = false;
 				StartCoroutine (Teleport ());
 			}
-		}
+		
 
 
-		if(round2)
-		{
 			if(health <= 30)
 			{
 				anim.SetBool ("Escape", true);
@@ -129,8 +124,8 @@ public class intruderDUKE : MonoBehaviour {
 				round2 = false;
 				StartCoroutine (Teleport ());
 			}
-		}
-						
+		
+			
 
 		if(health <= 1)
 		{
@@ -138,8 +133,6 @@ public class intruderDUKE : MonoBehaviour {
 		}
 	
 	}
-
-
 
 	public void ApplyDamage(float damage)
 	{
