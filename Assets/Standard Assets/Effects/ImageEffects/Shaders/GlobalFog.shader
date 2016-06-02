@@ -137,7 +137,11 @@ CGINCLUDE
 		// Compute fog amount
 		half fogFac = ComputeFogFactor (max(0.0,g));
 		// Do not fog skybox
+<<<<<<< HEAD
 		if (dpth == _DistanceParams.y)
+=======
+		if (rawDepth >= 0.999999)
+>>>>>>> refs/remotes/origin/master
 			fogFac = 1.0;
 		//return fogFac; // for debugging
 		
