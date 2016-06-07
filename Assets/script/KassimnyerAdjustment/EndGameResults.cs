@@ -11,7 +11,7 @@ public class EndGameResults : MonoBehaviour {
     private ScoreManager ScrManager;
     private float ZombieKill;
     private float DynCount;
-    public string Rank; 
+    public string Rank;
 
 	void Start () {
         ScrManagerGO = GameObject.Find("GameManager");

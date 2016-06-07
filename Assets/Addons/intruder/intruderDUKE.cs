@@ -30,10 +30,9 @@ public class intruderDUKE : MonoBehaviour {
 		nav = GetComponent <NavMeshAgent> ();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		capsuleCollider = GetComponent <CapsuleCollider> ();
-		sphereCollider = GetComponent<SphereCollider>();
+		sphereCollider = gameObject.GetComponentInChildren<SphereCollider>();
 		anim = GetComponent <Animator> ();
 		navpoint = GameObject.FindGameObjectWithTag("START").transform;
-
 	}
 
 	void Start () {
@@ -67,18 +66,17 @@ public class intruderDUKE : MonoBehaviour {
 
 			if (canAttack == true) {
 				nav.stoppingDistance = 15;
-				nav.SetDestination (player.position);
-				anim.SetBool ("PlayerInRange", true);
-				anim.SetBool ("Hack", false);
+                    nav.SetDestination(player.position);
+                    anim.SetBool("PlayerInRange", true);
+                    anim.SetBool("Hack", false);
 
 				if (distanceBetweenPlayer <= 15) {
 					anim.SetBool ("CanAttack", true);
-				}
+                }
 
 				else
 				{
 					anim.SetBool ("CanAttack", false);
-
 				}
 			}
 		}
@@ -89,10 +87,10 @@ public class intruderDUKE : MonoBehaviour {
 
 			if(canAttack == false)
 			{
-				nav.SetDestination(navpoint.position);
+                nav.SetDestination(navpoint.position);
 				nav.stoppingDistance = 1;
-				anim.SetBool("PlayerInRange",false);
-			}
+                anim.SetBool("PlayerInRange", false);
+            }
 
 			if(distanceBetweenConsole <= 1)
 			{
@@ -113,14 +111,12 @@ public class intruderDUKE : MonoBehaviour {
 		if(health <= 1)
 		{
 			Death ();
-		}
-	
+		}	
 	}
 
 	public void ApplyDamage(float damage)
 	{
 		health -= damage;
-
 	}
 
 	void OnTriggerStay(Collider intruder)
@@ -129,10 +125,7 @@ public class intruderDUKE : MonoBehaviour {
 		{
 			nav.SetDestination(player.position);
 			RotateTowards(player.transform);
-
-		}
-			
-
+		}			
 	}
 
 	void OnTriggerExit(Collider intruder)
@@ -147,7 +140,7 @@ public class intruderDUKE : MonoBehaviour {
 
 	IEnumerator Teleport()
 	{
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (1.5f);
 		gameObject.SetActive (false);
 	}
 
