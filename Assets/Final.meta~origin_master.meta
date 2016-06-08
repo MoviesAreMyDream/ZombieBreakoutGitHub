@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Final.meta~origin_master.meta
 guid: 70f5a36ec1e9b354aa55f135c38c8a75
 timeCreated: 1464922462
+=======
+guid: f5be819417de2444b8df8f94f3b6c4a2
+timeCreated: 1464917106
+>>>>>>> origin/master:Assets/Final.meta~origin_master.meta
 licenseType: Free
 DefaultImporter:
   userData: 
