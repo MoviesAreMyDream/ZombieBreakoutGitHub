@@ -1,7 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 46c6604b4b96c63489b9a100e2018c02
 folderAsset: yes
 timeCreated: 1461119286
+=======
+<<<<<<< HEAD:Assets/Imagine Life/Scifi Crate/Models/Materials/Textures.meta
+guid: 06770348a2ad35440a4d931c2124f1d8
+folderAsset: yes
+timeCreated: 1464680143
+=======
+guid: 46c6604b4b96c63489b9a100e2018c02
+folderAsset: yes
+timeCreated: 1461119286
+>>>>>>> origin/master:Assets/Imagine Life/Scifi Crate/Models/Materials/Textures.meta
+>>>>>>> origin/master
 licenseType: Free
 DefaultImporter:
   userData: 
