@@ -60,10 +60,10 @@ public class intruderDUKE : MonoBehaviour {
 		distanceBetweenPlayer = Vector3.Distance(transform.position,player.position);
 		distanceBetweenConsole = Vector3.Distance(transform.position,navpoint.position);
 
-		nav.SetDestination(navpoint.position);
+//		nav.SetDestination(navpoint.position);
 		canAttack = false;
 
-		if(distanceBetweenPlayer <= 20)
+		if(distanceBetweenPlayer <= 30)
 		{
 			canAttack = true;
 
@@ -86,25 +86,27 @@ public class intruderDUKE : MonoBehaviour {
 			}
 		}
 
-		if(distanceBetweenPlayer >= 20)
+		if(distanceBetweenPlayer >= 30)
 		{
 			canAttack = false;
 
 			if(canAttack == false)
 			{
-				nav.SetDestination(navpoint.position);
-				nav.stoppingDistance = 1;
-				anim.SetBool("PlayerInRange",false);
-			}
-
-			if(distanceBetweenConsole <= 1)
-			{
-				anim.SetBool ("Hack", true);
+//				nav.SetDestination(navpoint.position);
+//				nav.stoppingDistance = 1;
+				anim.SetBool("Hack",true);
 				anim.SetBool ("PlayerInRange", false);
 			}
+
+//			if(distanceBetweenConsole <= 1)
+//			{
+//				anim.SetBool ("Hack", true);
+//				anim.SetBool ("PlayerInRange", false);
+//			}
 		}
 
-
+		if(round1)
+		{
 			if (health <= 60) 
 			{
 				anim.SetBool ("Escape", true);
@@ -113,9 +115,11 @@ public class intruderDUKE : MonoBehaviour {
 				round1 = false;
 				StartCoroutine (Teleport ());
 			}
+		}
+			
 		
-
-
+		if(round2)
+		{
 			if(health <= 30)
 			{
 				anim.SetBool ("Escape", true);
@@ -124,13 +128,17 @@ public class intruderDUKE : MonoBehaviour {
 				round2 = false;
 				StartCoroutine (Teleport ());
 			}
-		
-			
-
-		if(health <= 1)
-		{
-			Death ();
 		}
+
+		if(round3)
+		{
+			if(health <= 1)
+			{
+				Death ();
+			}
+		}
+
+
 	
 	}
 
