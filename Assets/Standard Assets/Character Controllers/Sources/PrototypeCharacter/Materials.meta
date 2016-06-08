@@ -1,8 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Materials.meta
 guid: 4d6dec1aefc84c546bc7e71f8e1d63d8
 folderAsset: yes
 timeCreated: 1464922480
 licenseType: Free
+=======
+guid: e53c8c3dcc4ff59438bc9e86cb45c3f6
+folderAsset: yes
+>>>>>>> origin/master:Assets/Standard Assets/Character Controllers/Sources/PrototypeCharacter/Materials.meta
 DefaultImporter:
   userData: 
   assetBundleName: 
