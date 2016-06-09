@@ -171,7 +171,7 @@ public class EnemyZombie : MonoBehaviour {
 
 	public bool InRange;
 
-    void OnTriggerStay (Collider other)
+    void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag ("Player"))
 			InRange = true;
