@@ -3,6 +3,8 @@ using System.Collections;
 
 public class OnTriggerDelete : MonoBehaviour {
 
+   public GameObject box;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,7 +19,7 @@ public class OnTriggerDelete : MonoBehaviour {
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
+            Destroy(box);
             
         }
     }
