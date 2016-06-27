@@ -6,7 +6,7 @@ public class intruderDUKE : MonoBehaviour {
 
 	public float distanceBetweenPlayer;
 	public float distanceBetweenConsole;
-    public float distanceBetweenPointA;
+    public float distanceBetweenDodge;
 
 	public bool round1;
 	public bool round2;
@@ -55,22 +55,17 @@ public class intruderDUKE : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		distanceBetweenPlayer = Vector3.Distance(transform.position,player.position);
-		distanceBetweenConsole = Vector3.Distance(transform.position,navpoint.position);
-        distanceBetweenPointA = Vector3.Distance(transform.position, dodgePoint.position);
+		distanceBetweenPlayer = Vector3.Distance(transform.position, player.position);
+		distanceBetweenConsole = Vector3.Distance(transform.position, navpoint.position);
+        distanceBetweenDodge = Vector3.Distance(transform.position, dodgePoint.position);
 
-<<<<<<< HEAD
-//		nav.SetDestination(navpoint.position);
-=======
         nav.SetDestination(navpoint.position);
->>>>>>> refs/remotes/origin/norris
 		canAttack = false;
         canDodge = false;
 
 		if(distanceBetweenPlayer <= 30)
 		{
 			canAttack = true;
-            canDodge = true;
 
 			if (canAttack == true)
             {
@@ -92,44 +87,57 @@ public class intruderDUKE : MonoBehaviour {
 				}             
 			}
 
-            if (canDodge == true && distanceBetweenPointA <= 2)
+            if (distanceBetweenDodge <= 2)
             {
-                nav.stoppingDistance = 0;
+                canDodge = true;
+                canAttack = false;
+
+                nav.stoppingDistance = 1;
                 nav.SetDestination(dodgePoint.position);
                 anim.SetBool("PlayerInRange", false);
-                anim.SetBool("CanAttack", true);
-                anim.SetBool("Hack", false);
-                //canAttack = true;
-                //canDodge = false;
+                anim.SetBool("CanAttack", false);
+                anim.SetBool("Hack", true);
+
+                if (canDodge = true && distanceBetweenPlayer <= 15)
+                {
+                    canAttack = false;
+                    canDodge = false;
+                    anim.SetBool("PlayerInRange", false);
+                    anim.SetBool("CanAttack", false);
+                    anim.SetBool("Hack", false);
+                }
+
                 StartCoroutine(backUp());
-
             }
-
         }
 
 		if(distanceBetweenPlayer >= 30)
 		{
 			canAttack = false;
+            canDodge = false;
 
 			if(canAttack == false)
 			{
-//				nav.SetDestination(navpoint.position);
-//				nav.stoppingDistance = 1;
-				anim.SetBool("Hack",true);
-				anim.SetBool ("PlayerInRange", false);
+				nav.SetDestination(navpoint.position);
+                nav.stoppingDistance = 1;
+                anim.SetBool("PlayerInRange", true);
+                anim.SetBool("Hack",false);
 			}
 
-//			if(distanceBetweenConsole <= 1)
-//			{
-//				anim.SetBool ("Hack", true);
-//				anim.SetBool ("PlayerInRange", false);
-//			}
+			if(distanceBetweenConsole <= 1)
+			{
+                anim.SetBool("PlayerInRange", false);
+                anim.SetBool ("Hack", true);
+			}
 		}
 
 		if(round1)
 		{
 			if (health <= 60) 
 			{
+                anim.SetBool("PlayerInRange", false);
+                anim.SetBool("CanAttack", false);
+                anim.SetBool("Hack", false);
                 anim.SetBool ("Escape", true);
 				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
@@ -143,7 +151,10 @@ public class intruderDUKE : MonoBehaviour {
 		{
 			if(health <= 30)
 			{
-				anim.SetBool ("Escape", true);
+                anim.SetBool("PlayerInRange", false);
+                anim.SetBool("CanAttack", false);
+                anim.SetBool("Hack", false);
+                anim.SetBool ("Escape", true);
 				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
 				round2 = false;
@@ -153,14 +164,11 @@ public class intruderDUKE : MonoBehaviour {
 
 		if(round3)
 		{
-<<<<<<< HEAD
 			if(health <= 1)
 			{
 				Death ();
 			}
 		}
-
-
 	
 	}
 
@@ -168,30 +176,23 @@ public class intruderDUKE : MonoBehaviour {
 	{
 		health -= damage;
 
-=======
-			Death ();
 		}	
->>>>>>> refs/remotes/origin/norris
-	}
 
-    public void ApplyDamage(float damage)
-    {
-        health -= damage;
-    }
 
     IEnumerator backUp()
     {
-        yield return new WaitForSeconds(5f);
+        //canAttack = false;
+        //canDodge = false;
+        yield return new WaitForSeconds(1.5f);
+        anim.SetBool("PlayerInRange", false);
         anim.SetBool("CanAttack", false);
-        anim.SetBool("PlayerInRange", true);
-        nav.stoppingDistance = 0;
-        RotateTowards(navpoint.transform);
+        anim.SetBool("Hack", false);
+        nav.stoppingDistance = 2;
         nav.SetDestination(navpoint.position);
-        canAttack = false;
-        canDodge = false;
+
     }
 
-	IEnumerator Teleport()
+    IEnumerator Teleport()
 	{
 		yield return new WaitForSeconds (1.5f);
         gameObject.SetActive (false);
@@ -208,7 +209,6 @@ public class intruderDUKE : MonoBehaviour {
 		capsuleCollider.enabled = false;
 		
 	}
-
 
 
 	private void RotateTowards (Transform target) 
