@@ -16,13 +16,15 @@ public class NarratorDialogue : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+       
+
 		Text1.SetActive (true);
 		Text2.SetActive (false);
 		Text3.SetActive (false);
-		Text4.SetActive (false);
-		Text5.SetActive (false);
-		Text6.SetActive (false);
-		Text7.SetActive (false);
+		//Text4.SetActive (false);
+		//Text5.SetActive (false);
+		//Text6.SetActive (false);
+		//Text7.SetActive (false);
 
 		StartCoroutine (Dialogue());
 
@@ -30,9 +32,10 @@ public class NarratorDialogue : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*FirstPersonController getMoveDir = GetComponent<FirstPersonController>();
+        otherScript.DoSomething();*/
 
-
-	}
+    }
 
 	IEnumerator Dialogue()
 	{
@@ -42,7 +45,7 @@ public class NarratorDialogue : MonoBehaviour {
 		yield return new WaitForSeconds (4f);
 		Text2.SetActive (false);
 		Text3.SetActive (true);
-		yield return new WaitForSeconds (6f);
+		/*yield return new WaitForSeconds (6f);
 		Text3.SetActive (false);
 		Text4.SetActive (true);
 		yield return new WaitForSeconds (6f);
@@ -56,7 +59,7 @@ public class NarratorDialogue : MonoBehaviour {
 		Text7.SetActive (true);
 		yield return new WaitForSeconds (4f);
 		Text7.SetActive (false);
-		door.GetComponent<BoxCollider> ().enabled = true;
+		door.GetComponent<BoxCollider> ().enabled = true;*/
 	}
 
 
