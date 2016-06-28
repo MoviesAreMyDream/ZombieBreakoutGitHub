@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 4584b2e7f36741a4eb790affefc01184
+timeCreated: 1462941284
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Box001 1
+    100004: Cylinder001
+    100006: Cylinder001 1
+    100008: Cylinder002
+    100010: Cylinder002 1
+    100012: //RootNode
+    100014: Home
+    100016: Left_Elbow
+    100018: Left_ElbowGoal
+    100020: Left_IndexFinger01
+    100022: Left_IndexFinger02
+    100024: Left_IndexFinger03
+    100026: Left_IndexFinger04
+    100028: Left_MiddleFinger01
+    100030: Left_MiddleFinger02
+    100032: Left_MiddleFinger03
+    100034: Left_MiddleFinger04
+    100036: Left_Palm
+    100038: Left_Pinky01
+    100040: Left_Pinky02
+    100042: Left_Pinky03
+    100044: Left_Pinky04
+    100046: Left_RingFinger01
+    100048: Left_RingFinger02
+    100050: Left_RingFinger03
+    100052: Left_RingFinger04
+    100054: Left_Shoulder
+    100056: Left_ShoulderGoal
+    100058: Left_Thumb01
+    100060: 'Left_Thumb02 '
+    100062: 'Left_Thumb03 '
+    100064: Left_Wrist_End
+    100066: Left_Wrist_Start
+    100068: Left_WristGoal
+    100070: Right_Elbow
+    100072: Right_ElbowGoal
+    100074: Right_IndexFinger01
+    100076: Right_IndexFinger02
+    100078: Right_IndexFinger03
+    100080: Right_IndexFinger04
+    100082: Right_MiddleFinger01
+    100084: Right_MiddleFinger02
+    100086: Right_MiddleFinger03
+    100088: Right_MiddleFinger04
+    100090: Right_Palm
+    100092: Right_Pinky01
+    100094: Right_Pinky02
+    100096: Right_Pinky03
+    100098: Right_Pinky04
+    100100: Right_RingFinger01
+    100102: Right_RingFinger02
+    100104: Right_RingFinger03
+    100106: Right_RingFinger04
+    100108: Right_Shoulder
+    100110: Right_ShoulderGoal
+    100112: Right_Thumb01
+    100114: Right_Thumb02
+    100116: Right_Thumb03
+    100118: Right_Wrist_End
+    100120: Right_Wrist_Start
+    100122: Right_WristGoal
+    100124: Sphere006
+    100126: Sphere007
+    400000: Box001
+    400002: Box001 1
+    400004: Cylinder001
+    400006: Cylinder001 1
+    400008: Cylinder002
+    400010: Cylinder002 1
+    400012: //RootNode
+    400014: Home
+    400016: Left_Elbow
+    400018: Left_ElbowGoal
+    400020: Left_IndexFinger01
+    400022: Left_IndexFinger02
+    400024: Left_IndexFinger03
+    400026: Left_IndexFinger04
+    400028: Left_MiddleFinger01
+    400030: Left_MiddleFinger02
+    400032: Left_MiddleFinger03
+    400034: Left_MiddleFinger04
+    400036: Left_Palm
+    400038: Left_Pinky01
+    400040: Left_Pinky02
+    400042: Left_Pinky03
+    400044: Left_Pinky04
+    400046: Left_RingFinger01
+    400048: Left_RingFinger02
+    400050: Left_RingFinger03
+    400052: Left_RingFinger04
+    400054: Left_Shoulder
+    400056: Left_ShoulderGoal
+    400058: Left_Thumb01
+    400060: 'Left_Thumb02 '
+    400062: 'Left_Thumb03 '
+    400064: Left_Wrist_End
+    400066: Left_Wrist_Start
+    400068: Left_WristGoal
+    400070: Right_Elbow
+    400072: Right_ElbowGoal
+    400074: Right_IndexFinger01
+    400076: Right_IndexFinger02
+    400078: Right_IndexFinger03
+    400080: Right_IndexFinger04
+    400082: Right_MiddleFinger01
+    400084: Right_MiddleFinger02
+    400086: Right_MiddleFinger03
+    400088: Right_MiddleFinger04
+    400090: Right_Palm
+    400092: Right_Pinky01
+    400094: Right_Pinky02
+    400096: Right_Pinky03
+    400098: Right_Pinky04
+    400100: Right_RingFinger01
+    400102: Right_RingFinger02
+    400104: Right_RingFinger03
+    400106: Right_RingFinger04
+    400108: Right_Shoulder
+    400110: Right_ShoulderGoal
+    400112: Right_Thumb01
+    400114: Right_Thumb02
+    400116: Right_Thumb03
+    400118: Right_Wrist_End
+    400120: Right_Wrist_Start
+    400122: Right_WristGoal
+    400124: Sphere006
+    400126: Sphere007
+    2300000: Box001
+    2300002: Box001 1
+    2300004: Cylinder001
+    2300006: Cylinder001 1
+    2300008: Cylinder002
+    2300010: Cylinder002 1
+    3300000: Box001
+    3300002: Box001 1
+    3300004: Cylinder001
+    3300006: Cylinder001 1
+    3300008: Cylinder002
+    3300010: Cylinder002 1
+    4300000: Cylinder001
+    4300002: Cylinder002
+    4300004: Box001
+    4300006: Sphere006
+    4300008: Cylinder001
+    4300010: Cylinder002
+    4300012: Box001
+    4300014: Sphere007
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Sphere006
+    13700002: Sphere007
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
