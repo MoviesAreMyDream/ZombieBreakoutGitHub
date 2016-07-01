@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class NarratorDialogue : MonoBehaviour {
 
@@ -16,9 +17,12 @@ public class NarratorDialogue : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-       
+        GameObject thePlayer = GameObject.FindGameObjectWithTag("Player");
+        FirstPersonController fpsController = thePlayer.GetComponent<FirstPersonController>();
+        // playerScript.Health -= 10.0f;
+        fpsController.m_MoveDir = Vector3.zero;
 
-		Text1.SetActive (true);
+        Text1.SetActive (true);
 		Text2.SetActive (false);
 		Text3.SetActive (false);
 		//Text4.SetActive (false);
