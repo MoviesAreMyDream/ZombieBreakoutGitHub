@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 472b1169c59bdb940a6005bd755d4835
 timeCreated: 1465456458
+=======
+<<<<<<< HEAD
+guid: 7ab5b7dd798eae446a28ebfdbdabd244
+timeCreated: 1465362706
+=======
+guid: f05e349c64ec9714ca716ad891112995
+timeCreated: 1465370525
+>>>>>>> refs/remotes/origin/Syazwan
+>>>>>>> f059d643cbea06a152cdf14605d67844bdebaed0
 licenseType: Free
 DefaultImporter:
   userData: 
