@@ -146,7 +146,7 @@ public class EnemyZombie_Final : MonoBehaviour {
         {
             if (canAttack == true)
             {
-                Debug.Log(nav.remainingDistance);
+                //Debug.Log(nav.remainingDistance);
 
 
 
