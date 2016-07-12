@@ -34,7 +34,6 @@ public class LoadingScript : MonoBehaviour
     IEnumerator LoadLevelWithRealProgress()
     {
         yield return new WaitForSeconds(1);
-
         ao = SceneManager.LoadSceneAsync(levelName);
         ao.allowSceneActivation = false;
 
@@ -46,7 +45,10 @@ public class LoadingScript : MonoBehaviour
             {
                 //progBar.value = 1f;
                 yield return new WaitForSeconds(15);
+                float fadeTime = GameObject.Find("FadeControl").GetComponent<Fading>().BeginFade(-1);
+                yield return new WaitForSeconds(fadeTime);
                 ao.allowSceneActivation = true;
+
             }
             
             //Debug.Log(ao.progress);

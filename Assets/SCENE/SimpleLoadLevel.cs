@@ -16,7 +16,9 @@ public class SimpleLoadLevel : MonoBehaviour {
 
     IEnumerator NextMap()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
+        /*float fadeTime = GameObject.Find("FadeControl").GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);*/
         SceneManager.LoadScene(levelName);
     }
 }
