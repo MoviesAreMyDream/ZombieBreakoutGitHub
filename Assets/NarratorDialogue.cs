@@ -12,8 +12,8 @@ public class NarratorDialogue : MonoBehaviour {
 	public GameObject Text6;
 	public GameObject Text7;
 
-    public bool test1;
-    public bool test2;
+    public bool test1Passed;
+    public bool test2Passed;
 
     public float imMoved = 0f;
 
@@ -32,7 +32,7 @@ public class NarratorDialogue : MonoBehaviour {
 		Text6.SetActive (false);
 		Text7.SetActive (false);
 
-        test1 = false;
+        test1Passed = false;
 
 		StartCoroutine (DialoguePt1());
 	}
@@ -50,13 +50,13 @@ public class NarratorDialogue : MonoBehaviour {
         checkImMoved();
         if (imMoved > 1f)
         {
-            test1 = true;
+            test1Passed = true;
         }
         //else test1 = false;
 
         if (imMoved < 0)
         {
-            test2 = true;
+            test2Passed = true;
         }
         //else test2 = false;
     }
@@ -72,22 +72,34 @@ public class NarratorDialogue : MonoBehaviour {
         yield return new WaitForSeconds (6f);
         Debug.Log("Starting Part 2");
 
-        if (test1 == true)
+        if (test1Passed == true)
         {
+            DialoguePt2();
+        }
+
+        else if (test1Passed == false)
+        {
+            Debug.Log("Not doin anything...");
+            Text3.SetActive(false);
+            Text3.SetActive(true);
+            yield return new WaitForSeconds(5f);
             DialoguePt2();
         }
     }
 
     void DialoguePt2()
     {
-        if (test1 == true)
+        if (test1Passed == true)
         {
             Debug.Log("Started Yapping Part 2");
             StartCoroutine(StartDialoguePt2());
         }
         else
         {
-
+            /*//Text2.SetActive(false);
+            Text3.SetActive(false);
+            Text3.SetActive(true);
+            StartCoroutine(DialoguePt2());*/
         }
     }
 
@@ -101,10 +113,17 @@ public class NarratorDialogue : MonoBehaviour {
 
     void DialoguePt3()
     {
-        if (test1 == true && test2 == true)
+        if (test1Passed == true && test2Passed == true)
         {
             Debug.Log("Yadaa Part 3");
             StartCoroutine(StartDialoguePt3());
+        }
+
+        else if (test1Passed == true && test2Passed == false)
+        {
+            Debug.Log("running second check up");
+            Text4.SetActive(false);
+           StartCoroutine(StartDialoguePt2());
         }
     }
 
