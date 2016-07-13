@@ -294,7 +294,7 @@ public class vp_SimpleHUD : MonoBehaviour
 			grenade_icon.SetActive (false);
 		}
 
-		if(Input.GetAxis("DPadRight")>0.001)
+		//if(Input.GetAxis("DPadRight")>0.001)
 		{
 			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-90);
 			laser_icon.SetActive (true);
@@ -302,7 +302,7 @@ public class vp_SimpleHUD : MonoBehaviour
 			grenade_icon.SetActive (false);
 		}
 
-		if(Input.GetAxis("DPadLeft")>0.001)
+		//if(Input.GetAxis("DPadLeft")>0.001)
 		{
 			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,90);
 			laser_icon.SetActive (false);
@@ -310,7 +310,7 @@ public class vp_SimpleHUD : MonoBehaviour
 			grenade_icon.SetActive (true);
 		}
 
-		if(Input.GetAxis("DPadDown")>0.001)
+		//if(Input.GetAxis("DPadDown")>0.001)
 		{
 			weapon_indicator.transform.localRotation = Quaternion.Euler(0,0,-180);
 			laser_icon.SetActive (false);
