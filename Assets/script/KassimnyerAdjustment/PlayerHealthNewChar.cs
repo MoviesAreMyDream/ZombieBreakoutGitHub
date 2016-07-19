@@ -7,6 +7,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public float startingHealth = 100f;
 	public float currentHealth;
 	public float MaxHealth = 100f;
+    public float MinHealth = 0;
 
 	private GameObject HealthAnimGO;
 	private Animation HealthAnim;
@@ -142,7 +143,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 				AudioSourceReference.GetComponent<AudioSource>().loop =  false;
 				AudioSourceReference.GetComponent<AudioSource>().Play ();*/
 			}
-			currentHealth = 0.0f;
+            currentHealth = MinHealth;
 			PlayerIsDead = true;
 			Waktu.GetComponent<TimeManager>().enabled = false;
 			PlayerDmgHandler.Die();
@@ -168,9 +169,10 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	}
 
 	public void remove(float amount) { //animation when damaged
-
-		currentHealth -= amount;
-
+        if (currentHealth != MinHealth)
+        {
+            currentHealth -= amount;
+        }
         /*
 		HealthAnim.Play("HealthNumAnim");
 
@@ -184,8 +186,8 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	}
 	
 	public void add(float amount){ //animation when healed
-		currentHealth += amount;
 
+            currentHealth += amount;
         /*
 		HealthAnim.Play("HealthNumAnim");
 		
