@@ -48,7 +48,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public GameObject body;
 
 	public AudioClip DeathSFX;
-	public GameObject AudioSourceReference;
+	//public GameObject AudioSourceReference;
 	public GameObject SyringeAudioSourceReference;
 	private bool Counter;//for DoOnce
 
@@ -138,9 +138,9 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			if(!Counter)
 			{
 				Counter = true;
-				AudioSourceReference.GetComponent<AudioSource>().clip = DeathSFX;
+				/*AudioSourceReference.GetComponent<AudioSource>().clip = DeathSFX;
 				AudioSourceReference.GetComponent<AudioSource>().loop =  false;
-				AudioSourceReference.GetComponent<AudioSource>().Play ();
+				AudioSourceReference.GetComponent<AudioSource>().Play ();*/
 			}
 			currentHealth = 0.0f;
 			PlayerIsDead = true;

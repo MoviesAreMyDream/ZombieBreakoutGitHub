@@ -313,7 +313,7 @@ namespace Chronos
 
 				if (localClock == null)
 				{
-					throw new ChronosException(string.Format("Missing local clock for timeline."));
+					//throw new ChronosException(string.Format("Missing local clock for timeline."));
 				}
 
 				return localClock;

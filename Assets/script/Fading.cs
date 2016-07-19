@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fading : MonoBehaviour {
+public class FadeIn : MonoBehaviour {
 
 	public Texture2D fadeOutTexture; // the texture that will overlay the screen. This can be a black image or a loading graphic
 	public float fadeSpeed = 0.8f;  // the fading speed

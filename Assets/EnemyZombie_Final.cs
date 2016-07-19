@@ -308,7 +308,7 @@ public class EnemyZombie_Final : MonoBehaviour {
         yield return new WaitForSeconds(2);
         int randomDrop = Random.Range(0, 10);
         int randomPickup = Random.Range(0, pickups.Length - 1);
-        if (randomDrop < 2)
+        if (randomDrop <= 2)
         {
             Instantiate(pickups[randomPickup], transform.position + new Vector3(0, 0.25f, 0), Quaternion.Euler(0, 0, 0));
         }
