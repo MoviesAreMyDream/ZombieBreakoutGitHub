@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour {
 
     public float TimeLeft;
-
+    public string levelName;
 
     private GameObject TimeNumGO;
     private CustomText TimeNum;
@@ -35,7 +36,7 @@ public class TimeManager : MonoBehaviour {
 		if (TimeLeft <= 0) 
 		{
 
-			Application.LoadLevel(2);
+			SceneManager.LoadScene(levelName);
 		}
 
     }

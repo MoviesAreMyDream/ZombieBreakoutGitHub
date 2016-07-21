@@ -7,7 +7,7 @@ public class automaticDoorsTerminal : MonoBehaviour {
 
 	void OnTriggerEnter( Collider other )
 	{
-		if( other.tag == "Player")
+		if( other.tag == "Player" || other.tag == "Zombie")
 		{
 			doors.Open();
 		}
@@ -15,7 +15,7 @@ public class automaticDoorsTerminal : MonoBehaviour {
 
 	void OnTriggerExit( Collider other )
 	{
-		if( other.tag == "Player" )
+		if( other.tag == "Player" || other.tag == "Zombie")
 		{
 			doors.Close();
 		}
