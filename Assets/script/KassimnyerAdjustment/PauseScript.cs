@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour {
 
     public GameObject PauseCanvasGO;
     public GameObject InGameCanvasGO;
     public AudioListener CamAudioListener;
+    public string levelName;
 
     public enum PauseState
     {
@@ -34,7 +36,7 @@ public class PauseScript : MonoBehaviour {
                 if ((Input.GetButtonDown("Submit")) || (Input.GetButtonDown("Fire1")))
                     ToUnPause();
                 if (Input.GetButtonDown("Cancel"))
-                    Application.LoadLevel(0);
+                    SceneManager.LoadScene(0);
                 break;
         }       
 	}

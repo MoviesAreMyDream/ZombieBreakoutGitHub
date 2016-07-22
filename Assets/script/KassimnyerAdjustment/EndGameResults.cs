@@ -15,7 +15,7 @@ public class EndGameResults : MonoBehaviour {
 
 	void Start () {
         ScrManagerGO = GameObject.Find("GameManager");
-        ScrManager = ScrManagerGO.GetComponent<ScoreManager>();
+
         ZombieKill = ScrManager.CurrentScore;
 		DynCount = ScrManager.DynamiteCount;
 

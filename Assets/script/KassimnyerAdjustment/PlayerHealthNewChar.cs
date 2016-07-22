@@ -7,7 +7,7 @@ public class PlayerHealthNewChar : MonoBehaviour {
 	public float startingHealth = 100f;
 	public float currentHealth;
 	public float MaxHealth = 100f;
-    public float MinHealth = 0;
+    public float MinHealth = 0f;
 
 	private GameObject HealthAnimGO;
 	private Animation HealthAnim;
