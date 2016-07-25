@@ -29,6 +29,9 @@ public class intruderDUKE : MonoBehaviour {
 	Transform navpoint;
     Transform dodgePoint;
 	public GameObject Rifle;
+    public GameObject Duke2;
+    public GameObject currentConsole;
+    public GameObject otherConsole;
 
 	// Use this for initialization
 	void Awake () {
@@ -42,8 +45,9 @@ public class intruderDUKE : MonoBehaviour {
 
 	void Start () {
 
-		PlayerReference = GameObject.Find ("OVRPlayerController");
-		PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
+		//PlayerReference = GameObject.Find ("OVRPlayerController");
+        PlayerReference = GameObject.Find("PlayerOVR");
+        PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
 //		GameManagerGO = GameObject.Find("GameManager");
 //		ScrManager = GameManagerGO.GetComponent<ScoreManager>();
 
@@ -63,19 +67,19 @@ public class intruderDUKE : MonoBehaviour {
 		canAttack = false;
         canDodge = false;
 
-		if(distanceBetweenPlayer <= 30)
+		if(distanceBetweenPlayer <= 15)
 		{
 			canAttack = true;
 
 			if (canAttack == true)
             {
-				nav.stoppingDistance = 15;
+				nav.stoppingDistance = 10;
 				nav.SetDestination (player.position);
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
 
-				if (distanceBetweenPlayer <= 15)
+				if (distanceBetweenPlayer <= 10)
                 {
 					anim.SetBool ("CanAttack", true);
 				}
@@ -111,7 +115,7 @@ public class intruderDUKE : MonoBehaviour {
             }
         }
 
-		if(distanceBetweenPlayer >= 30)
+		if(distanceBetweenPlayer >= 16)
 		{
 			canAttack = false;
             canDodge = false;
@@ -142,14 +146,17 @@ public class intruderDUKE : MonoBehaviour {
 				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
 				round1 = false;
-				StartCoroutine (Teleport ());
+                Duke2.SetActive(true);
+                currentConsole.SetActive(false);
+                otherConsole.SetActive(true);
+                StartCoroutine (Teleport ());
 			}
 		}
 			
 		
 		if(round2)
 		{
-			if(health <= 30)
+			if(health <= 10)
 			{
                 anim.SetBool("PlayerInRange", false);
                 anim.SetBool("CanAttack", false);
@@ -158,6 +165,7 @@ public class intruderDUKE : MonoBehaviour {
 				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
 				round2 = false;
+                otherConsole.SetActive(false);
 				StartCoroutine (Teleport ());
 			}
 		}
