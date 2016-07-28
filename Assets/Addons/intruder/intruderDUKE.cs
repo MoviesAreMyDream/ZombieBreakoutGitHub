@@ -26,7 +26,7 @@ public class intruderDUKE : MonoBehaviour {
 	private GameObject PlayerReference;
 	private PlayerHealthNewChar PlayerScriptReferece;
 
-	Transform navpoint;
+	//Transform navpoint;
     Transform dodgePoint;
 	public GameObject Rifle;
     public GameObject Duke2;
@@ -40,7 +40,7 @@ public class intruderDUKE : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		capsuleCollider = GetComponent <CapsuleCollider> ();
 		anim = GetComponent <Animator> ();
-		navpoint = GameObject.FindGameObjectWithTag("START").transform;
+		//navpoint = GameObject.FindGameObjectWithTag("START").transform;
         dodgePoint = GameObject.FindGameObjectWithTag("Dodge").transform;
     }
 
@@ -61,26 +61,26 @@ public class intruderDUKE : MonoBehaviour {
 	void Update () {
 
 		distanceBetweenPlayer = Vector3.Distance(transform.position, player.position);
-		distanceBetweenConsole = Vector3.Distance(transform.position, navpoint.position);
+		//distanceBetweenConsole = Vector3.Distance(transform.position, navpoint.position);
         distanceBetweenDodge = Vector3.Distance(transform.position, dodgePoint.position);
 
-        nav.SetDestination(navpoint.position);
+        //nav.SetDestination(navpoint.position);
 		canAttack = false;
         canDodge = false;
 
-		if(distanceBetweenPlayer <= 8)
+		if(distanceBetweenPlayer <= 7)
 		{
 			canAttack = true;
 
 			if (canAttack == true)
             {
-				nav.stoppingDistance = 5;
+				nav.stoppingDistance = 4;
 				nav.SetDestination (player.position);
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
 
-				if (distanceBetweenPlayer <= 5)
+				if (distanceBetweenPlayer <= 4)
                 {
 					anim.SetBool ("CanAttack", true);
 				}
@@ -103,7 +103,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", true);
 
-                if (canDodge = true && distanceBetweenPlayer <= 8)
+                if (canDodge = true && distanceBetweenPlayer <= 7)
                 {
                     canAttack = false;
                     canDodge = false;
@@ -116,15 +116,15 @@ public class intruderDUKE : MonoBehaviour {
             }
         }
 
-		if(distanceBetweenPlayer >= 9)
+		if(distanceBetweenPlayer >= 8)
 		{
 			canAttack = false;
             canDodge = false;
 
 			if(canAttack == false)
 			{
-				nav.SetDestination(navpoint.position);
-                nav.stoppingDistance = 1;
+				//nav.SetDestination(navpoint.position);
+                //nav.stoppingDistance = 1;
                 anim.SetBool("PlayerInRange", true);
                 anim.SetBool("Hack",false);
 			}
@@ -198,8 +198,8 @@ public class intruderDUKE : MonoBehaviour {
         anim.SetBool("PlayerInRange", false);
         anim.SetBool("CanAttack", false);
         anim.SetBool("Hack", false);
-        nav.stoppingDistance = 2;
-        nav.SetDestination(navpoint.position);
+        //nav.stoppingDistance = 2;
+        //nav.SetDestination(navpoint.position);
 
     }
 
