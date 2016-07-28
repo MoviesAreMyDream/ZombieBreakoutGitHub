@@ -68,19 +68,19 @@ public class intruderDUKE : MonoBehaviour {
 		canAttack = false;
         canDodge = false;
 
-		if(distanceBetweenPlayer <= 10)
+		if(distanceBetweenPlayer <= 8)
 		{
 			canAttack = true;
 
 			if (canAttack == true)
             {
-				nav.stoppingDistance = 8;
+				nav.stoppingDistance = 5;
 				nav.SetDestination (player.position);
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
 
-				if (distanceBetweenPlayer <= 8)
+				if (distanceBetweenPlayer <= 5)
                 {
 					anim.SetBool ("CanAttack", true);
 				}
@@ -103,7 +103,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", true);
 
-                if (canDodge = true && distanceBetweenPlayer <= 10)
+                if (canDodge = true && distanceBetweenPlayer <= 8)
                 {
                     canAttack = false;
                     canDodge = false;
@@ -116,7 +116,7 @@ public class intruderDUKE : MonoBehaviour {
             }
         }
 
-		if(distanceBetweenPlayer >= 11)
+		if(distanceBetweenPlayer >= 9)
 		{
 			canAttack = false;
             canDodge = false;
@@ -148,7 +148,8 @@ public class intruderDUKE : MonoBehaviour {
 				capsuleCollider.enabled = false;
 				round1 = false;
                 Duke2.SetActive(true);
-                currentConsole.SetActive(false);
+                Destroy(currentConsole);
+                //currentConsole.SetActive(false);
                 otherConsole.SetActive(true);
                 voiceMail.SetActive(true);
                 StartCoroutine (Teleport ());
