@@ -32,6 +32,7 @@ public class intruderDUKE : MonoBehaviour {
     public GameObject Duke2;
     public GameObject currentConsole;
     public GameObject otherConsole;
+    public GameObject voiceMail;
 
 	// Use this for initialization
 	void Awake () {
@@ -67,19 +68,19 @@ public class intruderDUKE : MonoBehaviour {
 		canAttack = false;
         canDodge = false;
 
-		if(distanceBetweenPlayer <= 15)
+		if(distanceBetweenPlayer <= 10)
 		{
 			canAttack = true;
 
 			if (canAttack == true)
             {
-				nav.stoppingDistance = 10;
+				nav.stoppingDistance = 8;
 				nav.SetDestination (player.position);
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
 
-				if (distanceBetweenPlayer <= 10)
+				if (distanceBetweenPlayer <= 8)
                 {
 					anim.SetBool ("CanAttack", true);
 				}
@@ -102,7 +103,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", true);
 
-                if (canDodge = true && distanceBetweenPlayer <= 15)
+                if (canDodge = true && distanceBetweenPlayer <= 10)
                 {
                     canAttack = false;
                     canDodge = false;
@@ -115,7 +116,7 @@ public class intruderDUKE : MonoBehaviour {
             }
         }
 
-		if(distanceBetweenPlayer >= 16)
+		if(distanceBetweenPlayer >= 11)
 		{
 			canAttack = false;
             canDodge = false;
@@ -149,6 +150,7 @@ public class intruderDUKE : MonoBehaviour {
                 Duke2.SetActive(true);
                 currentConsole.SetActive(false);
                 otherConsole.SetActive(true);
+                voiceMail.SetActive(true);
                 StartCoroutine (Teleport ());
 			}
 		}
