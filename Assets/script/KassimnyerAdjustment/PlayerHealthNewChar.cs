@@ -106,8 +106,12 @@ public class PlayerHealthNewChar : MonoBehaviour {
 
 	void Update() 
 	{
-		
-		PlayerDmgHandler.CurrentHealth = currentHealth/10;
+        if(currentHealth >= 100)
+        {
+            currentHealth = MaxHealth;
+        }
+
+        PlayerDmgHandler.CurrentHealth = currentHealth/10;
 
 		if (Input.GetKeyDown (KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.J)) 
 		{

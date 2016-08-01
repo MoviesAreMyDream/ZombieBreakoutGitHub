@@ -12,7 +12,8 @@ public class pickups : MonoBehaviour {
 			Destroy(gameObject);
 			
 			if (health != null) {
-				health.add(20);	
+                //if (!maxHealth)
+                health.add(20);	
 				//Debug.Log("Player is drowning");
 			}
 		}
