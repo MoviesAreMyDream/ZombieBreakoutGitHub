@@ -35,8 +35,7 @@ public class TimeManager : MonoBehaviour {
 
 		if (TimeLeft <= 0) 
 		{
-
-			SceneManager.LoadScene(levelName);
+			//SceneManager.LoadScene(levelName);
 		}
 
     }

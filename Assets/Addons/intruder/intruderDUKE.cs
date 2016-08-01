@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class intruderDUKE : MonoBehaviour {
+
+    public string levelName;
 
 	public float distanceBetweenPlayer;
 	public float distanceBetweenConsole;
@@ -34,8 +37,13 @@ public class intruderDUKE : MonoBehaviour {
     public GameObject otherConsole;
     public GameObject voiceMail;
 
-	// Use this for initialization
-	void Awake () {
+    public GameObject playerModel;
+
+    public AudioClip lastMessage;
+    AudioSource audio;
+
+    // Use this for initialization
+    void Awake () {
 		nav = GetComponent <NavMeshAgent> ();
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		capsuleCollider = GetComponent <CapsuleCollider> ();
@@ -46,7 +54,9 @@ public class intruderDUKE : MonoBehaviour {
 
 	void Start () {
 
-		//PlayerReference = GameObject.Find ("OVRPlayerController");
+        audio = GetComponent<AudioSource>();
+
+        //PlayerReference = GameObject.Find ("OVRPlayerController");
         PlayerReference = GameObject.Find("PlayerOVR");
         PlayerScriptReferece = PlayerReference.GetComponent<PlayerHealthNewChar>();
 //		GameManagerGO = GameObject.Find("GameManager");
@@ -68,31 +78,31 @@ public class intruderDUKE : MonoBehaviour {
 		canAttack = false;
         canDodge = false;
 
-		if(distanceBetweenPlayer <= 7)
+		if(distanceBetweenPlayer <= 4)
 		{
 			canAttack = true;
 
 			if (canAttack == true)
             {
-				nav.stoppingDistance = 4;
+				nav.stoppingDistance = 3;
 				nav.SetDestination (player.position);
 				RotateTowards (player.transform);
 				anim.SetBool ("PlayerInRange", true);
 				anim.SetBool ("Hack", false);
 
-				if (distanceBetweenPlayer <= 4)
+				if (distanceBetweenPlayer <= 3)
                 {
-					anim.SetBool ("CanAttack", true);
+					anim.SetBool ("CanAttack", false);
 				}
 
 				else
 				{
-					anim.SetBool ("CanAttack", false);
+					anim.SetBool ("CanAttack", true);
 
 				}             
 			}
 
-            if (distanceBetweenDodge <= 2)
+            if (distanceBetweenDodge <= 1)
             {
                 canDodge = true;
                 canAttack = false;
@@ -103,7 +113,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", true);
 
-                if (canDodge = true && distanceBetweenPlayer <= 7)
+                if (canDodge = true && distanceBetweenPlayer <= 3)
                 {
                     canAttack = false;
                     canDodge = false;
@@ -116,7 +126,7 @@ public class intruderDUKE : MonoBehaviour {
             }
         }
 
-		if(distanceBetweenPlayer >= 8)
+		if(distanceBetweenPlayer >= 4)
 		{
 			canAttack = false;
             canDodge = false;
@@ -169,7 +179,8 @@ public class intruderDUKE : MonoBehaviour {
 				capsuleCollider.enabled = false;
 				round2 = false;
                 otherConsole.SetActive(false);
-				StartCoroutine (Teleport ());
+				//StartCoroutine (Teleport ());
+                StartCoroutine(endGame());
 			}
 		}
 
@@ -206,11 +217,25 @@ public class intruderDUKE : MonoBehaviour {
     IEnumerator Teleport()
 	{
 		yield return new WaitForSeconds (1.5f);
+        //lastMessage.AudioClip.Play();
+        audio.PlayOneShot(lastMessage, 0f);
         gameObject.SetActive (false);
 	}
-		
 
-	void Death()
+    IEnumerator endGame()
+    {
+         yield return new WaitForSeconds (1.5f);
+        //lastMessage.AudioClip.Play();
+        audio.PlayOneShot(lastMessage, 1F);
+        Rifle.SetActive(false);
+        playerModel.SetActive(false);
+        yield return new WaitForSeconds(7f);
+        //gameObject.SetActive (false);
+        SceneManager.LoadScene(levelName);
+    }
+
+
+    void Death()
 	{
 		
 		health = 0;
