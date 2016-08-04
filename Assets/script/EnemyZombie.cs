@@ -219,7 +219,7 @@ public class EnemyZombie : MonoBehaviour {
     
 
 
-	void ApplyDamage(float damage)
+	public void ApplyDamage(float damage)
 	{
 		health -= damage;
 
