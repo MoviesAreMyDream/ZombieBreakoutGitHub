@@ -31,15 +31,22 @@ public class BulletHit : MonoBehaviour {
                 slice.GetComponent<AudioSource>().Play();
             }
 
-            hit.gameObject.GetComponent<EnemyZombie>().ApplyDamage(damageZombie);
-            //hit.gameObject.GetComponent<EnemyZombie_Final>().ApplyDamage(damageZombie);
+            //hit.gameObject.GetComponent<EnemyZombie>().ApplyDamage(damageZombie);
+            hit.gameObject.GetComponent<EnemyZombie_TrainingMap>().ApplyDamage(damageZombie);
+            //hit.gameObject.GetComponent<EnemyZombie_TrainingMap1>().ApplyDamage(damageZombie);
             GameObject blood = GameObject.Instantiate(bloodSplatter, transform.position, transform.rotation) as GameObject;
 			GameObject.Destroy(blood, 1f);
 			//Debug.Log("blood splatting");
 		}
 		else
 		{
-			if(!Sword)
+            
+            if(hit.gameObject.tag == "Breakable")
+            {
+                hit.gameObject.GetComponent<vp_DamageHandler>().Damage(damageZombie);
+            }
+
+            if (!Sword)
 			{
 				GameObject smoke = GameObject.Instantiate(fireExplosion, transform.position, fireExplosion.transform.rotation) as GameObject;
 				GameObject.Destroy(smoke, 2f);

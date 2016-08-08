@@ -81,21 +81,21 @@ public class PlayerHealthNewChar : MonoBehaviour {
 			ZombieNavMesh[i] = ZombiesAll[i].GetComponent<NavMeshAgent>();
 		}
 
-		body = GameObject.Find("Body");
+		body = GameObject.Find("HeartBeatSFX");
 		body.GetComponent<AudioSource>().enabled = false;
 	}
 
 
 	void Start()
 	{	
-		PlayerReference = GameObject.Find("PlayerOVR");
+		PlayerReference = GameObject.Find("OVRPlayerController");
 
 		if(PlayerReference == null)
 		{
 			PlayerReference = GameObject.Find("PlayerOVRLobby");
 		}
 
-		PlayerDmgHandler = PlayerReference.GetComponent<vp_FPPlayerDamageHandler>();
+		//PlayerDmgHandler = PlayerReference.GetComponent<vp_FPPlayerDamageHandler>();
 		customPref = HP.GetComponent<CustomText>();
 		gameObject.GetComponent<Lerp>().enabled = false;
 		Rank.GetComponent<CustomText>().enabled = false;

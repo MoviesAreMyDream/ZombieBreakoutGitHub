@@ -4,8 +4,6 @@ using System.Collections;
 public class EnemyZombie_TrainingMap : MonoBehaviour {
 
 	public float distance;
-    public GameObject trigger;
-
 
 	Transform target;
 	public NavMeshAgent nav;
@@ -68,7 +66,7 @@ public class EnemyZombie_TrainingMap : MonoBehaviour {
 	private vp_PlayerEventHandler PlayerEvents = null;
 
 	private GameObject PlayerReference;
-	private PlayerHealthNewChar PlayerScriptReferece;
+	public PlayerHealthNewChar PlayerScriptReferece;
 
 
 	//public GameObject indicatePain;
@@ -137,11 +135,6 @@ public class EnemyZombie_TrainingMap : MonoBehaviour {
 	void Update () {
 		       
 		distance = Vector3.Distance(transform.position,player.position);
-
-        if(anim.GetBool("PlayerSeen") == true)
-        {
-            
-        }
 
         if (PlayerScriptReferece.PlayerIsDead == true)
             anim.SetBool("PlayerIsDead", true);

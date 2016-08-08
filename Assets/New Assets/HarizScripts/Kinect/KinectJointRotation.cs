@@ -58,7 +58,8 @@ public class KinectJointRotation : MonoBehaviour
                 {
                     TurnRight = true;
                     TurnLeft = false;
-                    if (turnDegree < -5)
+
+                    if (turnDegree < -16)
                     {
                         TurnLeft = true;
                         TurnRight = false;

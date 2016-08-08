@@ -51,7 +51,7 @@ public class ReverseSkill : MonoBehaviour {
 
         //clock.localTimeScale = -1;
         ReverseSound.Play();
-        ReverseIcon.GetComponent<Image>().fillAmount -= 1 / time * Time.deltaTime;
+        //ReverseIcon.GetComponent<Image>().fillAmount -= 1 / time * Time.deltaTime;
     }
     
     void ReverseDeactivate()
@@ -59,7 +59,7 @@ public class ReverseSkill : MonoBehaviour {
         Clock clock = Timekeeper.instance.Clock("Zombie");
 
         //clock.localTimeScale = 1;
-        ReverseIcon.GetComponent<Image>().fillAmount += 1 / time * Time.deltaTime;
+        //ReverseIcon.GetComponent<Image>().fillAmount += 1 / time * Time.deltaTime;
 
     }
 }
