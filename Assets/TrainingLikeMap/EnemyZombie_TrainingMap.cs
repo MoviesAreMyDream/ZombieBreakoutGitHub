@@ -93,7 +93,7 @@ public class EnemyZombie_TrainingMap : MonoBehaviour {
 
 	void Start () {
 
-        PlayerScriptReferece.PlayerIsDead = true;
+        //PlayerScriptReferece.PlayerIsDead = true;
         anim.SetBool("PlayerIsDead", true);
         anim.SetBool("PlayerInRange", false);
         nav.enabled = false;

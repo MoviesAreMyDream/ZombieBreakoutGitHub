@@ -8,10 +8,12 @@ public class TriggerZone : MonoBehaviour {
     public GameObject _mutant2;
     public GameObject _dog1;
     public GameObject _dog2;
+    public GameObject player;
 
-    public bool zoneStart = false;
-    public bool zone1 = false;
-    public bool zone2 = false;
+    public bool playerSeen;
+    public bool canJoin;
+
+    public AudioSource moreEnemy;
 
 	// Use this for initialization
 	void Start () {
@@ -21,41 +23,43 @@ public class TriggerZone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-	}
+        if(playerSeen)
+        {
+             _enemy.GetComponent<EnemyZombie_TrainingMap>().anim.SetBool("PlayerSeen", true);
+        }
+    }
 
     void OnTriggerEnter(Collider hit)
     {
-        zoneStart = true;
-
-        if (zone1 == true)
+        
         {
-            if (hit.gameObject.tag == "Player" && zoneStart == true)
+            if (hit.gameObject.tag == "Player")
             {
+                playerSeen = true;
+
                 _enemy.GetComponent<EnemyZombie_TrainingMap>().enabled = true;
-                _enemy.GetComponent<EnemyZombie_TrainingMap>().anim.SetBool("PlayerSeen", true);
-                _enemy.GetComponent<EnemyZombie_TrainingMap>().PlayerScriptReferece.PlayerIsDead = false;
+                //_enemy.GetComponent<EnemyZombie_TrainingMap>().anim.SetBool("PlayerSeen", playerSeen);
+                player.GetComponent<PlayerHealthNewChar>().PlayerIsDead = false;
                 StartCoroutine(Chase());
+                StartCoroutine(Join());
             }
         }
-
-        if(zone2 == true)
-        {
-            if (hit.gameObject.tag == "Player" && zoneStart == true)
-            {
-                _mutant1.SetActive(true);
-                _mutant2.SetActive(true);
-                _dog1.SetActive(true);
-                _dog2.SetActive(true);
-
-            }
-        }   
-
     }
 
     IEnumerator Chase()
     {
-        yield return new WaitForSeconds(1f);
-        _enemy.GetComponent<>();
+        yield return new WaitForSeconds(4f);
+        _enemy.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+    IEnumerator Join()
+    {
+        yield return new WaitForSeconds(10f);
+        _mutant1.SetActive(true);
+        _mutant2.SetActive(true);
+        _dog1.SetActive(true);
+        _dog2.SetActive(true);
+        moreEnemy.Play();
     }
 
 }
