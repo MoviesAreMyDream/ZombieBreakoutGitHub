@@ -188,7 +188,7 @@ public class intruderDUKE : MonoBehaviour {
 		{
 			if(health <= 1)
 			{
-				Death ();
+				//Death ();
 			}
 		}
 	
@@ -235,7 +235,7 @@ public class intruderDUKE : MonoBehaviour {
     }
 
 
-    void Death()
+ /*   void Death()
 	{
 		
 		health = 0;
@@ -244,7 +244,7 @@ public class intruderDUKE : MonoBehaviour {
 		nav.Stop();
 		capsuleCollider.enabled = false;
 		
-	}
+	}*/
 
 
 	private void RotateTowards (Transform target) 

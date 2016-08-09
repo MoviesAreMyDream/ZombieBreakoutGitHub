@@ -17,7 +17,7 @@ public class OnTriggerDelete : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player" )
         {
             Destroy(box);
             
