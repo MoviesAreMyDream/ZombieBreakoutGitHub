@@ -154,7 +154,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", false);
                 anim.SetBool ("Escape", true);
-				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
+				//Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
 				round1 = false;
                 Duke2.SetActive(true);
@@ -175,7 +175,7 @@ public class intruderDUKE : MonoBehaviour {
                 anim.SetBool("CanAttack", false);
                 anim.SetBool("Hack", false);
                 anim.SetBool ("Escape", true);
-				Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
+				//Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 				capsuleCollider.enabled = false;
 				round2 = false;
                 otherConsole.SetActive(false);
@@ -240,7 +240,7 @@ public class intruderDUKE : MonoBehaviour {
 		
 		health = 0;
 		anim.SetBool ("StillAlive", false);
-		Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
+		//Rifle.GetComponent<LaserGunBeam_intruder> ().enabled = false;
 		nav.Stop();
 		capsuleCollider.enabled = false;
 		
