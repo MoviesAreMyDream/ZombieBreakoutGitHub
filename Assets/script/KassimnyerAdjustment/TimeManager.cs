@@ -15,21 +15,21 @@ public class TimeManager : MonoBehaviour {
         TimeLeft = 180;
 
         TimeNumGO = GameObject.Find("TimeNum");
-        TimeNum = TimeNumGO.GetComponent<CustomText>();
+        //TimeNum = TimeNumGO.GetComponent<CustomText>();
     }
 
     void Update ()
     {
         TimeLeft -= Time.deltaTime;
 
-        TimeNum.text = TimeLeft.ToString();
+        //TimeNum.text = TimeLeft.ToString();
 
         int minutes = Mathf.FloorToInt(TimeLeft / 60F);
         int seconds = Mathf.FloorToInt(TimeLeft - minutes * 60);
 
         string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        TimeNum.text = niceTime;
+        //TimeNum.text = niceTime;
 
 //		print (TimeLeft);
 
