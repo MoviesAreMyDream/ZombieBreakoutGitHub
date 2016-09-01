@@ -18,18 +18,13 @@ public class testAreaActivator : MonoBehaviour {
             if (canTouch == true)
             {
                 print("closing portal...");
-                SceneManager.LoadScene(levelName);              
+                SceneManager.LoadSceneAsync(levelName);              
             }
 
             else if (canTouch == false)
             {
                 print("no portal nearby");
-            }
-            
-        }
-        else
-        {
-            //print("no portal nearby");
+            }   
         }
     }
 
@@ -40,10 +35,6 @@ public class testAreaActivator : MonoBehaviour {
             canTouch = true;
             Debug.Log("entered");
         }
-        else
-        {
-            //canTouch = false;
-        }
     }
 
     void OnTriggerExit (Collider other)
@@ -52,6 +43,5 @@ public class testAreaActivator : MonoBehaviour {
         {
             canTouch = false;
         }
-
     }
 }
