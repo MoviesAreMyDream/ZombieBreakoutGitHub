@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelLoadingProgressBar : MonoBehaviour {
 
@@ -39,7 +40,7 @@ public class LevelLoadingProgressBar : MonoBehaviour {
 
 	private IEnumerator LoadALevel(string levelName)
 	{
-		async = Application.LoadLevelAsync(levelName);
+		async = SceneManager.LoadSceneAsync(levelName);
 		async.allowSceneActivation = false;
 		yield return async;
 	}

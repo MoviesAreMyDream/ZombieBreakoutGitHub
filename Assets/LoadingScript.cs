@@ -44,7 +44,7 @@ public class LoadingScript : MonoBehaviour
             if (ao.progress == 0.9f)
             {
                 //progBar.value = 1f;
-                yield return new WaitForSeconds(10);
+                yield return new WaitForSeconds(20);
                 float fadeTime = GameObject.Find("FadeControl").GetComponent<Fading>().BeginFade(-1);
                 yield return new WaitForSeconds(fadeTime);
                 ao.allowSceneActivation = true;

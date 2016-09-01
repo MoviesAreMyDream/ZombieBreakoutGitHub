@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class testAreaActivator : MonoBehaviour {
-
+    public string levelName;
     public bool canTouch;
 
 	// Use this for initialization
@@ -17,17 +18,13 @@ public class testAreaActivator : MonoBehaviour {
             if (canTouch == true)
             {
                 print("closing portal...");
+                SceneManager.LoadSceneAsync(levelName);              
             }
 
             else if (canTouch == false)
             {
                 print("no portal nearby");
-            }
-            
-        }
-        else
-        {
-            //print("no portal nearby");
+            }   
         }
     }
 
@@ -38,14 +35,13 @@ public class testAreaActivator : MonoBehaviour {
             canTouch = true;
             Debug.Log("entered");
         }
-        else
-        {
-            canTouch = false;
-        }
     }
 
     void OnTriggerExit (Collider other)
     {
-        canTouch = false;
+        if (other.tag == "TriggerArea")
+        {
+            canTouch = false;
+        }
     }
 }
