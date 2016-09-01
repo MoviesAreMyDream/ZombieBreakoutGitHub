@@ -61,5 +61,4 @@ public class TriggerZone : MonoBehaviour {
         _dog2.SetActive(true);
         moreEnemy.Play();
     }
-
 }
