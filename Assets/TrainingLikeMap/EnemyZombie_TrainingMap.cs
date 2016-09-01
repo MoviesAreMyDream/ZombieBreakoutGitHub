@@ -150,7 +150,7 @@ public class EnemyZombie_TrainingMap : MonoBehaviour {
 				
 				if (nav.remainingDistance <= 2)
 					anim.SetBool("PlayerInRange", true);
-				else if (nav.remainingDistance >= 2)
+				else if (nav.remainingDistance > 2)
 					anim.SetBool("PlayerInRange", false);
 				
 				anim.SetFloat("PlayerStillThere", currentValue);
